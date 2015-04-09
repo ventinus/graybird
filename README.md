@@ -12,6 +12,7 @@ Template for building rails apps from scratch
 
 ### Debugging
 
+* [byebug](https://github.com/deivid-rodriguez/byebug)
 * [pry-rails](https://github.com/rweng/pry-rails)
 * [better_errors](https://github.com/charliesome/better_errors)
 * [binding_of_caller](https://github.com/banister/binding_of_caller)
@@ -61,6 +62,7 @@ Template for building rails apps from scratch
 
 ### Production
 
+* [puma](https://github.com/puma/puma)
 * [unicorn](https://github.com/defunkt/unicorn‎)
 * [honeybadger](https://github.com/honeybadger-io/honeybadger-ruby)
 * [newrelic_rpm](https://github.com/newrelic/rpm)
@@ -73,15 +75,11 @@ Template for building rails apps from scratch
 * [simple_form](https://github.com/plataformatec/simple_form)
 * [kaminari](https://github.com/amatsuda/kaminari‎)
 * [will_paginate](https://github.com/mislav/will_paginate)
+* [nest_form](https://github.com/ryanb/nested_form)
+
 
 ### Background Jobs
 
 * [delayed_job_active_record](https://github.com/collectiveidea/delayed_job)
 * [resque](https://github.com/resque/resque‎)
 * [sidekiq](https://github.com/mperham/sidekiq‎)
-
-
-
-
-
-
