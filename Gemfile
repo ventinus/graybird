@@ -54,4 +54,6 @@ group :test do
   gem 'webmock'
   gem 'launchy'
   gem 'poltergeist'
+  gem 'shoulda-matchers'
+  gem 'email_spec'
 end
