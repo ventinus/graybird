@@ -13,6 +13,7 @@ gem 'therubyracer', platforms: :ruby
 gem 'oj'
 gem 'jquery-rails'
 gem 'turbolinks'
+gem 'haml-rails'
 
 # API
 gem 'jbuilder', '~> 2.0'
