@@ -37,6 +37,7 @@ group :development do
   gem 'guard-jasmine'
   gem 'ruby_gntp'
   gem 'rb-fsevent'
+  gem 'quiet_assets'
 end
 
 group :development, :test do
