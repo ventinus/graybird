@@ -83,3 +83,7 @@ Template for building rails apps from scratch
 * [delayed_job_active_record](https://github.com/collectiveidea/delayed_job)
 * [resque](https://github.com/resque/resque‎)
 * [sidekiq](https://github.com/mperham/sidekiq‎)
+
+### Dependencies
+* [homebrew](http://brew.sh/)
+* [phantomjs](http://phantomjs.org/)

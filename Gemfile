@@ -45,10 +45,13 @@ group :development, :test do
   gem 'spring-commands-cucumber'
   gem 'rspec-rails'
   gem 'factory_girl_rails'
+  gem 'capybara'
 end
 
 group :test do
   gem 'database_cleaner'
   gem 'vcr'
   gem 'webmock'
+  gem 'launchy'
+  gem 'poltergeist'
 end
