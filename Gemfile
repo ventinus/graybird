@@ -40,6 +40,7 @@ group :development do
   gem 'guard-cucumber'
   gem 'guard-brakeman'
   gem 'guard-livereload', require: false
+  gem 'guard-jasmine'
   gem 'ruby_gntp'
   gem 'rb-fsevent'
 end
@@ -61,6 +62,7 @@ group :development, :test do
   gem 'capybara'
   gem 'faker'
   gem 'timecop'
+  gem 'jasmine'
 end
 
 group :test do
