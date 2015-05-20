@@ -14,6 +14,7 @@ gem 'oj'
 gem 'jquery-rails'
 gem 'turbolinks'
 gem 'haml-rails'
+gem 'compass-rails'
 gem 'bootstrap-sass'
 
 # API
