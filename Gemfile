@@ -30,6 +30,9 @@ gem 'paper_trail'
 # Server
 gem 'puma'
 
+# Error Tracking
+gem 'honeybadger'
+
 group :development do
   gem 'better_errors'
   gem 'binding_of_caller'

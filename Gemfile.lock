@@ -175,6 +175,7 @@ GEM
       railties (>= 4.0.1)
     highline (1.6.21)
     hitimes (1.2.2)
+    honeybadger (2.0.12)
     html2haml (2.0.0)
       erubis (~> 2.7.0)
       haml (~> 4.0.0)
@@ -394,6 +395,7 @@ DEPENDENCIES
   guard-livereload
   guard-rspec
   haml-rails
+  honeybadger
   jasmine
   jbuilder (~> 2.0)
   jquery-rails
