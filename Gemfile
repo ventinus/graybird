@@ -35,6 +35,9 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 # Documentation
 gem 'annotate'
 
+# Auditing
+gem 'paper_trail'
+
 group :development do
   gem 'better_errors'
   gem 'binding_of_caller'
