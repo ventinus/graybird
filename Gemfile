@@ -15,6 +15,7 @@ gem 'jquery-rails'
 gem 'turbolinks'
 gem 'haml-rails'
 gem 'bootstrap-sass'
+gem 'draper'
 
 # API
 gem 'jbuilder', '~> 2.0'
