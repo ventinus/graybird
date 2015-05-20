@@ -36,6 +36,12 @@ group :development do
   gem 'better_errors'
   gem 'binding_of_caller'
   gem 'meta_request'
+  gem 'guard-rspec', require: false
+  gem 'guard-cucumber'
+  gem 'guard-brakeman'
+  gem 'guard-livereload', require: false
+  gem 'ruby_gntp'
+  gem 'rb-fsevent'
 end
 
 group :development, :test do
