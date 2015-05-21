@@ -21,6 +21,9 @@ gem 'draper'
 gem 'dragonfly'
 gem 'dragonfly-s3_data_store'
 
+# Forms
+gem 'simple_form'
+
 # API
 gem 'jbuilder', '~> 2.0'
 
