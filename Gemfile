@@ -39,6 +39,9 @@ gem 'annotate'
 # Auditing
 gem 'paper_trail'
 
+# Robots.txt
+gem 'roboto'
+
 # Server
 gem 'puma'
 gem 'dalli'
