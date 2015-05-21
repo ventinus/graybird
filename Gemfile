@@ -23,6 +23,7 @@ gem 'dragonfly-s3_data_store'
 
 # Forms
 gem 'simple_form'
+gem 'kaminari'
 
 # API
 gem 'jbuilder', '~> 2.0'
