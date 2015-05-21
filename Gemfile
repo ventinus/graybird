@@ -29,6 +29,9 @@ gem 'paper_trail'
 
 # Server
 gem 'puma'
+gem 'dalli'
+gem 'kgio'
+gem 'rack-cache'
 
 # Error Tracking
 gem 'honeybadger'
