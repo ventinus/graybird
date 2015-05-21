@@ -75,7 +75,7 @@ Template for building rails apps from scratch
 * [simple_form](https://github.com/plataformatec/simple_form)
 * [kaminari](https://github.com/amatsuda/kaminari‎)
 * [will_paginate](https://github.com/mislav/will_paginate)
-* [nest_form](https://github.com/ryanb/nested_form)
+* [nested_form](https://github.com/ryanb/nested_form)
 
 
 ### Background Jobs

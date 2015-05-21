@@ -24,6 +24,7 @@ gem 'dragonfly-s3_data_store'
 # Forms
 gem 'simple_form'
 gem 'kaminari'
+gem 'nested_form'
 
 # API
 gem 'jbuilder', '~> 2.0'
