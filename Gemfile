@@ -17,6 +17,10 @@ gem 'haml-rails'
 gem 'bootstrap-sass'
 gem 'draper'
 
+# File Uploading
+gem 'dragonfly'
+gem 'dragonfly-s3_data_store'
+
 # API
 gem 'jbuilder', '~> 2.0'
 
