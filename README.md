@@ -28,6 +28,9 @@ Template for building rails apps from scratch
 * [quiet_assets](https://github.com/evrone/quiet_assets)
 * [draper](https://github.com/drapergem/draper)
 
+### Static Pages
+* [high_voltage](https://github.com/thoughtbot/high_voltage)
+
 ### Testing
 
 * [rspec-rails](https://github.com/rspec/rspec-rails)

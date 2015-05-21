@@ -26,6 +26,9 @@ gem 'simple_form'
 gem 'kaminari'
 gem 'nested_form'
 
+# Static Pages
+gem 'high_voltage'
+
 # API
 gem 'jbuilder', '~> 2.0'
 

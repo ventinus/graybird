@@ -200,6 +200,7 @@ GEM
       haml (>= 4.0.6, < 5.0)
       html2haml (>= 1.0.1)
       railties (>= 4.0.1)
+    high_voltage (2.3.0)
     highline (1.6.21)
     hitimes (1.2.2)
     honeybadger (2.0.12)
@@ -439,6 +440,7 @@ DEPENDENCIES
   guard-livereload
   guard-rspec
   haml-rails
+  high_voltage
   honeybadger
   jasmine
   jbuilder (~> 2.0)
