@@ -49,7 +49,7 @@ gem 'roboto'
 gem 'puma'
 gem 'dalli'
 gem 'kgio'
-gem 'rack-cache'
+gem 'rack-cache', :require => 'rack/cache'
 
 # Error Tracking
 gem 'honeybadger'
@@ -63,7 +63,7 @@ group :development do
   gem 'guard-brakeman'
   gem 'guard-livereload', require: false
   gem 'guard-jasmine'
-  gem 'ruby_gntp'
+  gem 'terminal-notifier-guard'
   gem 'rb-fsevent'
   gem 'quiet_assets'
 end

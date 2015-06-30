@@ -368,7 +368,6 @@ GEM
     ruby2ruby (2.1.4)
       ruby_parser (~> 3.1)
       sexp_processor (~> 4.0)
-    ruby_gntp (0.3.4)
     ruby_parser (3.6.6)
       sexp_processor (~> 4.1)
     safe_yaml (1.0.4)
@@ -401,6 +400,7 @@ GEM
       actionpack (>= 3.0)
       activesupport (>= 3.0)
       sprockets (>= 2.8, < 4.0)
+    terminal-notifier-guard (1.6.4)
     terminal-table (1.4.5)
     therubyracer (0.12.2)
       libv8 (~> 3.16.14.0)
@@ -485,7 +485,6 @@ DEPENDENCIES
   rb-fsevent
   roboto
   rspec-rails
-  ruby_gntp
   sass-rails (~> 5.0)
   sdoc (~> 0.4.0)
   shoulda-matchers
@@ -493,6 +492,7 @@ DEPENDENCIES
   spring
   spring-commands-cucumber
   spring-commands-rspec
+  terminal-notifier-guard
   therubyracer
   timecop
   turbolinks
@@ -500,3 +500,6 @@ DEPENDENCIES
   vcr
   web-console (~> 2.0)
   webmock
+
+BUNDLED WITH
+   1.10.5

@@ -89,4 +89,5 @@ Template for building rails apps from scratch
 
 ### Dependencies
 * [homebrew](http://brew.sh/)
-* [phantomjs](http://phantomjs.org/)
+* [phantomjs](http://phantomjs.org/): `brew install phantomjs`
+* Terminal Notifier: `brew install terminal-notifier`
