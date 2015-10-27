@@ -3,7 +3,7 @@ source 'https://rubygems.org'
 gem 'rails', '4.2.4'
 
 # Database
-gem 'mysql2'
+gem 'mysql2', '~> 0.3.18'
 
 # Assets
 gem 'sass-rails', '~> 5.0'
@@ -13,7 +13,7 @@ gem 'therubyracer', platforms: :ruby
 gem 'oj'
 gem 'jquery-rails'
 gem 'turbolinks'
-gem 'haml-rails'
+gem 'slim-rails'
 gem 'bootstrap-sass'
 gem 'draper'
 gem 'image_optim'
