@@ -50,6 +50,7 @@ gem 'puma'
 gem 'dalli'
 gem 'kgio'
 gem 'rack-cache', :require => 'rack/cache'
+gem 'rack-timeout'
 
 # Error Tracking
 gem 'honeybadger'
