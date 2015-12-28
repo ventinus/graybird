@@ -52,6 +52,7 @@ gem 'dalli'
 gem 'kgio'
 gem 'rack-cache', :require => 'rack/cache'
 gem 'rack-timeout'
+gem 'lograge'
 
 # Error Tracking
 gem 'honeybadger'
