@@ -7,5 +7,4 @@ RSpec.configure do |config|
   config.before(:each) do
     reset_mailer # Clears out ActionMailer::Base.deliveries
   end
-
 end
