@@ -69,6 +69,7 @@ group :development do
   gem 'terminal-notifier-guard'
   gem 'rb-fsevent'
   gem 'quiet_assets'
+  gem 'bullet'
 end
 
 group :development, :test do
