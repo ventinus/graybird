@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-gem 'rails', '4.2.4'
+gem 'rails', '4.2.5.1'
 
 # Database
 gem 'mysql2', '~> 0.3.18'
@@ -69,6 +69,7 @@ group :development do
   gem 'terminal-notifier-guard'
   gem 'rb-fsevent'
   gem 'quiet_assets'
+  gem 'web-console', '~> 2.0'
   gem 'bullet'
 end
 
@@ -76,7 +77,6 @@ group :development, :test do
   gem 'byebug'
   gem 'pry-rails'
   gem 'pry-byebug'
-  gem 'web-console', '~> 2.0'
   gem 'spring'
   gem 'spring-commands-rspec'
   gem 'spring-commands-cucumber'
