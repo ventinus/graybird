@@ -3,10 +3,11 @@ source 'https://rubygems.org'
 gem 'rails', '4.2.5.1'
 
 # Database
-gem 'mysql2', '~> 0.3.18'
+gem 'pg', '~> 0.18.4'
 
 # Assets
 gem 'sass-rails', '~> 5.0'
+gem 'compass-rails'
 gem 'uglifier', '>= 1.3.0'
 gem 'coffee-rails', '~> 4.1.0'
 gem 'therubyracer', platforms: :ruby
@@ -19,10 +20,16 @@ gem 'bootstrap-sass'
 gem 'draper'
 gem 'image_optim'
 gem 'image_optim_pack'
+gem 'non-stupid-digest-assets'
+
+# Admin tools
+gem 'devise'
+gem 'gretel'
 
 # File Uploading
 gem 'dragonfly'
 gem 'dragonfly-s3_data_store'
+gem 'redactor-dragonfly', github: 'canvasnyc/redactor-dragonfly'
 
 # Forms
 gem 'simple_form'
