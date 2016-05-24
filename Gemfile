@@ -65,7 +65,6 @@ group :development do
   gem 'guard-cucumber'
   gem 'guard-brakeman'
   gem 'guard-livereload', require: false
-  gem 'guard-jasmine'
   gem 'terminal-notifier-guard'
   gem 'rb-fsevent'
   gem 'quiet_assets'
@@ -85,7 +84,6 @@ group :development, :test do
   gem 'capybara'
   gem 'faker'
   gem 'timecop'
-  gem 'jasmine'
 end
 
 group :test do
