@@ -17,8 +17,6 @@ gem 'turbolinks'
 gem 'slim-rails'
 gem 'bootstrap-sass'
 gem 'draper'
-gem 'image_optim'
-gem 'image_optim_pack'
 
 # File Uploading
 gem 'dragonfly'
