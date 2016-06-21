@@ -19,14 +19,14 @@ default: &default
 
 development:
   <<: *default
-  database: canvas_rails_template_development
+  database: beekman_development
 
 # Warning: The database defined as "test" will be erased and
 # re-generated from your development database when you run "rake".
 # Do not set this db to the same as development or production.
 test: &test
   <<: *default
-  database: canvas_rails_template_test
+  database: beekman_test
 
 # As with config/secrets.yml, you never want to store sensitive information,
 # like your database password, in your source code. If your source code is
@@ -49,8 +49,8 @@ test: &test
 #
 production:
   <<: *default
-  database: canvas_rails_template_production
-  username: canvas_rails_template
+  database: beekman_production
+  username: beekman
   password: <%= ENV['CANVAS_RAILS_TEMPLATE_DATABASE_PASSWORD'] %>
 
 cucumber:
