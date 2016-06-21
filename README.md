@@ -1,5 +1,4 @@
-my-rails-app
-======================
+Canvas Rails Template
 
 Template for building rails apps from scratch
 
@@ -9,7 +8,7 @@ Assuming you want to create "my-rails-app":
 
 1 - Clone this repo:
 ```
-git clone git@github.com:canvasnyc/my-rails-app.git my-rails-app
+git clone git@github.com:canvasnyc/canvas-rails-template.git my-rails-app
 ```
 
 2 - Bootstrap your app (prepare config files etc...):
