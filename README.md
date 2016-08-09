@@ -1,6 +1,6 @@
 Canvas Rails Template
 
-Template for building rails apps from scratch
+Template for building rails apps from scratch with admin authentication setup and uses babel and browserify to transpile ES6 to ES5.
 
 ## Usage
 
