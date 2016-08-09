@@ -16,6 +16,8 @@ gem 'turbolinks'
 gem 'slim-rails'
 gem 'bootstrap-sass'
 gem 'draper'
+gem 'font-awesome-rails'
+gem 'gretel'
 
 # ES6 Transpiling
 gem 'browserify-rails'
