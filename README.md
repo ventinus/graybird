@@ -16,6 +16,18 @@ git clone git@github.com:canvasnyc/canvas-rails-template.git my-rails-app
 cd my-rails-app && ./bootstrap my-rails-app
 ```
 
+3 - Setup Database naming in config/database.yml
+
+4 - Create, migrate, and seed database with devise administrators
+```
+rake db:create db:migrate db:seed
+```
+
+5 - Install NPM packages for ES6 transpiling
+```
+npm install
+```
+
 ### Documentation
 
 * [annotate](https://github.com/ctran/annotate_models)
