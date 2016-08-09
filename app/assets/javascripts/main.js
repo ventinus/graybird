@@ -1,8 +1,8 @@
 import app from './app';
 
 $(document).ready(() => {
-  window.Beekman = window.Beekman || app();
-  window.Beekman.init();
+  window.Project = window.Project || app();
+  window.Project.init();
   return;
 });
 
