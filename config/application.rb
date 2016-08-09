@@ -23,6 +23,10 @@ module CanvasRailsTemplate
     # Do not swallow errors in after_commit/after_rollback callbacks.
     config.active_record.raise_in_transactional_callbacks = true
 
+    config.paths['config/routes.rb'].concat Dir[Rails.root.join("config/routes/admin.rb")]
+
+    config.browserify_rails.commandline_options = "-t babelify"
+
     config.middleware.use Rack::Deflater
   end
 end

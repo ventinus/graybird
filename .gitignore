@@ -29,3 +29,6 @@ coverage
 
 # ignore test images
 /public/system/dragonfly
+
+# ignore files in node_modules directory
+/node_modules
