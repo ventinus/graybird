@@ -35,7 +35,6 @@ const app = () => {
   }
 
   const init = () => {
-    props.currentBreakpoint = checkBreakpoint();
     props.currentPage = document.body.dataset.router;
 
     if (props.currentController) {
