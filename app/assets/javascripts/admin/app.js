@@ -30,6 +30,8 @@ const app = () => {
   }
 
   const init = function() {
+    props.currentPage = document.body.dataset.jsRouter;
+    
     if (props.currentController) {
       props.currentController.disable();
       props.currentController = null;
