@@ -18,9 +18,9 @@ const universal = () => {
     for (module in props.modules) {
       // check if module is a function which means it hasn't been created
       // since modules return an object, they become objects with methods
-      if (!modules[module].init) modules[module] = modules[module]();
+      if (!props.modules[module].init) props.modules[module] = props.modules[module]();
 
-      modules[module].init();
+      props.modules[module].init();
     }
 
     props.isEnabled = true;
