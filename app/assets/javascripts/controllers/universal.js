@@ -53,7 +53,6 @@ const universal = () => {
 
   return {
     init,
-    initWindowLoad,
     enable,
     disable
   };
