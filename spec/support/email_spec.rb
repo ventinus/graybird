@@ -1,4 +1,5 @@
 require 'email_spec'
+require 'email_spec/rspec'
 
 RSpec.configure do |config|
   config.include EmailSpec::Helpers
