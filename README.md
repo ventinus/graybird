@@ -16,6 +16,11 @@ git clone git@github.com:canvasnyc/canvas-rails-template.git my-rails-app
 cd my-rails-app && ./bootstrap my-rails-app
 ```
 
+3 - Update git origin with your repo
+```
+git remote set-url origin git@github.com:canvasnyc/my-rails-app.git
+```
+
 ### Documentation
 
 * [annotate](https://github.com/ctran/annotate_models)
