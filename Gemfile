@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-gem 'rails', '4.2.6'
+gem 'rails', '5.0.0.1'
 
 # Database
 gem 'mysql2', '~> 0.3.18'
@@ -8,7 +8,6 @@ gem 'mysql2', '~> 0.3.18'
 # Assets
 gem 'sass-rails', '~> 5.0'
 gem 'uglifier', '>= 1.3.0'
-gem 'coffee-rails', '~> 4.1.0'
 gem 'therubyracer', platforms: :ruby
 gem 'oj'
 gem 'jquery-rails'
@@ -16,7 +15,7 @@ gem 'jquery-turbolinks'
 gem 'turbolinks'
 gem 'slim-rails'
 gem 'bootstrap-sass'
-gem 'draper'
+gem 'draper', '3.0.0.pre1'
 
 # File Uploading
 gem 'dragonfly'
@@ -31,11 +30,9 @@ gem 'nested_form'
 gem 'high_voltage'
 
 # API
-gem 'jbuilder', '~> 2.0'
 gem 'active_model_serializers'
 
 # Documentation
-gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'annotate'
 
 # Auditing
@@ -65,9 +62,9 @@ group :development do
   gem 'guard-livereload', require: false
   gem 'terminal-notifier-guard'
   gem 'rb-fsevent'
-  gem 'quiet_assets'
   gem 'web-console', '~> 2.0'
   gem 'bullet'
+  gem 'letter_opener'
 end
 
 group :development, :test do
