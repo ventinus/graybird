@@ -3,7 +3,7 @@ source 'https://rubygems.org'
 gem 'rails', '5.0.0.1'
 
 # Database
-gem 'mysql2', '~> 0.3.18'
+gem 'pg'
 
 # Assets
 gem 'sass-rails', '~> 5.0'
@@ -71,6 +71,7 @@ end
 
 group :development, :test do
   gem 'byebug'
+  gem 'rb-readline' # fix for byebug on Mac OSX Sierra
   gem 'pry-rails'
   gem 'pry-byebug'
   gem 'spring'
