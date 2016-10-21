@@ -1,20 +1,18 @@
 // Import the controllers
-import universal from './controllers/universal';
+import * as controllers from './controllers/controllers';
 
 const app = () => {
   let props = {
     // currentPage is the string from the body data attr that corresponds with a controller
     currentPage: '',
-    controllers: {
-      universal
-    },
+    universalController: null,
     // currentController is the resulting object of the page controller. stored to be able to disable
     // it as navigation to a new page occurs
     currentController: null
   };
 
   const runPageJs = () => {
-    const {controllers, currentPage} = props;
+    const { currentPage } = props;
     if (controllers[currentPage]) {
       props.currentController = !controllers[currentPage].init ? controllers[currentPage]() : controllers[currentPage];
       props.currentController.init();
@@ -24,12 +22,12 @@ const app = () => {
   }
 
   const runUniversalJs = () => {
-    if (!props.controllers.universal.init) {
-      props.controllers.universal = props.controllers.universal();
+    if (!props.universalController) {
+      props.universalController = controllers.universal();
     }
 
-    props.controllers.universal.disable();
-    props.controllers.universal.init();
+    props.universalController.disable();
+    props.universalController.init();
 
     return;
   }
@@ -42,8 +40,8 @@ const app = () => {
       props.currentController = null;
     }
 
-    runUniversalJs();
     runPageJs();
+    runUniversalJs();
 
     return;
   }

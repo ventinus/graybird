@@ -1,16 +1,14 @@
-import universal from './controllers/universal';
+import * as controllers from './controllers/controllers';
 
 const app = () => {
   let props = {
-    currentPage: document.body.dataset.jsRouter,
-    controllers: {
-      universal
-    },
+    currentPage: '',
+    universalController: null,
     currentController: null
   };
 
-  const runPageJs = function() {
-    const {controllers, currentPage} = props;
+  const runPageJs = () => {
+    const { currentPage } = props;
     if (controllers[currentPage]) {
       props.currentController = !controllers[currentPage].init ? controllers[currentPage]() : controllers[currentPage];
       props.currentController.init();
@@ -19,33 +17,34 @@ const app = () => {
     return;
   }
 
-  const runGlobalJs = function () {
-    if (!props.controllers.global.init) {
-      props.controllers.global = props.controllers.global();
+  const runUniversalJs = () => {
+    if (!props.universalController) {
+      props.universalController = controllers.universal();
     }
 
-    props.controllers.global.init();
+    props.universalController.disable();
+    props.universalController.init();
 
     return;
   }
 
-  const init = function() {
-    props.currentPage = document.body.dataset.jsRouter;
-    
+  const init = () => {
+    props.currentPage = document.body.dataset.router;
+
     if (props.currentController) {
       props.currentController.disable();
       props.currentController = null;
     }
 
-    runGlobalJs();
     runPageJs();
+    runUniversalJs();
 
     return;
   }
 
   return {
-    init: init
-  }
+    init
+  };
 }
 
 export default app;
