@@ -49,6 +49,7 @@ gem 'kgio'
 gem 'rack-cache', :require => 'rack/cache'
 gem 'rack-timeout'
 gem 'lograge'
+gem 'figaro'
 
 # Error Tracking
 gem 'honeybadger'
