@@ -7,7 +7,6 @@ gem 'pg'
 
 # Assets
 gem 'sass-rails', '~> 5.0'
-gem 'coffee-rails', '~> 4.1.0'
 gem 'uglifier', '>= 1.3.0'
 gem 'therubyracer', platforms: :ruby
 gem 'oj'
@@ -17,6 +16,11 @@ gem 'turbolinks'
 gem 'slim-rails'
 gem 'bootstrap-sass'
 gem 'draper', '3.0.0.pre1'
+gem 'font-awesome-rails'
+gem 'gretel'
+
+# ES6 Transpiling
+gem 'browserify-rails'
 
 # File Uploading
 gem 'dragonfly'
@@ -53,6 +57,9 @@ gem 'figaro'
 
 # Error Tracking
 gem 'honeybadger'
+
+# Authentication
+gem 'devise'
 
 group :development do
   gem 'better_errors'

@@ -1,6 +1,6 @@
 Canvas Rails Template
 
-Template for building rails apps from scratch
+Template for building rails apps from scratch with admin authentication setup and uses babel and browserify to transpile ES6 to ES5.
 
 ## Usage
 
@@ -19,6 +19,17 @@ cd my-rails-app && ./bootstrap my-rails-app
 3 - Update git origin with your repo
 ```
 git remote set-url origin git@github.com:canvasnyc/my-rails-app.git
+
+4 - Setup Database naming in config/database.yml
+
+5 - Create, migrate, and seed database with devise administrators
+```
+rake db:create db:migrate db:seed
+```
+
+6 - Install NPM packages for ES6 transpiling
+```
+npm install
 ```
 
 ### Documentation
