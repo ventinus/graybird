@@ -23,8 +23,12 @@ gem 'gretel'
 gem 'browserify-rails'
 
 # File Uploading
-gem 'dragonfly'
-gem 'dragonfly-s3_data_store'
+gem 'shrine'
+gem 'mini_magick'
+gem 'fastimage'
+gem 'roda'
+gem 'aws-sdk'
+gem 'image_processing'
 
 # Forms
 gem 'simple_form'

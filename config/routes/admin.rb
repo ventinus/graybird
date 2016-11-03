@@ -7,10 +7,15 @@ Rails.application.routes.draw do
   },
   path: 'admin'
 
+  mount RedactorImageUploader::UploadEndpoint => "/images"
+
+  concern :shrine_upload_manager do
+    post 'image', action: 'image'
+  end
+
   namespace :admin do
     root 'application#index'
 
     resources :administrators, except: [:show]
-
   end
 end
