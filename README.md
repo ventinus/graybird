@@ -19,8 +19,9 @@ cd my-rails-app && ./bootstrap my-rails-app
 3 - Update git origin with your repo
 ```
 git remote set-url origin git@github.com:canvasnyc/my-rails-app.git
+```
 
-4 - Setup Database naming in config/database.yml
+4 - Setup Database naming in `config/database.yml`
 
 5 - Create, migrate, and seed database with devise administrators
 ```
