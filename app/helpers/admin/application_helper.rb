@@ -59,4 +59,14 @@ module Admin::ApplicationHelper
       end
     end
   end
+
+  def preview_image(url)
+    if url.present?
+      image_tag(url, style: 'width: 75%;')
+    else
+      content_tag(:p) do
+        concat content_tag(:small, 'No image uploaded')
+      end
+    end
+  end
 end
