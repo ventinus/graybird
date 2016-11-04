@@ -104,4 +104,6 @@ group :test do
   gem 'poltergeist'
   gem 'shoulda-matchers'
   gem 'email_spec'
+  gem 'rails-controller-testing'
+  gem 'codeclimate-test-reporter', require: nil
 end
