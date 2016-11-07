@@ -17,4 +17,10 @@
 //= require turbolinks
 //= require bootstrap-sprockets
 
-//= require ./main
+//= require_self
+
+document.addEventListener('turbolinks:load', () => {
+  window.Project = window.Project || require('./main').default();
+  window.Project.init();
+  return;
+});

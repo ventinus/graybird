@@ -18,4 +18,9 @@
 //= require bootstrap-sprockets
 //= require redactor
 
-//= require ./main
+//= require_self
+
+document.addEventListener('turbolinks:load', () => {
+  window.Admin = window.Admin || require('./main').default();
+  window.Admin.init();
+})
