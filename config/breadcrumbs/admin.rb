@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 crumb :dashboard do
   link 'Dashboard', admin_root_path
 end

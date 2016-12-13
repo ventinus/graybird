@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 module ControllerHelper
   def controller_model
     described_class.controller_name.classify.constantize

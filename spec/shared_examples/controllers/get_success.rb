@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 RSpec.shared_examples :get_success do |options|
   format = options[:format] || :html
 
@@ -6,7 +7,7 @@ RSpec.shared_examples :get_success do |options|
       action.each do |a, id|
         describe "GET #{a}" do
           it "renders #{a} view" do
-            process a, method: :get, params: { id: send("#{id}") }
+            process a, method: :get, params: { id: send(id.to_s) }
 
             expect(response).to render_template(a) if format == :html
             expect(response).to have_http_status(:success)

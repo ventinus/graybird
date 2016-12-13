@@ -1,9 +1,10 @@
+# frozen_string_literal: true
 module ImageHelper
   def image_set_tag(sizes = ['350x198', '530x300', '1024x580', '1280x725', '1600x906'], image = 1, options = {})
     srcset = build_srcset(sizes, image).join(', ')
     # source = "http://fillmurray.com/" + sizes.last.gsub('x', '/')
     # source = "https://source.unsplash.com/" + sizes.last.gsub('x', '/') + "/?nature"
-    source = "https://unsplash.it/" + sizes.last.gsub('x', '/') + '?image=' + image.to_s
+    source = "https://unsplash.it/" + sizes.last.tr('x', '/') + '?image=' + image.to_s
     # image_tag(source, options.merge(srcset: srcset))
     image_tag(source, options.merge(srcset: srcset))
   end

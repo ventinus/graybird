@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 RSpec.shared_examples :put_update do |options|
   let (:invalidation) { options[:invalid] }
   let (:update)       { options[:update] }

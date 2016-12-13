@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 class Admin::ApplicationController < ApplicationController
   layout 'admin/application'
 
@@ -5,7 +6,6 @@ class Admin::ApplicationController < ApplicationController
 
   add_flash_types :success, :error
 
-  def index
-  end
+  def index; end
 
 end

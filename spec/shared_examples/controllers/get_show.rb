@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 RSpec.shared_examples :get_show do
   let (:model_traits) { options[:model_traits] || [] }
 

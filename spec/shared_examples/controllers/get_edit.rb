@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 RSpec.shared_examples :get_edit do |options|
   let (:model_traits) do
     if options.present?

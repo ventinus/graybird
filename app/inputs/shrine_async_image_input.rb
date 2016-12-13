@@ -1,5 +1,6 @@
+# frozen_string_literal: true
 class ShrineAsyncImageInput < SimpleForm::Inputs::FileInput
-  def input(wrapper_options)
+  def input(_wrapper_options)
     input_html_options[:class].push('js-async-image')
 
     template.content_tag(:div, class: 'input-group') do

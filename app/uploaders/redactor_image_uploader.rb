@@ -1,7 +1,8 @@
+# frozen_string_literal: true
 class RedactorImageUploader < Shrine
   plugin :processing
 
-  process(:store) do |io, context|
+  process(:store) do |io, _context|
     image = MiniMagick::Image.new(io.download.path, io.download)
 
     image.strip

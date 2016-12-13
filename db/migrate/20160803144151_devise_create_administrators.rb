@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 class DeviseCreateAdministrators < ActiveRecord::Migration
   def change
     create_table :administrators do |t|

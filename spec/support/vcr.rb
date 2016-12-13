@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 VCR.configure do |config|
   config.cassette_library_dir = "spec/support/http_cache/vcr"
   config.hook_into :webmock

@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 RSpec.shared_examples :global_id do |attributes|
 
   # describe '.global_polymorphic_attributes' do

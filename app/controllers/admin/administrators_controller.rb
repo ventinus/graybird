@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 class Admin::AdministratorsController < Admin::ApplicationController
   before_action :set_administrator, only: [:edit, :update, :destroy]
 
@@ -5,8 +6,7 @@ class Admin::AdministratorsController < Admin::ApplicationController
     @administrators = Administrator.all
   end
 
-  def edit
-  end
+  def edit; end
 
   def new
     @administrator = Administrator.new

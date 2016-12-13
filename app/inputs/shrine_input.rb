@@ -1,7 +1,8 @@
+# frozen_string_literal: true
 class ShrineInput < SimpleForm::Inputs::FileInput
-  def input(wrapper_options)
+  def input(_wrapper_options)
     template.content_tag(:div, class: 'form-group') do
-      if (input_html_options[:url].present?)
+      if input_html_options[:url].present?
         template.concat file_input_download(input_html_options.extract!(:url))
       else
         template.concat @builder.hidden_field(attribute_name, value: object.send("cached_#{attribute_name}_data"))

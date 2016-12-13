@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 notify_deploy_environments = %w(staging production)
 notify_deploy_roles        = %w(solo app_master)
 

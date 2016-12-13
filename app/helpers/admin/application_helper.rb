@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 module Admin::ApplicationHelper
   def flash_class(level)
     case level
@@ -43,8 +44,8 @@ module Admin::ApplicationHelper
     send("#{prefix}#{path}", obj.id)
   end
 
-  def true_false_icon(state, color='primary')
-    label, icon = (state) ?
+  def true_false_icon(state, _color='primary')
+    label, icon = state ?
       ["label-primary", 'glyphicon-ok'] : ['label-default', 'glyphicon-remove']
 
     content_tag(:span, class: "label #{label}") do
