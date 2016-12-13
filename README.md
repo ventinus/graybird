@@ -33,6 +33,18 @@ rake db:create db:migrate db:seed
 npm install
 ```
 
+Heroku Setup
+```
+git remote -v
+git remote rename heroku production
+git remote add staging https://git.heroku.com/HEROKU-APP-NAME.git
+```
+
+```
+heroku buildpacks:add --index 1 heroku/nodejs
+heroku buildpacks:add heroku/ruby
+```
+
 ### Documentation
 
 * [annotate](https://github.com/ctran/annotate_models)
