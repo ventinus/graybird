@@ -18,9 +18,9 @@
 //= require bootstrap-sprockets
 
 //= require_self
+require('babel-polyfill');
 
 document.addEventListener('turbolinks:load', () => {
   window.Project = window.Project || require('./main').default();
   window.Project.init();
-  return;
 });

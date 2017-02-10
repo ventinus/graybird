@@ -1,12 +1,11 @@
-import 'babel-polyfill';
 // Import the controllers
-import * as controllers from './controllers/controllers';
+import controllers from './controllers/controllers';
 
 const app = () => {
   let props = {
     // currentPage is the string from the body data attr that corresponds with a controller
     currentPage: '',
-    universalController: null,
+    universalController: controllers.universal,
     // currentController is the resulting object of the page controller. stored to be able to disable
     // it as navigation to a new page occurs
     currentController: null
@@ -15,7 +14,7 @@ const app = () => {
   const runPageJs = () => {
     const { currentPage } = props;
     if (controllers[currentPage]) {
-      props.currentController = !controllers[currentPage].init ? controllers[currentPage]() : controllers[currentPage];
+      props.currentController = controllers[currentPage];
       props.currentController.init();
     }
 
@@ -23,10 +22,6 @@ const app = () => {
   }
 
   const runUniversalJs = () => {
-    if (!props.universalController) {
-      props.universalController = controllers.universal();
-    }
-
     props.universalController.disable();
     props.universalController.init();
 

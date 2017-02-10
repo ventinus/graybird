@@ -1,3 +1,9 @@
 // Collect and export all controllers
+import createController from './createController';
 
-export { default as universal }   from './universal';
+
+const universal = createController({})
+
+export default const controllers = {
+  universal
+}
