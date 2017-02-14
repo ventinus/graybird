@@ -80,7 +80,7 @@ const app = () => {
     getPageModules,
     currentBreakpoint: props.currentBreakpoint,
     isMobile: props.isMobile,
-    isMobileDevice: props.isMobileDevice,
+    isMobileDevice: props.isMobileDevice
   };
 }
 

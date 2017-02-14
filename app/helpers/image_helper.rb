@@ -47,8 +47,8 @@ module ImageHelper
       srcset  = build_shrine_srcset(image).join(', ')
       src_url = image[:mx].present? ? image[:mx].url : image[:original].url
       image_tag(src_url, srcset: srcset, **options)
-    else
-      image_tag(image.url, options) if image.present?
+    elsif image.present?
+      image_tag(image.url, options)
     end
   end
 
