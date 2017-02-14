@@ -16,7 +16,6 @@
 //= require jquery_nested_form
 //= require turbolinks
 //= require bootstrap-sprockets
-
 //= require_self
 require('babel-polyfill');
 

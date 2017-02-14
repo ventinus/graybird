@@ -12,7 +12,7 @@ module ApplicationHelper
     content_for?(:"meta_#{tag}") ? content_for(:"meta_#{tag}") : default_text
   end
 
-  def yield_title_tag(default_text = 'Canvas Rails Template')
+  def yield_title_tag(default_text = '')
     content_for?(:title) ? content_for(:title) : default_text
   end
 

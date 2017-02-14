@@ -1,6 +1,7 @@
-Canvas Rails Template
+## Canvas Rails Template
 
 Template for building rails apps from scratch with admin authentication setup and uses babel and browserify to transpile ES6 to ES5.
+Includes base styles, JS module structure & breakpoint utility.
 
 ## Usage
 

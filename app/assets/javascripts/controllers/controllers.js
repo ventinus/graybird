@@ -1,9 +1,24 @@
-// Collect and export all controllers
-import createController from './createController';
+// Import all modules
+// _______________________________________________
+import breakpoint     from '../utilities/breakpoint';
+import example        from '../modules/example';
 
+// Controller Generation
+import { controller } from '../utilities/savnac';
 
-const universal = createController({})
+// Create Controllers
+// _______________________________________________
+const universal = controller({
+  breakpoint
+});
 
-export default const controllers = {
-  universal
-}
+const pages_homepage = controller({
+  example
+});
+
+// Export Controllers
+// _______________________________________________
+export {
+  universal,
+  pages_homepage
+};
