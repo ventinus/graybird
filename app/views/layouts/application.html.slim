@@ -53,5 +53,5 @@ html lang="en"
     = javascript_include_tag 'application', 'data-turbolinks-track' => true
     = csrf_meta_tags
 
-  body data-js-router="#{controller_name}_#{action_name}"
+  body data-js-router= controller_action_name
     = yield

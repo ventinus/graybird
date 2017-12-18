@@ -23,4 +23,8 @@ module ApplicationHelper
   def text_date(datetime)
     datetime.strftime('%B %-d, %Y')
   end
+
+  def controller_action_name
+    "#{controller_path}_#{action_name}".gsub("/", "_")
+  end
 end
