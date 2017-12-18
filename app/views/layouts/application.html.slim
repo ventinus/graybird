@@ -1,6 +1,7 @@
-/! ---------------------------------------------------------------
-/! Site Designed and Developed by Canvas United - http://canvas.is
-/! ---------------------------------------------------------------
+/! ---------------------------------------------------------------------------!
+/!   Site Designed and Developed by CANVAS United - http://canvasunited.com   !
+/! ---------------------------------------------------------------------------!
+
 doctype html
 html lang="en"
   head
@@ -52,5 +53,5 @@ html lang="en"
     = javascript_include_tag 'application', 'data-turbolinks-track' => true
     = csrf_meta_tags
 
-  body data-js-router="#{controller_name}_#{action_name}"
+  body data-js-router= controller_action_name
     = yield

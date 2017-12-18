@@ -208,6 +208,7 @@ textarea {
 button {
   background: none;
   border: 0;
+  border-radius: 0;
   overflow: visible;
   -webkit-appearance: none;
 }
@@ -248,6 +249,16 @@ input {
   border-radius: 0;
   line-height: normal;
   -webkit-appearance: none;
+}
+
+input:-webkit-autofill {
+  -webkit-box-shadow: 0 0 0 50px $body-bg inset;
+  -webkit-text-fill-color: $headings-font-color;
+}
+
+input:-webkit-autofill:focus {
+  -webkit-box-shadow: 0 0 0 50px $body-bg inset;
+  -webkit-text-fill-color: $headings-font-color;
 }
 
 select { -webkit-appearance: none; }
