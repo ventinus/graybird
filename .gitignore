@@ -7,17 +7,14 @@
 # Ignore bundler config.
 /.bundle
 
-# Ignore the default SQLite database.
-/db/*.sqlite3
-/db/*.sqlite3-journal
-
 # Ignore all logfiles and tempfiles.
-*.log
-/log/*.log
-/tmp
+/log/*
+/tmp/*
+!/log/.keep
+!/tmp/.keep
 
-# Ignore Redis backup files
-*.rdb
+/node_modules
+/yarn-error.log
 
 # Ignore .vagrant directory
 .vagrant
@@ -27,10 +24,12 @@ coverage
 
 .DS_Store
 
+.byebug_history
+
 # ignore test images
 /public/system/dragonfly
 /public/uploads
+/public/packs
+/public/packs-test
 /spec/temp
-
-# ignore files in node_modules directory
 /node_modules

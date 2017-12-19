@@ -1,19 +1,11 @@
 {
-  "name": "Project",
-  "version": "1.0.0",
-  "description": "Project Description",
-  "scripts": {},
-  "author": "Canvas United",
-  "license": "ISC",
-  "engines": {
-    "node": ">= 0.10"
-  },
+  "name": "canvas-rails-template-webpacker",
+  "private": true,
   "dependencies": {
-    "babel-polyfill": "^6.16.0",
-    "babel-preset-es2015": "^6.1.18",
-    "babel-preset-stage-2": "^6.18.0",
-    "babelify": "^7.2.0",
-    "browserify": "~> 10.2.4",
-    "browserify-incremental": "^3.0.1"
+    "@rails/webpacker": "^3.2.0",
+    "lodash": "^4.17.4"
+  },
+  "devDependencies": {
+    "webpack-dev-server": "^2.9.7"
   }
 }
