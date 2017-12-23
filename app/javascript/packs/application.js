@@ -1,5 +1,5 @@
-import {controller} from 'savnac'
-import {nav, breakpoint} from 'modules'
+import {breakpoint} from 'savnac'
+import {nav} from 'modules'
 
 const mods = {
   nav
