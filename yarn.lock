@@ -4984,6 +4984,24 @@ sass-loader@^6.0.6:
     lodash.tail "^4.1.1"
     pify "^3.0.0"
 
+savnac-breakpoint@^1.0.11:
+  version "1.0.13"
+  resolved "https://registry.yarnpkg.com/savnac-breakpoint/-/savnac-breakpoint-1.0.13.tgz#be19d3b50749d70e34d5828a3d857df190755b78"
+  dependencies:
+    lodash "^4.17.4"
+    savnac-utils "^1.1.13"
+
+savnac-utils@^1.1.13, savnac-utils@^1.1.18:
+  version "1.1.21"
+  resolved "https://registry.yarnpkg.com/savnac-utils/-/savnac-utils-1.1.21.tgz#09ae6a65bd1ce239de97e9c3e5aa476578504ad5"
+
+savnac@^1.0.6:
+  version "1.0.6"
+  resolved "https://registry.yarnpkg.com/savnac/-/savnac-1.0.6.tgz#04c30cad0272439ccfdfb663cb61e75a145fe236"
+  dependencies:
+    savnac-breakpoint "^1.0.11"
+    savnac-utils "^1.1.18"
+
 sax@~1.2.1:
   version "1.2.4"
   resolved "https://registry.yarnpkg.com/sax/-/sax-1.2.4.tgz#2816234e2378bddc4e5354fab5caa895df7100d9"
@@ -5798,6 +5816,10 @@ wide-align@^1.1.0:
 window-size@0.1.0:
   version "0.1.0"
   resolved "https://registry.yarnpkg.com/window-size/-/window-size-0.1.0.tgz#5438cd2ea93b202efa3a19fe8887aee7c94f9c9d"
+
+wolfy87-eventemitter@^5.2.4:
+  version "5.2.4"
+  resolved "https://registry.yarnpkg.com/wolfy87-eventemitter/-/wolfy87-eventemitter-5.2.4.tgz#5021d2952d3611cbcd195149711d9b595cd11d48"
 
 wordwrap@0.0.2:
   version "0.0.2"
