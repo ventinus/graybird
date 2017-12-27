@@ -1,24 +1,68 @@
 
 const nav = () => {
-  const props = {
-    isEnabled: false
+  const SIZES = {
+    mobile: 'mobile',
+    desktop: 'desktop'
   }
 
-  const setupResponsive = () => {
-    window.APP.breakpoint.on('smEnter', enable)
-    window.APP.breakpoint.on('mdEnter', enable)
-    window.APP.breakpoint.on('lgEnter', disable)
-    window.APP.breakpoint.on('xlEnter', disable)
+  const props = {
+    isEnabled: false,
+    responsiveEnabled: {
+      [SIZES.mobile]: false,
+      [SIZES.desktop]: false
+    }
+  }
+
+  const onBPChange = event => {
+    const {newBreakpoint, previousBreakpoint} = event
+    console.log('change', newBreakpoint, previousBreakpoint)
+
+    switch (newBreakpoint) {
+      case 'sm':
+      case 'md':
+        setupSize(SIZES.mobile)
+        break;
+      case 'lg':
+      case 'xl':
+        setupSize(SIZES.desktop)
+        break;
+      default:
+        console.log('case not set up for', newBreakpoint)
+        break;
+    }
   }
 
   const init = () => {
-    setupResponsive()
+    enable()
+  }
+
+  const setupSize = size => {
+    if (props.responsiveEnabled[size]) return
+
+    const {mobile, desktop} = SIZES
+    const otherSize = size === mobile ? desktop : mobile
+
+    disableSize(otherSize)
+
+    // do setup stuff
+    console.log('setup', size)
+
+    props.responsiveEnabled[size] = true
+  }
+
+  const disableSize = size => {
+    if (!props.responsiveEnabled[size]) return
+
+    // disable size stuff
+    console.log('disable', size)
+
+    props.responsiveEnabled[size] = false
   }
 
   const enable = () => {
     if (props.isEnabled) return
 
-    console.log('nav enable')
+    window.APP.breakpoint.on('change', onBPChange)
 
     props.isEnabled = true
   }
@@ -26,7 +70,7 @@ const nav = () => {
   const disable = () => {
     if (!props.isEnabled) return
 
-    console.log('nav diable')
+    window.APP.breakpoint.off('change', onBPChange)
 
     props.isEnabled = false
   }
@@ -34,10 +78,9 @@ const nav = () => {
   const destroy = () => {
     disable()
 
-    window.APP.breakpoint.off('smEnter', enable)
-    window.APP.breakpoint.off('mdEnter', enable)
-    window.APP.breakpoint.off('lgEnter', disable)
-    window.APP.breakpoint.off('xlEnter', disable)
+    for (let key in props) {
+      props[key] = null
+    }
   }
 
   return {
