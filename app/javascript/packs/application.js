@@ -1,19 +1,17 @@
-import {breakpoint} from 'savnac'
+import {breakpoint, controllerPack} from 'savnac'
 import {nav} from 'modules'
 
 const mods = {
   nav
 }
 
-document.addEventListener('DOMContentLoaded', () => {
-  window.APP = window.APP || {}
-  window.APP.breakpoint = window.APP.breakpoint || breakpoint()
-
-  for (let m in mods) {
-    if (!mods[m].init) mods[m] = mods[m]()
-
-    mods[m].init()
+const opts = {
+  onStart() {
+    window.APP.breakpoint = window.APP.breakpoint || breakpoint()
+  },
+  onComplete() {
+    window.APP.breakpoint.enable()
   }
+}
 
-  window.APP.breakpoint.enable()
-})
+document.addEventListener('DOMContentLoaded', controllerPack(mods, opts))

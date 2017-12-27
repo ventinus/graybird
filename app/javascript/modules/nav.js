@@ -27,7 +27,7 @@ const nav = () => {
         setupSize(SIZES.desktop)
         break;
       default:
-        console.log('case not set up for', newBreakpoint)
+        console.log('case not set up for:', newBreakpoint)
         break;
     }
   }

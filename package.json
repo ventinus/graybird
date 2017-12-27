@@ -7,7 +7,7 @@
   "dependencies": {
     "@rails/webpacker": "^3.2.0",
     "lodash": "^4.17.4",
-    "savnac": "^2.0.1",
+    "savnac": "^2.0.3",
     "wolfy87-eventemitter": "^5.2.4"
   },
   "devDependencies": {

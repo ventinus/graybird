@@ -4988,23 +4988,23 @@ sass-loader@^6.0.6:
     lodash.tail "^4.1.1"
     pify "^3.0.0"
 
-savnac-breakpoint@^2.0.2:
-  version "2.0.2"
-  resolved "https://registry.yarnpkg.com/savnac-breakpoint/-/savnac-breakpoint-2.0.2.tgz#99c4f4e5cccb944d9e499ebf597e784486c53dae"
+savnac-breakpoint@^2.0.3:
+  version "2.0.3"
+  resolved "https://registry.yarnpkg.com/savnac-breakpoint/-/savnac-breakpoint-2.0.3.tgz#dcc13270cc9dff111ba13f765a0b0164dc526398"
   dependencies:
     lodash.debounce "^4.0.8"
     wolfy87-eventemitter "^5.2.4"
 
-savnac-utils@^1.1.19:
-  version "1.1.21"
-  resolved "https://registry.yarnpkg.com/savnac-utils/-/savnac-utils-1.1.21.tgz#09ae6a65bd1ce239de97e9c3e5aa476578504ad5"
+savnac-utils@^1.1.23:
+  version "1.1.23"
+  resolved "https://registry.yarnpkg.com/savnac-utils/-/savnac-utils-1.1.23.tgz#7d2a76efa9f1f8a9a5415eeae987de762e4c5e04"
 
-savnac@^2.0.1:
-  version "2.0.1"
-  resolved "https://registry.yarnpkg.com/savnac/-/savnac-2.0.1.tgz#c7473601b0139c0a96310dfd1cea936a082fe0c8"
+savnac@^2.0.3:
+  version "2.0.3"
+  resolved "https://registry.yarnpkg.com/savnac/-/savnac-2.0.3.tgz#5b26e69399e2698694482e4f3797cef32f424b3b"
   dependencies:
-    savnac-breakpoint "^2.0.2"
-    savnac-utils "^1.1.19"
+    savnac-breakpoint "^2.0.3"
+    savnac-utils "^1.1.23"
 
 sax@~1.2.1:
   version "1.2.4"
