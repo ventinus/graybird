@@ -1,4 +1,4 @@
-## Canvas Rails Template
+## Graybird Properties
 
 Template for building rails apps from scratch with admin authentication setup and uses babel and browserify to transpile ES6 to ES5.
 Includes base styles, JS module structure & breakpoint utility.
@@ -9,7 +9,7 @@ Assuming you want to create "my-rails-app":
 
 1 - Clone this repo:
 ```
-git clone git@github.com:canvasnyc/canvas-rails-template.git my-rails-app
+git clone git@github.com:canvasnyc/graybird-properties.git my-rails-app
 ```
 
 2 - Bootstrap your app (prepare config files etc...):
