@@ -31,7 +31,12 @@ rake db:create db:migrate db:seed
 
 6 - Install NPM packages for ES6 transpiling
 ```
-npm install
+yarn install
+```
+
+7 - Configure webpacker with one of the front-end libraries: React, Angular, Vue, or Elm. Ex:
+```
+bundle exec rails webpacker:install:react
 ```
 
 Heroku Setup
@@ -48,6 +53,7 @@ heroku buildpacks:add heroku/ruby
 
 ### Documentation
 
+* [Webpacker](https://github.com/rails/webpacker)
 * [annotate](https://github.com/ctran/annotate_models)
 * [paper_trail](https://github.com/airblade/paper_trail)
 * [yard](https://github.com/lsegal/yard)
