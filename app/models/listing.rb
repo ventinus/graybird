@@ -49,6 +49,6 @@ class Listing < ApplicationRecord
   enum heating: [:forced_air]
   enum cooling: [:central_air, :window, :no_cooling]
 
-  validates_presence_of :property_type, :rmls_number, :price, :address, :zip, :city, :state, :status, :bedrooms, :bathrooms, :description
+  validates_presence_of :property_type, :role, :rmls_number, :price, :address, :zip, :city, :state, :status, :bedrooms, :bathrooms, :description
 
 end

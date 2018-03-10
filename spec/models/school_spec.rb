@@ -17,5 +17,17 @@
 require 'rails_helper'
 
 RSpec.describe School, type: :model do
-  pending "add some examples to (or delete) #{__FILE__}"
+  context 'validations' do
+    it { is_expected.to validate_presence_of(:kind) }
+    it { is_expected.to validate_presence_of(:name) }
+    it { is_expected.to validate_presence_of(:address) }
+    it { is_expected.to validate_presence_of(:city) }
+    it { is_expected.to validate_presence_of(:state) }
+    it { is_expected.to validate_presence_of(:zip) }
+  end
+
+  context 'associations' do
+    it { is_expected.to belong_to(:neighborhood) }
+    it { is_expected.to have_many(:listings).through(:neighborhood) }
+  end
 end

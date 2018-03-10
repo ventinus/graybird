@@ -37,5 +37,23 @@
 require 'rails_helper'
 
 RSpec.describe Listing, type: :model do
-  pending "add some examples to (or delete) #{__FILE__}"
+  context 'validations' do
+    it { is_expected.to validate_presence_of(:property_type) }
+    it { is_expected.to validate_presence_of(:rmls_number) }
+    it { is_expected.to validate_presence_of(:role) }
+    it { is_expected.to validate_presence_of(:price) }
+    it { is_expected.to validate_presence_of(:address) }
+    it { is_expected.to validate_presence_of(:zip) }
+    it { is_expected.to validate_presence_of(:city) }
+    it { is_expected.to validate_presence_of(:state) }
+    it { is_expected.to validate_presence_of(:status) }
+    it { is_expected.to validate_presence_of(:bedrooms) }
+    it { is_expected.to validate_presence_of(:bathrooms) }
+    it { is_expected.to validate_presence_of(:description) }
+  end
+
+  context 'associations' do
+    it { is_expected.to belong_to(:neighborhood) }
+    it { is_expected.to have_many(:schools).through(:neighborhood) }
+  end
 end

@@ -32,4 +32,5 @@ coverage
 /public/packs
 /public/packs-test
 /spec/temp
+/spec/examples.txt
 /node_modules

@@ -13,5 +13,13 @@
 require 'rails_helper'
 
 RSpec.describe Neighborhood, type: :model do
-  pending "add some examples to (or delete) #{__FILE__}"
+  context 'validations' do
+    it { is_expected.to validate_presence_of(:name) }
+  end
+
+  context 'associations' do
+    it { is_expected.to belong_to(:region) }
+    it { is_expected.to have_many(:listings) }
+    it { is_expected.to have_many(:schools) }
+  end
 end
