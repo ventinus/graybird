@@ -36,6 +36,19 @@
 
 FactoryGirl.define do
   factory :listing do
-    
+    property_type   { 'detached' }
+    rmls_number     { 123456789 }
+    role            { 'buyer_agent' }
+    price           { 555555 }
+    address         { Faker::Address.street_address }
+    unit            { '2A' }
+    zip             { '11111' }
+    city            { Faker::Address.city }
+    state           { 'OR' }
+    status          { 'active' }
+    bedrooms        { 2 }
+    bathrooms       { 2.0 }
+    description     { Faker::Lorem.paragraphs(2) }
+    neighborhood
   end
 end

@@ -18,5 +18,9 @@ Rails.application.routes.draw do
     root 'application#index'
 
     resources :administrators, except: [:show]
+
+    resources :neighborhoods, except: [:show]
+    resources :schools, except: [:show]
+    resources :listings, except: [:show]
   end
 end

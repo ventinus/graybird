@@ -12,6 +12,7 @@
 
 FactoryGirl.define do
   factory :neighborhood do
-    
+    name { Faker::Address.community }
+    region
   end
 end

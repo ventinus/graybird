@@ -1,0 +1,32 @@
+- breadcrumb :listings
+
+.col-md-12
+  .panel.panel-default
+    .panel-heading
+      h4.panel-title Listings
+    .panel-body
+      table.table.table-striped.table-hover
+        thead
+          th ID
+          th RMLS #
+          th Role
+          th Status
+          th Price
+          th Address
+          th Neighborhood
+          th.text-right
+            = link_to 'New Listing', new_admin_listing_path, class: 'btn btn-primary btn-sm'
+          tbody
+            - @listings.each do |listing|
+              tr
+                td= listing.id
+                td= listing.rmls_number
+                td= listing.role
+                td= listing.status
+                td= listing.price
+                td= listing.address
+                td= listing.neighborhood.name
+                td.text-right
+                  .btn-group.dropdown
+                  = link_to 'Edit', edit_admin_listing_path(listing), class: 'btn btn-primary btn-sm'
+                  = delete_link(listing)

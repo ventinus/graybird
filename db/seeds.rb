@@ -13,7 +13,7 @@ puts "  - Administrators"
 Administrator.create({
   first_name: 'jon',
   last_name: 'gray',
-  email: 'jgray@graybirdproperties.com',
+  email: 'admin@canvas.is',
   password: 'password',
   confirmed_at: Time.zone.now
 })

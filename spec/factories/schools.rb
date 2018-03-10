@@ -16,6 +16,12 @@
 
 FactoryGirl.define do
   factory :school do
-    
+    kind      { 'elementary' }
+    name      { 'Abernethy (K-5)' }
+    address   { Faker::Address.street_address }
+    city      { Faker::Address.city }
+    state     { 'OR' }
+    zip       { Faker::Address.zip }
+    neighborhood
   end
 end

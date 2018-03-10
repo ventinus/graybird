@@ -70,4 +70,8 @@ module Admin::ApplicationHelper
       end
     end
   end
+
+  def enum_collection(instance, enum)
+    instance.class.send(enum.to_s.pluralize).keys.to_a.map { |key| [key.humanize, key] }
+  end
 end

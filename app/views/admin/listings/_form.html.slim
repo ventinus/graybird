@@ -1,0 +1,54 @@
+- content_for :errors do |e|
+  = list_errors(@listing.errors.full_messages)
+
+= simple_form_for [:admin, @listing] do |f|
+  .col-md-12
+    .panel.panel-default
+      .panel-heading
+        - action = @listing.new_record? ? 'New' : 'Edit'
+        h4.panel-title = "#{action} Listing"
+      .panel-body
+        .col-sm-6.col-md-3
+          = f.input :role, label: 'Role', include_blank: false, include_hidden: false, collection: enum_collection(@listing, :role)
+          = f.input :rmls_number, label: 'RMLS Number'
+          = f.input :property_type, label: 'Property Type', include_blank: false, include_hidden: false, collection: enum_collection(@listing, :property_type)
+          = f.input :status, label: 'Status', include_blank: false, include_hidden: false, collection: enum_collection(@listing, :status)
+          = f.input :price, label: 'Price'
+          = f.input :property_taxes, label: 'Property Taxes'
+        .col-sm-6.col-md-3
+          = f.input :address, label: 'Address'
+          = f.input :unit, label: 'Unit'
+          = f.input :zip, label: 'Zip'
+          = f.input :city, label: 'City'
+          = f.input :state, label: 'State'
+          = f.input :neighborhood_id, label: 'Neighborhood', include_blank: false, include_hidden: false, collection: Neighborhood.all.map {|n| [n.name, n.id]}
+        .col-sm-6.col-md-3
+          = f.input :sq_feet, label: 'Sq Feet'
+          = f.input :year_built, label: 'Year Built'
+          = f.input :bedrooms, label: 'Bedrooms', input_html: { class: 'form-control' }
+          = f.input :bathrooms, label: 'Bathrooms', input_html: { class: 'form-control' }
+          = f.input :garage_size, label: 'Garage Size'
+          = f.input :garage_type, label: 'Garage Type', include_blank: false, include_hidden: false, collection: enum_collection(@listing, :garage_type)
+        .col-sm-6.col-md-3
+          = f.input :water, label: 'Water', include_blank: false, include_hidden: false, collection: enum_collection(@listing, :water)
+          = f.input :sewer, label: 'Sewer', include_blank: false, include_hidden: false, collection: enum_collection(@listing, :sewer)
+          = f.input :hot_water, label: 'Hot Water', include_blank: false, include_hidden: false, collection: enum_collection(@listing, :hot_water)
+          = f.input :heating, label: 'Heating', include_blank: false, include_hidden: false, collection: enum_collection(@listing, :heating)
+          = f.input :cooling, label: 'Cooling', include_blank: false, include_hidden: false, collection: enum_collection(@listing, :cooling)
+          = f.input :hoa_dues, label: 'HOA Dues'
+          = f.input :hoa_frequency, label: 'HOA Frequency', include_blank: false, include_hidden: false, collection: enum_collection(@listing, :hoa_frequency)
+  .col-md-12
+    .panel.panel-default
+      .panel-body
+        .col-md-6
+          = f.input :description, label: 'Description', input_html: { class: 'form-control', rows: 8 }
+        .col-md-6
+          = f.input :community_description, label: 'Community Description', input_html: { class: 'form-control', rows: 8 }
+
+  .col-md-12
+    .panel.panel-default
+      .panel-body
+        .form-actions
+          - label = @listing.new_record? ? 'Create Listing' : 'Update Listing'
+          = f.submit "#{label}", class: 'btn btn-sm btn-primary'
+          = link_to 'Cancel', admin_listings_path, class: 'btn btn-sm btn-default'

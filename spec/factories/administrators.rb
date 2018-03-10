@@ -1,4 +1,3 @@
-# frozen_string_literal: true
 # == Schema Information
 #
 # Table name: administrators
@@ -24,31 +23,12 @@
 #  updated_at             :datetime         not null
 #
 
-class Administrator < ActiveRecord::Base
-  # Include default devise modules. Others available are:
-  # :confirmable, :lockable, :timeoutable and :omniauthable
-  devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :trackable, :validatable
-  # Include default devise modules. Others available are:
-  # :confirmable, :lockable, :timeoutable and :omniauthable
-  devise :database_authenticatable,
-         :recoverable, :rememberable, :trackable, :validatable,
-         :confirmable, :timeoutable
-
-  validates_presence_of :first_name, :last_name, :email
-
-  before_destroy :at_least_one, prepend: true
-
-  def full_name
-    "#{first_name} #{last_name}"
-  end
-
-  private
-
-  def at_least_one
-    if Administrator.count < 2
-      errors[:base] << 'There must be at least one administrator'
-      throw :abort
-    end
+FactoryGirl.define do
+  factory :administrator do
+    first_name    { Faker::Name.first_name }
+    last_name     { Faker::Name.last_name }
+    email         { Faker::Internet.email }
+    password      { Faker::Internet.password }
+    confirmed_at  { Time.zone.now }
   end
 end

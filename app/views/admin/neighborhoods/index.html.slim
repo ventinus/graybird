@@ -1,0 +1,24 @@
+- breadcrumb :neighborhoods
+
+.col-md-12
+  .panel.panel-default
+    .panel-heading
+      h4.panel-title Neighborhood
+    .panel-body
+      table.table.table-striped.table-hover
+        thead
+          th ID
+          th Name
+          th Region
+          th.text-right
+            = link_to 'New Neighborhood', new_admin_neighborhood_path, class: 'btn btn-primary btn-sm'
+          tbody
+            - @neighborhoods.each do |neighborhood|
+              tr
+                td= neighborhood.id
+                td= neighborhood.name
+                td= neighborhood.region.name
+                td.text-right
+                  .btn-group.dropdown
+                  = link_to 'Edit', edit_admin_neighborhood_path(neighborhood), class: 'btn btn-primary btn-sm'
+                  = delete_link(neighborhood)

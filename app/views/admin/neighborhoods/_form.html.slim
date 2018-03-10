@@ -1,0 +1,20 @@
+- content_for :errors do |e|
+  = list_errors(@neighborhood.errors.full_messages)
+
+= simple_form_for [:admin, @neighborhood] do |f|
+  .col-md-12
+    .panel.panel-default
+      .panel-heading
+        - action = @neighborhood.new_record? ? 'New' : 'Edit'
+        h4.panel-title = "#{action} Neighborhood"
+      .panel-body
+        .col-sm-6
+          = f.input :name, label: 'Name'
+        .col-sm-6
+          = f.input :region_id, label: 'Region', include_blank: false, include_hidden: false, collection: Region.all.map {|n| [n.name, n.id]}
+
+      .panel-body
+        .form-actions
+          - label = @neighborhood.new_record? ? 'Create Neighborhood' : 'Update Neighborhood'
+          = f.submit "#{label}", class: 'btn btn-sm btn-primary'
+          = link_to 'Cancel', admin_neighborhoods_path, class: 'btn btn-sm btn-default'

@@ -1,0 +1,25 @@
+- content_for :errors do |e|
+  = list_errors(@school.errors.full_messages)
+
+= simple_form_for [:admin, @school] do |f|
+  .col-md-12
+    .panel.panel-default
+      .panel-heading
+        - action = @school.new_record? ? 'New' : 'Edit'
+        h4.panel-title = "#{action} School"
+      .panel-body
+        .col-md-6
+          = f.input :name, label: "Name", input_html: { class: 'form-control' }
+          = f.input :address, label: "Address", input_html: { class: 'form-control' }
+          = f.input :city, label: "City", input_html: { class: 'form-control' }
+          = f.input :state, label: "State", input_html: { class: 'form-control' }
+          = f.input :zip, label: "Zip", input_html: { class: 'form-control' }
+        .col-md-6
+          = f.input :kind, label: 'Status', include_blank: false, include_hidden: false, collection: enum_collection(@school, :kind)
+          = f.input :neighborhood_id, label: 'Neighborhood', include_blank: false, include_hidden: false, collection: Neighborhood.all.map {|n| [n.name, n.id]}
+
+      .panel-body
+        .form-actions
+          - label = @school.new_record? ? 'Create School' : 'Update School'
+          = f.submit "#{label}", class: 'btn btn-sm btn-primary'
+          = link_to 'Cancel', admin_schools_path, class: 'btn btn-sm btn-default'

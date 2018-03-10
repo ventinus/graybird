@@ -11,6 +11,6 @@
 
 FactoryGirl.define do
   factory :region do
-    
+    name { 'North' }
   end
 end
