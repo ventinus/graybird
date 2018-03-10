@@ -1,0 +1,52 @@
+listing:
+  - photos
+  - property_type
+    # detached|condo|townhouse
+  - price
+  - address
+  - unit
+  - zip
+  - city
+  - state
+  - status
+    # active|bumpable|canceled|expired|pending|sold|sold_not_listed|withdrawn
+  - bedrooms
+  - bathrooms
+  - sq_feet
+  - year_built
+  - garage_size
+  - garage_type
+    # attached|detached|carport|shared|none
+  - water
+    # public|well|private
+  - sewer
+    # public|septic|cesspool|party_line
+  - hot_water
+    # electric|gas|propane|tank|tankless|other
+  - property_taxes
+  - hoa_dues
+  - hoa_frequency
+   # 1-TIME|MO|QTR|6MO|YR
+  - description
+  - community_description
+  - rmls_number
+
+  #### select multiple
+  - parking
+   # carport|offstreet|street|driveway
+  - nearby_schools
+  - heat
+    # forced_air
+  - cooling
+    # central_air|window|none
+
+listing_photo:
+
+schools:
+  - type
+    # elementary|middle|high
+  - name
+  - address
+  - city
+  - state
+  - zip

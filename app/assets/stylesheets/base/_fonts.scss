@@ -7,4 +7,11 @@
 //  ==========================================================================
 //  Name of font (font source)
 //  ==========================================================================
-// @include declare-font-face('Name of font', 'webfont-file-name', 'webfont-file-name', 'webfont-file-name', 'webfont-file-name', 'webfont-file-name');
+
+@include declare-font-face('Poppins-Light', 'Poppins-Light');
+@include declare-font-face('Poppins-Regular', 'Poppins-Regular');
+@include declare-font-face('Poppins-Medium', 'Poppins-Medium');
+@include declare-font-face('Poppins-Bold', 'Poppins-Bold');
+@include declare-font-face('Poppins-Black', 'Poppins-Black');
+
+@include declare-font-face('Roboto-Regular', 'Roboto-Regular');

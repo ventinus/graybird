@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171219204447) do
+ActiveRecord::Schema.define(version: 20180309225406) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -37,6 +37,68 @@ ActiveRecord::Schema.define(version: 20171219204447) do
     t.index ["confirmation_token"], name: "index_administrators_on_confirmation_token", unique: true
     t.index ["email"], name: "index_administrators_on_email", unique: true
     t.index ["reset_password_token"], name: "index_administrators_on_reset_password_token", unique: true
+  end
+
+  create_table "listings", force: :cascade do |t|
+    t.integer "property_type", null: false
+    t.integer "rmls_number", null: false
+    t.integer "role", null: false
+    t.integer "price", null: false
+    t.string "address", null: false
+    t.string "unit"
+    t.string "zip", null: false
+    t.string "city", null: false
+    t.string "state", null: false
+    t.integer "status", null: false
+    t.integer "bedrooms", null: false
+    t.decimal "bathrooms", null: false
+    t.text "description", null: false
+    t.integer "sq_feet"
+    t.string "year_built"
+    t.integer "garage_size"
+    t.integer "garage_type"
+    t.integer "water"
+    t.integer "sewer"
+    t.integer "hot_water"
+    t.integer "heating"
+    t.integer "cooling"
+    t.decimal "property_taxes"
+    t.integer "hoa_dues", default: 0
+    t.integer "hoa_frequency"
+    t.text "community_description"
+    t.bigint "neighborhood_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["neighborhood_id"], name: "index_listings_on_neighborhood_id"
+  end
+
+  create_table "neighborhoods", force: :cascade do |t|
+    t.string "name", null: false
+    t.text "description"
+    t.bigint "region_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["region_id"], name: "index_neighborhoods_on_region_id"
+  end
+
+  create_table "regions", force: :cascade do |t|
+    t.string "name", null: false
+    t.text "description"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "schools", force: :cascade do |t|
+    t.integer "kind", null: false
+    t.string "name", null: false
+    t.string "address", null: false
+    t.string "city", null: false
+    t.string "state", null: false
+    t.string "zip", null: false
+    t.bigint "neighborhood_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["neighborhood_id"], name: "index_schools_on_neighborhood_id"
   end
 
   create_table "versions", force: :cascade do |t|

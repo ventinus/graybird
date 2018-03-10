@@ -39,7 +39,7 @@ gem 'puma', '~> 3.7'
 
 # Assets
 gem 'bootstrap-sass'
-gem 'draper', '3.0.0.pre1'
+gem 'draper', '3.0.1'
 gem 'font-awesome-rails'
 gem 'gretel'
 gem 'sass-rails', '~> 5.0'

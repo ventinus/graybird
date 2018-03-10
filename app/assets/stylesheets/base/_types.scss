@@ -1,0 +1,25 @@
+%font-poppins-light   { font-family: $font-poppins-light; }
+%font-poppins-regular { font-family: $font-poppins-regular; }
+%font-poppins-medium  { font-family: $font-poppins-medium; }
+%font-poppins-bold    { font-family: $font-poppins-bold; }
+
+
+.type--a1 {
+  @extend %font-poppins-light;
+  @include font-size(20);
+}
+
+.type--b1 {
+  @extend %font-poppins-regular;
+  @include font-size(20);
+}
+
+.type--c1 {
+  @extend %font-poppins-medium;
+  @include font-size(20);
+}
+
+.type--d1 {
+  @extend %font-poppins-bold;
+  @include font-size(20);
+}

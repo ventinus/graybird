@@ -31,16 +31,26 @@
 
 //  Font Families
 //  --------------------------------------------------
-    $font-bold:               Helvetica, Arial, sans-serif !default;
-    $font-regular:            Helvetica, Arial, sans-serif !default;
-    $font-light:              Helvetica, Arial, sans-serif !default;
+    $font-poppins-light:              'Poppins-Light', Verdana, sans-serif !default;
+    $font-poppins-regular:            'Poppins-Regular', Verdana, sans-serif !default;
+    $font-poppins-medium:             'Poppins-Medium', Verdana, sans-serif !default;
+    $font-poppins-bold:               'Poppins-Bold', Verdana, sans-serif !default;
+    $font-poppins-black:              'Poppins-Black', Verdana, sans-serif !default;
+
+    $font-roboto-regular:             'Roboto-Regular', Verdana, sans-serif !default;
     // $font-icons:              'icons'                      !default;
+
+    $font-bold:                       $font-poppins-bold, Verdana, Arial, sans-serif !default;
+    $font-regular:                    $font-roboto-regular, Verdana, Arial, sans-serif !default;
+    $font-light:                      $font-poppins-light, Verdana, Arial, sans-serif !default;
+
 
 //  Font Stacks
 //  --------------------------------------------------
     $font-family-default:     $font-regular        !default;
     $font-family-bold:        $font-bold           !default;
     $font-family-italic:      $font-regular        !default;
+
 
 //  Type Sizes (use rem mixin to apply)
 //  --------------------------------------------------
