@@ -1,13 +1,6 @@
+import app from './app';
 
-const Main = () => {
-
-  const init = () => {
-    console.log('main init')
-  }
-
-  return {
-    init
-  }
-}
-
-export default Main
+document.addEventListener('turbolinks:load', () => {
+  window.ADMIN = window.ADMIN || app();
+  window.ADMIN.init();
+})

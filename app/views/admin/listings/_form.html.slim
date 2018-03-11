@@ -1,7 +1,7 @@
 - content_for :errors do |e|
   = list_errors(@listing.errors.full_messages)
 
-= simple_form_for [:admin, @listing] do |f|
+= simple_nested_form_for [:admin, @listing] do |f|
   .col-md-12
     .panel.panel-default
       .panel-heading
@@ -37,13 +37,41 @@
           = f.input :cooling, label: 'Cooling', include_blank: false, include_hidden: false, collection: enum_collection(@listing, :cooling)
           = f.input :hoa_dues, label: 'HOA Dues'
           = f.input :hoa_frequency, label: 'HOA Frequency', include_blank: false, include_hidden: false, collection: enum_collection(@listing, :hoa_frequency)
-  .col-md-12
-    .panel.panel-default
       .panel-body
         .col-md-6
           = f.input :description, label: 'Description', input_html: { class: 'form-control', rows: 8 }
         .col-md-6
           = f.input :community_description, label: 'Community Description', input_html: { class: 'form-control', rows: 8 }
+
+  .col-md-12
+    .panel.panel-default
+      .panel-heading
+        h4.panel-title.clearfix style="line-height: 38px;"
+          = 'Images'
+          .btn-group.pull-right
+            .btn.btn-success.js-sort-btn Enable Sort
+            = f.link_to_add 'Add Image', :photos, class: 'btn btn-default pull-right', data: { target: '#listing-photos' }
+      #listing-photos.panel-body
+        / - unless f.object.photos.present?
+        /   p No photos yet
+        / - else
+        = f.simple_fields_for :photos do |ph|
+          .col-md-6
+            .panel.panel-default
+              .panel-heading style='height: 38px;'
+                h5.panel-title.js-image-title
+                  = ph.object.new_record? ? 'New Image' : "Image #{ph.object.position}"
+                  = ph.link_to_remove do
+                    i.fa.fa-times.pull-right
+              .panel-body
+                - if ph.object.image.present?
+                  = image_tag(ph.object.image_url, height: '175px')
+                - else
+                  p
+                    small No Image Uploaded
+                = ph.input :image, as: :hidden, input_html: {value: ph.object.cached_image_data}
+                = ph.input :image, as: :file
+                = ph.input :caption, label: 'Caption'
 
   .col-md-12
     .panel.panel-default

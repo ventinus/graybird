@@ -7,6 +7,7 @@ class Admin::ListingsController < Admin::ApplicationController
 
   def new
     @listing = Listing.new
+    @listing.photos.build
   end
 
   def edit; end
@@ -48,6 +49,7 @@ class Admin::ListingsController < Admin::ApplicationController
     params.require(:listing).permit(:property_type, :rmls_number, :role, :price, :address, :unit, :zip, :city,
                                     :state, :status, :bedrooms, :bathrooms, :description, :sq_feet, :year_built,
                                     :garage_size, :garage_type, :water, :sewer, :hot_water, :heating, :cooling,
-                                    :property_taxes, :hoa_dues, :hoa_frequency, :community_description, :neighborhood_id)
+                                    :property_taxes, :hoa_dues, :hoa_frequency, :community_description, :neighborhood_id,
+                                    photos_attributes: [:id, :caption, :image, :position, :listing_id, :_destroy])
   end
 end

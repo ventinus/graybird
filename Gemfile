@@ -34,7 +34,7 @@ gem 'figaro'
 gem 'kgio'
 gem 'lograge'
 gem 'rack-cache', :require => 'rack/cache'
-gem 'rack-timeout'
+# gem 'rack-timeout'
 gem 'puma', '~> 3.7'
 
 # Assets
@@ -45,6 +45,7 @@ gem 'gretel'
 gem 'sass-rails', '~> 5.0'
 gem 'oj'
 gem 'slim-rails'
+gem 'acts_as_list'
 
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
@@ -55,6 +56,8 @@ gem 'webpacker'
 gem 'therubyracer', platforms: :ruby
 
 # Turbolinks makes navigating your web application faster. Read more: https://github.com/turbolinks/turbolinks
+gem 'jquery-rails'
+gem 'jquery-ui-rails'
 gem 'turbolinks', '~> 5'
 
 # API

@@ -12,8 +12,8 @@
 
 class Neighborhood < ApplicationRecord
   belongs_to :region
-  has_many :listings
-  has_many :schools
+  has_many :listings, dependent: :destroy
+  has_many :schools, dependent: :destroy
 
   validates_presence_of :name
 end

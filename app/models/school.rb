@@ -15,7 +15,7 @@
 #
 
 class School < ApplicationRecord
-  belongs_to :neighborhood, dependent: :destroy
+  belongs_to :neighborhood
   has_many :listings, through: :neighborhood
 
   enum kind: [:kindergarten, :elementary, :middle, :high, :programs_alternatives, :k_5, :k_8]

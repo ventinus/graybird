@@ -35,8 +35,10 @@
 #
 
 class Listing < ApplicationRecord
-  belongs_to :neighborhood, dependent: :destroy
+  belongs_to :neighborhood
   has_many :schools, through: :neighborhood
+  has_many :photos, -> { order(position: :asc) }, foreign_key: 'listing_id', class_name: 'ListingPhoto', dependent: :destroy
+  accepts_nested_attributes_for :photos, allow_destroy: true
 
   enum property_type: [:detached, :condo, :townhouse]
   enum status: [:active, :bumpable, :canceled, :expired, :pending, :sold, :sold_not_listed, :withdrawn]
