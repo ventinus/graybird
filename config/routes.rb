@@ -3,5 +3,7 @@ Rails.application.routes.draw do
   mount_roboto
 
   get '/' => 'pages#homepage', as: :homepage
+
+  resources :listings, only: [:index, :show]
   # get "/pages/*id" => 'pages#show', as: :page, format: false
 end

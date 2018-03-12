@@ -32,9 +32,12 @@
 #  neighborhood_id       :integer
 #  created_at            :datetime         not null
 #  updated_at            :datetime         not null
+#  slug                  :string
 #
 
 class Listing < ApplicationRecord
+  extend FriendlyId
+
   belongs_to :neighborhood
   has_many :schools, through: :neighborhood
   has_many :photos, -> { order(position: :asc) }, foreign_key: 'listing_id', class_name: 'ListingPhoto', dependent: :destroy
@@ -52,5 +55,17 @@ class Listing < ApplicationRecord
   enum cooling: [:central_air, :window, :no_cooling]
 
   validates_presence_of :property_type, :role, :rmls_number, :price, :address, :zip, :city, :state, :status, :bedrooms, :bathrooms, :description
+  before_create :unique_full_address
 
+  friendly_id :full_address, use: :slugged
+
+  def full_address
+    "#{address} #{unit}".strip
+  end
+
+  private
+
+  def unique_full_address
+    Listing.all.map(&:full_address).exclude? full_address
+  end
 end

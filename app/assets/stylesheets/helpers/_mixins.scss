@@ -18,8 +18,8 @@
     font-family: "#{$font-family}";
     src: font-url("#{$font-filename}.eot?#iefix");
     src: font-url("#{$font-filename}.eot?#iefix") format("eot"),
-         font-url("#{$font-filename}.woff2") format("woff2"),
-         font-url("#{$font-filename}.woff") format("woff"),
+         // font-url("#{$font-filename}.woff2") format("woff2"),
+         // font-url("#{$font-filename}.woff") format("woff"),
          font-url("#{$font-filename}.ttf") format("truetype"),
          font-url("#{$font-filename}.svg##{$font-filename}") format("svg");
     font-style: $font-style;

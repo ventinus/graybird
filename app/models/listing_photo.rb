@@ -14,6 +14,7 @@
 class ListingPhoto < ApplicationRecord
   include ImageUploader::Attachment.new(:image)
   acts_as_list scope: :listing
+  belongs_to :listing
 
   validates_presence_of :image_data
 end

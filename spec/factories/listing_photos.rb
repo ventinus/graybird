@@ -13,6 +13,14 @@
 
 FactoryGirl.define do
   factory :listing_photo do
-    
+    caption { Faker::Lorem.sentence }
+    position 1
+    image   {
+      fixture_file_upload(
+        Rails.root.join('spec', 'fixtures', 'images', 'receipt.png'),
+        'image/png'
+      )
+    }
+    listing
   end
 end

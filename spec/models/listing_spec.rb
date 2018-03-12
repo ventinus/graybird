@@ -32,6 +32,7 @@
 #  neighborhood_id       :integer
 #  created_at            :datetime         not null
 #  updated_at            :datetime         not null
+#  slug                  :string
 #
 
 require 'rails_helper'
@@ -55,5 +56,6 @@ RSpec.describe Listing, type: :model do
   context 'associations' do
     it { is_expected.to belong_to(:neighborhood) }
     it { is_expected.to have_many(:schools).through(:neighborhood) }
+    it { is_expected.to have_many(:photos) }
   end
 end

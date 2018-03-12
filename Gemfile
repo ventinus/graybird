@@ -28,6 +28,9 @@ gem 'simple_form'
 # Static Pages
 gem 'high_voltage'
 
+# Slugs
+gem 'friendly_id', '~> 5.1.0'
+
 # Server
 gem 'dalli'
 gem 'figaro'

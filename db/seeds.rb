@@ -6,6 +6,40 @@ Neighborhood.delete_all
 School.delete_all
 Listing.delete_all
 
+# remove all previously stored assets
+# system('rm ./public/uploads/store/*')
+
+IMAGES = (1..1055).to_a
+
+def listing_photo(listing)
+  ListingPhoto.create(image_data: fetch_image, listing: listing)
+end
+
+def fetch_asset(url)
+  uploader = ImageUploader.new(:store)
+  file = open(url)
+  uploader.upload(file).to_json
+end
+
+def fetch_image
+  begin
+    fetch_asset "https://unsplash.it/1365/1024?image=#{unique_image}"
+  rescue
+    retry while true
+  end
+end
+
+def unique_image
+  IMAGES.delete(IMAGES.sample)
+end
+
+def use_local_image(filename)
+  uploader = ImageUploader.new(:store)
+  file = File.new(Rails.root.join("public/uploads/store/#{filename}"))
+  uploaded_file = uploader.upload(file)
+  ListingPhoto.new(image_data: uploaded_file.to_json)
+end
+
 puts "  - Loading..."
 
 ## Administrators
@@ -276,8 +310,12 @@ schools = School.create([
   }
 ])
 
-30.times do
-  Listing.create(
+## Listings
+puts "  - Listings"
+current_images = %x(ls ./public/uploads/store).split("\n")
+
+10.times do |i|
+  listing = Listing.create(
     property_type: ['detached', 'condo', 'townhouse'].sample,
     rmls_number: rand(10000000..20000000),
     role: ['buyer_agent', 'listing_agent'].sample,
@@ -292,13 +330,15 @@ schools = School.create([
     description: Faker::Lorem.paragraphs(2),
     neighborhood: neighborhoods.sample
   )
+
+  3.times do |j|
+    puts "    - Seeding listing photo #{j + 1}"
+    if current_images.present?
+      photo = use_local_image(current_images[(i * 3) + j])
+      photo.listing = listing
+      photo.save
+    else
+      listing_photo listing
+    end
+  end
 end
-
-
-# Drawing.create({
-#   date: Date.new(2017, 10, 25),
-#   gain: 4,
-#   loss: 6,
-#   numbers: '18 22 29 54 57 8',
-#   tickets: tickets1
-# })

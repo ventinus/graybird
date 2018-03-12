@@ -9,6 +9,7 @@
         thead
           th ID
           th RMLS #
+          th Primary Photo
           th Role
           th Status
           th Price
@@ -21,6 +22,9 @@
               tr
                 td= listing.id
                 td= listing.rmls_number
+                td
+                  - if listing.photos.first.present?
+                    = image_tag(listing.photos.first.image_url, height: '100px')
                 td= listing.role
                 td= listing.status
                 td= listing.price
