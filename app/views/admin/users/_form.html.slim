@@ -1,0 +1,29 @@
+- content_for :errors do |e|
+  = list_errors(@user.errors.full_messages)
+
+= simple_form_for [:admin, @user] do |f|
+  .col-md-12
+    .panel.panel-default
+      .panel-heading
+        - action = @user.new_record? ? 'New' : 'Edit'
+        h4.panel-title = "#{action} User"
+      .panel-body
+        .col-sm-6
+          = f.input :first_name, label: 'First Name'
+          = f.input :last_name, label: 'Last Name'
+          = f.input :email, label: 'Email'
+          = f.input :phone_number, label: 'Phone Number'
+          = f.input :preferred_communication, label: 'Preferred Method Of Communication', include_blank: false, include_hidden: false, collection: enum_collection(@user, :preferred_communication)
+          = f.input :confirmed, label: 'Confirmed'
+          = f.input :contacted, label: 'Contacted'
+          = f.input :price_min, label: 'Min Price'
+          = f.input :price_max, label: 'Max Price'
+        .col-sm-6
+          = f.input :neighborhood_ids, collection: Neighborhood.all, label: 'Neighborhoods', input_html: { class: 'form-control select2-multiple', multiple: true }
+          = f.input :notes, label: 'Notes', input_html: { rows: 10 }
+
+      .panel-body
+        .form-actions
+          - label = @user.new_record? ? 'Create User' : 'Update User'
+          = f.submit "#{label}", class: 'btn btn-sm btn-primary'
+          = link_to 'Cancel', admin_users_path, class: 'btn btn-sm btn-default'
