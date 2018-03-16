@@ -14,7 +14,7 @@
     height: $nav-height-sm;
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    justify-content: space-around;
     flex-direction: column;
   }
 
@@ -25,6 +25,7 @@
   @include breakpoint(lg) {
     height: $nav-height-lg;
     flex-direction: row;
+    justify-content: space-between;
   }
 }
 
@@ -41,16 +42,16 @@
   @include breakpoint(sm) { padding: 0; }
 }
 
-.nav__logo > * { vertical-align: middle; }
+.nav__inner__logo > * { vertical-align: middle; }
 
-.nav__logo__link {
+.nav__inner__logo__link {
   width: 180px;
   display: inline-block;
 
   @include breakpoint(sm) { width: 250px; }
 }
 
-.nav__logo__info {
+.nav__inner__logo__info {
   margin-left: 20px;
   padding: 10px 20px;
   border-left: 1px solid $black;
@@ -59,7 +60,7 @@
   @include breakpoint(sm) { display: inline-block; }
 }
 
-.nav__burger {
+.nav__inner__burger {
   position: relative;
   width: 40px;
   height: 40px;
@@ -69,7 +70,7 @@
   @include breakpoint(sm) { display: none; }
 }
 
-.nav__burger__lines {
+.nav__inner__burger__lines {
   position: absolute;
   height: 2px;
   background-color: $grey-1;
@@ -162,19 +163,18 @@
 }
 
 .nav.is-open {
+  .nav__links { transform: translateY(0); }
 
-  .nav__links {
-    transform: translateY(0);
-  }
-
-  .nav__burger__lines {
+  .nav__inner__burger__lines {
     background-color: $transparent;
+
     &:before {
       top: 0;
       transform: rotate(45deg);
       background-color: $red-1;
       transition: top 100ms ease-in-out, transform 100ms ease-in-out 100ms;
     }
+
     &:after {
       bottom: 0;
       transform: rotate(-45deg);
