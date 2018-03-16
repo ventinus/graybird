@@ -25,9 +25,6 @@ gem 'kaminari'
 gem 'nested_form'
 gem 'simple_form'
 
-# Static Pages
-gem 'high_voltage'
-
 # Slugs
 gem 'friendly_id', '~> 5.1.0'
 
@@ -37,7 +34,6 @@ gem 'figaro'
 gem 'kgio'
 gem 'lograge'
 gem 'rack-cache', :require => 'rack/cache'
-# gem 'rack-timeout'
 gem 'puma', '~> 3.7'
 
 # Assets

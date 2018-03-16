@@ -1,0 +1,12 @@
+.page-wrapper {
+  min-height: 100vh;
+  padding-top: $nav-height-xs;
+
+  @include breakpoint(sm) {
+    padding-top: $nav-height-sm;
+  }
+
+  @include breakpoint(lg) {
+    padding-top: $nav-height-lg;
+  }
+}

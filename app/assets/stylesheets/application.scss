@@ -6,17 +6,17 @@
 
 //  Helpers
 //  ________________________________________________
-    @import "helpers/variables";
-    @import "helpers/mixins";
-    @import "helpers/helpers";
-    @import "helpers/breakpoints";
+  @import "helpers/variables";
+  @import "helpers/mixins";
+  @import "helpers/helpers";
+  @import "helpers/breakpoints";
 
 //  Base: Global resets and settings
 //  ________________________________________________
-    @import "base/normalize";
-    @import "base/base";
-    @import "base/fonts";
-    @import "base/types";
+  @import "base/normalize";
+  @import "base/base";
+  @import "base/fonts";
+  @import "base/types";
 
 //  Vendor
 //  ________________________________________________
@@ -24,8 +24,10 @@
 //  Elements
 //  ________________________________________________
 
-//  Modules
+//  Components
 //  ________________________________________________
+  @import "components/nav";
+  @import "components/page-wrapper";
 
 //  Override Helpers
 //  ________________________________________________

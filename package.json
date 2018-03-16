@@ -8,11 +8,15 @@
     "@rails/webpacker": "^3.2.0",
     "babel-preset-react": "^6.24.1",
     "lodash": "^4.17.4",
+    "moment": "^2.21.0",
     "prop-types": "^15.6.0",
+    "ramda": "^0.25.0",
     "react": "^16.2.0",
     "react-dom": "^16.2.0",
-    "savnac": "^2.0.3",
-    "wolfy87-eventemitter": "^5.2.4"
+    "react-router-dom": "^4.2.2",
+    "savnac": "^2.1.6",
+    "velocity-animate": "^1.5.1",
+    "waypoints": "^4.0.1"
   },
   "devDependencies": {
     "eslint": "^4.13.1",

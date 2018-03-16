@@ -162,6 +162,9 @@ blockquote {
 a {
   text-decoration: none;
   transition: $default-animation;
+  color: $link-color;
+
+  &:visited { color: $link-color; }
 }
 
 // --------------------------------------------------

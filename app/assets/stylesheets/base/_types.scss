@@ -3,23 +3,41 @@
 %font-poppins-medium  { font-family: $font-poppins-medium; }
 %font-poppins-bold    { font-family: $font-poppins-bold; }
 
+%font-roboto-regular  { font-family: $font-roboto-regular; }
+
+.type--uppercase { text-transform: uppercase; }
+
+
+.type--a1,
+.type--a2 {
+  @extend %font-poppins-light;
+  line-height: 1.2;
+}
 
 .type--a1 {
-  @extend %font-poppins-light;
-  @include font-size(20);
+  @include font-size(35);
+}
+
+.type--a2 {
+  @include font-size(13);
 }
 
 .type--b1 {
   @extend %font-poppins-regular;
-  @include font-size(20);
+  @include font-size(13);
 }
 
 .type--c1 {
   @extend %font-poppins-medium;
-  @include font-size(20);
+  @include font-size(18);
 }
 
 .type--d1 {
   @extend %font-poppins-bold;
+  @include font-size(20);
+}
+
+.type--e1 {
+  @extend %font-roboto-regular;
   @include font-size(20);
 }
