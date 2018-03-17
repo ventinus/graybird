@@ -54,6 +54,8 @@ gem 'webpacker'
 # See https://github.com/rails/execjs#readme for more supported runtimes
 gem 'therubyracer', platforms: :ruby
 
+
+
 # Turbolinks makes navigating your web application faster. Read more: https://github.com/turbolinks/turbolinks
 gem 'jquery-rails'
 gem 'jquery-ui-rails'
@@ -61,6 +63,7 @@ gem 'turbolinks', '~> 5'
 
 # API
 gem 'active_model_serializers'
+gem 'graphql'
 
 # Documentation
 gem 'annotate'
@@ -117,6 +120,7 @@ group :development do
   gem 'rb-fsevent'
   gem 'terminal-notifier-guard'
   gem 'web-console', '>= 3.3.0'
+  gem 'graphiql-rails'
 end
 
 group :test do
