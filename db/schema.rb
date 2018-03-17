@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180317045958) do
+ActiveRecord::Schema.define(version: 20180317202619) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -68,7 +68,7 @@ ActiveRecord::Schema.define(version: 20180317045958) do
     t.integer "role", null: false
     t.integer "price", null: false
     t.citext "address", null: false
-    t.string "unit"
+    t.citext "unit"
     t.string "zip", null: false
     t.string "city", null: false
     t.string "state", null: false
@@ -95,6 +95,7 @@ ActiveRecord::Schema.define(version: 20180317045958) do
     t.string "slug"
     t.index ["address"], name: "index_listings_on_address"
     t.index ["neighborhood_id"], name: "index_listings_on_neighborhood_id"
+    t.index ["unit"], name: "index_listings_on_unit"
   end
 
   create_table "neighborhoods", force: :cascade do |t|

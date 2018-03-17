@@ -17,8 +17,6 @@
 }
 
 .nav__body {
-  max-width: $max-width;
-  margin: 0 auto;
   height: 100%;
 
   @include breakpoint(sm) {
@@ -124,6 +122,7 @@
     background-color: $transparent;
     transform: none !important;
     width: auto;
+    z-index: 0;
     transition-duration: 0s;
     border-bottom-width: 0;
   }

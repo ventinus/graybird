@@ -6,10 +6,13 @@
 %font-roboto-regular  { font-family: $font-roboto-regular; }
 
 .type--uppercase { text-transform: uppercase; }
+.type--center { text-align: center; }
 
 
 .type--a1,
-.type--a2 {
+.type--a2,
+.type--a3,
+.type--a4 {
   @extend %font-poppins-light;
   line-height: 1.2;
 }
@@ -22,14 +25,42 @@
   @include font-size(13);
 }
 
-.type--b1 {
+.type--a3 {
+  @include font-size(24);
+}
+
+.type--a4 {
+  @include font-size(30);
+}
+
+
+.type--b1,
+.type--b2 {
   @extend %font-poppins-regular;
+  line-height: 1.2;
+}
+
+.type--b1 {
   @include font-size(13);
 }
 
-.type--c1 {
+.type--b2 {
+  @include font-size(16);
+}
+
+
+.type--c1,
+.type--c2 {
   @extend %font-poppins-medium;
+  line-height: 1.2
+}
+
+.type--c1 {
   @include font-size(18);
+}
+
+.type--c2 {
+  @include font-size(24);
 }
 
 .type--d1 {
@@ -37,7 +68,16 @@
   @include font-size(20);
 }
 
-.type--e1 {
+.type--e1,
+.type--e2 {
   @extend %font-roboto-regular;
+  line-height: 1.2;
+}
+
+.type--e1 {
   @include font-size(20);
+}
+
+.type--e2 {
+  @include font-size(16);
 }

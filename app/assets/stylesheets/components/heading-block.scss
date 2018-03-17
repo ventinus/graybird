@@ -1,0 +1,7 @@
+.heading-block {
+  & + .heading-block { margin-top: 40px; }
+}
+
+.heading-block__body {
+  margin-top: 20px;
+}

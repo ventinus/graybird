@@ -4,7 +4,7 @@ import {compose, graphql} from 'react-apollo'
 
 import {paths} from '../.config/routes'
 import {logo} from '../assets'
-import {getListing} from '../helpers'
+import {getListing, dekebabCase} from '../helpers'
 
 class Nav extends PureComponent {
   static defaultProps = {
@@ -20,7 +20,7 @@ class Nav extends PureComponent {
 
     return (
       <div className={`nav ${this.state.isOpen ? 'is-open' : ''}`}>
-        <div className="nav__body">
+        <div className="nav__body max-width">
           <div className="nav__inner">
             <div className="nav__inner__logo">
               <Link className='nav__inner__logo__link' to={paths.HOME}>
@@ -61,7 +61,7 @@ class Nav extends PureComponent {
 }
 
 const mapPropsToOptions = props => {
-  const address = props.location.pathname.replace(/\/listings\//, '').replace(/-/g, ' ')
+  const address = dekebabCase(props.location.pathname.replace(/\/listings\//, ''))
 
   return {
     variables: { address }

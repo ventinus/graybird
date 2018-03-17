@@ -9,10 +9,12 @@ Types::ListingType = GraphQL::ObjectType.define do
   field :role, !types.String
   field :price, !types.Int
   field :address, !types.String
+  field :full_address, !types.String
   field :unit, types.String
   field :zip, !types.String
   field :city, !types.String
   field :state, !types.String
+  field :city_state_zip, !types.String
   field :status, !types.String
   field :bedrooms, !types.Int
   field :bathrooms, !types.Float

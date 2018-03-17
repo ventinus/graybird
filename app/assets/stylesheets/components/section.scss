@@ -1,0 +1,19 @@
+.section {
+  padding: 15px 0;
+
+  @include breakpoint(md) { padding: 25px 0; }
+}
+
+.section--no-pad,
+.section--no-pad-before {
+  padding-top: 0;
+
+  @include breakpoint(md) { padding-top: 0; }
+}
+
+.section--no-pad,
+.section--no-pad-after {
+  padding-bottom: 0;
+
+  @include breakpoint(md) { padding-bottom: 0; }
+}

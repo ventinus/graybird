@@ -1,2 +1,7 @@
+export {default as Columns} from './Columns'
+export {default as FactItem} from './FactItem'
 export {default as Footer} from './Footer'
+export {default as HeadingBlock} from './HeadingBlock'
+export {default as Hr} from './Hr'
 export {default as Nav} from './Nav'
+export {default as Section} from './Section'

@@ -21,7 +21,14 @@ neighborhoods = Neighborhood.all
     bedrooms: rand(1..4),
     bathrooms: rand(1..3),
     description: Faker::Lorem.paragraphs(2),
-    neighborhood: neighborhoods.sample
+    neighborhood: neighborhoods.sample,
+    property_taxes: rand(3000..5000),
+    garage_size: rand(0..2),
+    garage_type: ['garage_attached', 'garage_detached', 'carport', 'garage_shared', 'no_garage', nil].sample,
+    heating: ['forced_air', nil].sample,
+    cooling: ['central_air', 'window', 'no_cooling', nil].sample,
+    sewer: ['sewer_public', 'septic', 'cesspool', 'party_line', nil].sample,
+    sq_feet: rand(900..4000)
   )
 
   3.times do |j|

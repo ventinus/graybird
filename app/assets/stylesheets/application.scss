@@ -26,8 +26,13 @@
 
 //  Components
 //  ________________________________________________
+  @import "components/columns";
+  @import "components/fact-item";
+  @import "components/heading-block";
+  @import "components/hr";
   @import "components/nav";
   @import "components/page-wrapper";
+  @import "components/section";
 
 //  Override Helpers
 //  ________________________________________________

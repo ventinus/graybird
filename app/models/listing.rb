@@ -63,6 +63,10 @@ class Listing < ApplicationRecord
     "#{address} #{unit}".strip
   end
 
+  def city_state_zip
+    "#{city}, #{state} #{zip}"
+  end
+
   private
 
   def unique_full_address

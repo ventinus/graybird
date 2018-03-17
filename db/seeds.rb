@@ -36,6 +36,10 @@ def use_local_image(filename)
   ListingPhoto.new(image_data: uploaded_file.to_json)
 end
 
+def rand_boolean
+  [true, false].sample
+end
+
 puts "  - Loading..."
 
 # remove all previously stored assets
