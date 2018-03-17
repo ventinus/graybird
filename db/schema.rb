@@ -10,10 +10,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180315031111) do
+ActiveRecord::Schema.define(version: 20180317045958) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+  enable_extension "citext"
 
   create_table "administrators", force: :cascade do |t|
     t.string "first_name"
@@ -66,7 +67,7 @@ ActiveRecord::Schema.define(version: 20180315031111) do
     t.integer "rmls_number", null: false
     t.integer "role", null: false
     t.integer "price", null: false
-    t.string "address", null: false
+    t.citext "address", null: false
     t.string "unit"
     t.string "zip", null: false
     t.string "city", null: false
@@ -92,6 +93,7 @@ ActiveRecord::Schema.define(version: 20180315031111) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "slug"
+    t.index ["address"], name: "index_listings_on_address"
     t.index ["neighborhood_id"], name: "index_listings_on_neighborhood_id"
   end
 

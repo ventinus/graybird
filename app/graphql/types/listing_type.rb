@@ -32,4 +32,25 @@ Types::ListingType = GraphQL::ObjectType.define do
   field :community_description, types.String
   field :created_at, types.String
   field :updated_at, types.String
+
+  field :neighborhood do
+    type types.String
+    resolve -> (obj, _, _) {
+      obj.neighborhood.name
+    }
+  end
+
+  field :schools do
+    type types[types.String]
+    resolve -> (obj, _, _) {
+      obj.schools.pluck(:name)
+    }
+  end
+
+  field :photos do
+    type types[types.String]
+    resolve -> (obj, _, _) {
+      obj.photos.map { |photo| photo.image.url }
+    }
+  end
 end

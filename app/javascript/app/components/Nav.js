@@ -1,14 +1,16 @@
 import React, {PureComponent} from 'react'
 import {withRouter, Link} from 'react-router-dom'
+import {compose, graphql} from 'react-apollo'
 
 import {paths} from '../.config/routes'
 import {logo} from '../assets'
+import {getListing} from '../helpers'
 
 class Nav extends PureComponent {
   static defaultProps = {
-    address: '7305 N Seward',
-    rmls_number: '18419297',
-    status: 'active'
+    address: '',
+    rmls_number: '',
+    status: ''
   }
 
   state = {isOpen: false}
@@ -58,4 +60,24 @@ class Nav extends PureComponent {
   }
 }
 
-export default Nav
+const mapPropsToOptions = props => {
+  const address = props.location.pathname.replace(/\/listings\//, '').replace(/-/g, ' ')
+
+  return {
+    variables: { address }
+  }
+}
+
+const mapResultsToProps = ({data}) => ({
+  ...data.listing,
+  loading: data.loading
+})
+
+export default compose(
+  withRouter,
+  graphql(getListing('address, rmls_number, status'), {
+    props: mapResultsToProps,
+    options: mapPropsToOptions,
+    skip: ownProps => !ownProps.location.pathname.match(/\/listings\/./)
+  })
+)(Nav)

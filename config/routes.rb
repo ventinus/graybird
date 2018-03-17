@@ -10,6 +10,6 @@ Rails.application.routes.draw do
 
   # resources :listings, only: [:index, :show]
   get '/' => 'pages#index'
-  get '/:page' => 'pages#index'
+  get '/listings' => 'pages#index'
   get '/listings/:address' => 'pages#index'
 end
