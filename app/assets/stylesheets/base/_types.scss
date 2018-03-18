@@ -50,9 +50,11 @@
 
 
 .type--c1,
-.type--c2 {
+.type--c2,
+.type--c3 {
   @extend %font-poppins-medium;
-  line-height: 1.2
+  line-height: 1.2;
+  letter-spacing: 0.6px;
 }
 
 .type--c1 {
@@ -62,6 +64,11 @@
 .type--c2 {
   @include font-size(24);
 }
+
+.type--c3 {
+  @include font-size(16);
+}
+
 
 .type--d1 {
   @extend %font-poppins-bold;

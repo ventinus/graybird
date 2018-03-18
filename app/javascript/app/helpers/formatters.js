@@ -11,7 +11,6 @@ export const dekebabCase = str => str.replace(/-/g, ' ')
 
 export const combineModifiers = (base, mods = []) => mods.reduce((a, c) => `${a} ${base}--${c}`, '').trim()
 
-// TODO: implement comas
-export const prettyNum = num => num
+export const prettyNum = num => num.toLocaleString()
 
 export const toDollar = num => typeof num === 'number' ? `$${prettyNum(num)}` : ''

@@ -19,6 +19,7 @@
     "react-dom": "^16.2.0",
     "react-router-dom": "^4.2.2",
     "savnac": "^2.1.6",
+    "slipnslider": "^1.0.11",
     "velocity-animate": "^1.5.1",
     "waypoints": "^4.0.1"
   },

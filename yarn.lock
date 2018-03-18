@@ -5495,6 +5495,10 @@ slice-ansi@1.0.0:
   dependencies:
     is-fullwidth-code-point "^2.0.0"
 
+slipnslider@^1.0.11:
+  version "1.0.11"
+  resolved "https://registry.yarnpkg.com/slipnslider/-/slipnslider-1.0.11.tgz#d413ba369d76d1ae8335b7b3f8a9f28a060015fe"
+
 sntp@1.x.x:
   version "1.0.9"
   resolved "https://registry.yarnpkg.com/sntp/-/sntp-1.0.9.tgz#6541184cc90aeea6c6e7b35e2659082443c66198"

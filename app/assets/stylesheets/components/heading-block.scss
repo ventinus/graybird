@@ -1,4 +1,8 @@
 .heading-block {
+  text-align: center;
+
+  @include breakpoint(sm) { text-align: left; }
+
   & + .heading-block { margin-top: 40px; }
 }
 
