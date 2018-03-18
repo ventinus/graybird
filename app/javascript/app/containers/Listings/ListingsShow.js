@@ -4,14 +4,17 @@ import {get} from 'lodash'
 
 import {
   Gallery,
-  Section
+  Section,
+  HeadingBlock,
+  Hr,
+  GoogleMap
 } from '../../components'
 import Details from './Details'
-import {getListing, dekebabCase} from '../../helpers'
+import {getListing, dekebabCase, hasPresence} from '../../helpers'
 
 class ListingsShow extends PureComponent {
   render() {
-    // const {community_description} = this.props.listing || {}
+    const {address, city, state, community_description} = this.props.listing || {}
 
     return (
       <div className="body-padding max-width">
@@ -22,7 +25,17 @@ class ListingsShow extends PureComponent {
             <Gallery photos={get(this.props.listing, 'photos')} />
           </Section>
         </div>
-        <div id="community"></div>
+        {hasPresence(community_description) &&
+          <div id="community">
+            <Section>
+              <div className="max-width max-width--sm">
+                <HeadingBlock hdg='Community'>{community_description}</HeadingBlock>
+                <Hr modifiers={['short', 'black']} />
+                <GoogleMap address={address} city={city} state={state} />
+              </div>
+            </Section>
+          </div>
+        }
         <div id="contact"></div>
       </div>
     )

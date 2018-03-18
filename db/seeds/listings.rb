@@ -21,6 +21,7 @@ neighborhoods = Neighborhood.all
     bedrooms: rand(1..4),
     bathrooms: rand(1..3),
     description: Faker::Lorem.paragraphs(2),
+    community_description: Faker::Lorem.paragraphs(2),
     neighborhood: neighborhoods.sample,
     property_taxes: rand(3000..5000),
     garage_size: rand(0..2),

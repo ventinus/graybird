@@ -5,6 +5,7 @@
   left: 0;
   width: 100%;
   height: $nav-height-xs;
+  z-index: 9999;
 
   @include breakpoint(sm) {
     padding: 20px $body-padding-xs;

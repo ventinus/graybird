@@ -14,3 +14,5 @@ export const combineModifiers = (base, mods = []) => mods.reduce((a, c) => `${a}
 export const prettyNum = num => num.toLocaleString()
 
 export const toDollar = num => typeof num === 'number' ? `$${prettyNum(num)}` : ''
+
+export const spaceToPlus = str => str.replace(/\s/g, '+')

@@ -1,5 +1,5 @@
 import React, {PureComponent} from 'react'
-import {debounce} from 'lodash'
+import {throttle} from 'lodash'
 import {hasPresence} from '../helpers'
 
 export default class Gallery extends PureComponent {
@@ -19,7 +19,7 @@ export default class Gallery extends PureComponent {
   _cbs = {}
 
   componentDidMount() {
-    this._cbs.onResize = debounce(this._setHeight, 300)
+    this._cbs.onResize = throttle(this._setHeight, 100)
     window.addEventListener('resize', this._cbs.onResize)
   }
 
@@ -83,7 +83,7 @@ export default class Gallery extends PureComponent {
 
   _setHeight = () => {
     if (!this._refs.gallery) return
-    this.setState({galleryHeight: this._refs.gallery.offsetWidth * .66})
+    this.setState({galleryHeight: this._refs.gallery.offsetWidth * .7})
   }
 
   _play = () => {
