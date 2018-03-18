@@ -90,6 +90,6 @@ export default class Gallery extends PureComponent {
     this._playTimeout = setTimeout(() => {
       this._moveAdjacent(true)
       this._play()
-    }, 3000)
+    }, 5000)
   }
 }

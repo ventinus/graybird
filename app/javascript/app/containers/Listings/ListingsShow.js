@@ -14,7 +14,7 @@ import {getListing, dekebabCase, hasPresence} from '../../helpers'
 
 class ListingsShow extends PureComponent {
   render() {
-    const {address, city, state, community_description} = this.props.listing || {}
+    const {address, city, state, zip, community_description} = this.props.listing || {}
 
     return (
       <div className="body-padding max-width">
@@ -25,17 +25,19 @@ class ListingsShow extends PureComponent {
             <Gallery photos={get(this.props.listing, 'photos')} />
           </Section>
         </div>
-        {hasPresence(community_description) &&
-          <div id="community">
-            <Section>
-              <div className="max-width max-width--sm">
+        <Section>
+          <div id="community" className="max-width max-width--sm">
+            {hasPresence(community_description) &&
+              <div>
                 <HeadingBlock hdg='Community'>{community_description}</HeadingBlock>
                 <Hr modifiers={['short', 'black']} />
-                <GoogleMap address={address} city={city} state={state} />
               </div>
-            </Section>
+            }
+            {address && city && state &&
+              <GoogleMap address={address} city={city} state={state} zip={zip} />
+            }
           </div>
-        }
+        </Section>
         <div id="contact"></div>
       </div>
     )
