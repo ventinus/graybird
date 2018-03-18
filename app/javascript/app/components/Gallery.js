@@ -4,7 +4,8 @@ import {hasPresence} from '../helpers'
 
 export default class Gallery extends PureComponent {
   static defaultProps = {
-    photos: []
+    photos: [],
+    autoplay: true
   }
 
   state = {
@@ -13,6 +14,7 @@ export default class Gallery extends PureComponent {
     nextIndex: 0
   }
 
+  _playTimeout = 0
   _refs = {}
   _cbs = {}
 
@@ -22,10 +24,14 @@ export default class Gallery extends PureComponent {
   }
 
   componentDidUpdate(prevProps, prevState) {
-    if (this.state.galleryHeight === 0) this._setHeight()
+    if (this.state.galleryHeight === 0) {
+      this._setHeight()
+      if (this.props.autoplay) this._play()
+    }
   }
 
   componentWillUnmount() {
+    window.clearTimeout(this._playTimeout)
     window.removeEventListener('resize', this._cbs.onResize)
   }
 
@@ -65,11 +71,25 @@ export default class Gallery extends PureComponent {
     this.setState({activeIndex: nextIndex})
   }
 
-  _onPrevClick = () => this._moveAdjacent(false)
-  _onNextClick = () => this._moveAdjacent(true)
+  _onClick = (dir) => {
+    window.clearTimeout(this._playTimeout)
+    this._moveAdjacent(dir)
+    if (this.props.autoplay) this._play()
+  }
+
+  _onPrevClick = () => this._onClick(false)
+  _onNextClick = () => this._onClick(true)
+
 
   _setHeight = () => {
     if (!this._refs.gallery) return
     this.setState({galleryHeight: this._refs.gallery.offsetWidth * .66})
+  }
+
+  _play = () => {
+    this._playTimeout = setTimeout(() => {
+      this._moveAdjacent(true)
+      this._play()
+    }, 3000)
   }
 }
