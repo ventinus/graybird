@@ -3,12 +3,15 @@ import {combineModifiers} from '../helpers'
 
 class Section extends PureComponent {
   static defaultProps = {
-    modifiers: []
+    modifiers: [],
+    id: '',
+    className: ''
   }
 
   render() {
+    const {id, className, modifiers, children} = this.props
     return (
-      <div className={`section ${combineModifiers('section', this.props.modifiers)}`} children={this.props.children} />
+      <div id={id} className={`section ${combineModifiers('section', modifiers)} ${className}`} children={children} />
     )
   }
 }

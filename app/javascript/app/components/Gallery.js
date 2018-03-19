@@ -72,9 +72,9 @@ export default class Gallery extends PureComponent {
   }
 
   _onClick = (dir) => {
+    // stop autoplay completely
     window.clearTimeout(this._playTimeout)
     this._moveAdjacent(dir)
-    if (this.props.autoplay) this._play()
   }
 
   _onPrevClick = () => this._onClick(false)

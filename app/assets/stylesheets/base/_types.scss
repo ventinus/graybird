@@ -5,10 +5,6 @@
 
 %font-roboto-regular  { font-family: $font-roboto-regular; }
 
-.type--uppercase { text-transform: uppercase; }
-.type--center { text-align: center; }
-
-
 .type--a1,
 .type--a2,
 .type--a3,
@@ -45,6 +41,7 @@
 }
 
 .type--b2 {
+  line-height: 1.6;
   @include font-size(16);
 }
 
@@ -88,3 +85,10 @@
 .type--e2 {
   @include font-size(16);
 }
+
+
+.type--uppercase { text-transform: uppercase; }
+.type--center { text-align: center; }
+.type--block { display: block; }
+.type--lh-2 { line-height: 2; }
+.type--white { color: $white; }

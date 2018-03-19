@@ -148,6 +148,7 @@
 
 .nav__links__list__item a {
   position: relative;
+  text-decoration: none;
 
   &:after {
     content: '';
@@ -162,7 +163,6 @@
 
   &:hover,
   &:focus {
-    color: $red-1;
     &:after { width: 100%; }
   }
 }

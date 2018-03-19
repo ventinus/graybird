@@ -1,6 +1,8 @@
+export {default as BioBrief} from './BioBrief'
 export {default as Columns} from './Columns'
 export {default as FactItem} from './FactItem'
 export {default as Footer} from './Footer'
+export {default as Form} from './Form'
 export {default as Gallery} from './Gallery'
 export {default as GoogleMap} from './GoogleMap'
 export {default as HeadingBlock} from './HeadingBlock'

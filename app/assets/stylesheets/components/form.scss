@@ -1,0 +1,35 @@
+.form {
+  input[type="text"],
+  input[type="email"],
+  textarea, {
+    width: 100%;
+    padding: 8px;
+    max-width: 100%;
+    min-width: 100%;
+    border: 1px solid $grey-3;
+  }
+
+  textarea { min-height: 200px; }
+}
+
+.form__field {
+  & + .form__field {
+    margin-top: 20px;
+  }
+}
+
+.form__submit {
+  background-color: $red-1;
+  padding: 10px 30px;
+  transition: $default-animation;
+
+  &:hover { background-color: $grey-2; }
+}
+
+.form--listings-show {
+  width: 100%;
+
+  @include breakpoint(md) {
+    width: 50%;
+  }
+}

@@ -160,11 +160,13 @@ blockquote {
 // Links
 // --------------------------------------------------
 a {
-  text-decoration: none;
+  text-decoration: underline;
   transition: $default-animation;
   color: $link-color;
 
   &:visited { color: $link-color; }
+  &:hover,
+  &:focus { color: $link-hover-color; }
 }
 
 // --------------------------------------------------

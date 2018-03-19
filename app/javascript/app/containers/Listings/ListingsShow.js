@@ -7,7 +7,10 @@ import {
   Section,
   HeadingBlock,
   Hr,
-  GoogleMap
+  GoogleMap,
+  Form,
+  BioBrief,
+  Columns
 } from '../../components'
 import Details from './Details'
 import {getListing, dekebabCase, hasPresence} from '../../helpers'
@@ -20,13 +23,11 @@ class ListingsShow extends PureComponent {
       <div className="body-padding max-width">
         <div id="home"></div>
         <Details listing={this.props.listing} />
-        <div id="gallery">
-          <Section>
-            <Gallery photos={get(this.props.listing, 'photos')} />
-          </Section>
-        </div>
-        <Section>
-          <div id="community" className="max-width max-width--sm">
+        <Section id="gallery">
+          <Gallery photos={get(this.props.listing, 'photos')} />
+        </Section>
+        <Section id="community" className="max-width max-width--sm">
+          <div>
             {hasPresence(community_description) &&
               <div>
                 <HeadingBlock hdg='Community'>{community_description}</HeadingBlock>
@@ -38,7 +39,17 @@ class ListingsShow extends PureComponent {
             }
           </div>
         </Section>
-        <div id="contact"></div>
+        <Section id="contact" className="max-width max-width--sm">
+          <h2 className="type--c3 type--uppercase">Contact</h2>
+          <Hr modifiers={['thin']}/>
+          <Columns modifiers={['col-reverse']}>
+            <Form modifiers={['listings-show']}/>
+            <div>
+              <p className="type--e2 type--lh-2">Please fill out the form or email directly with any questions about this property!</p>
+              <BioBrief style={{marginTop: 30}} />
+            </div>
+          </Columns>
+        </Section>
       </div>
     )
   }

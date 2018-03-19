@@ -1,7 +1,7 @@
 import React, {PureComponent} from 'react'
 import {combineModifiers} from '../helpers'
 
-class Section extends PureComponent {
+export default class Section extends PureComponent {
   static defaultProps = {
     modifiers: [],
     style: {}
@@ -13,5 +13,3 @@ class Section extends PureComponent {
     )
   }
 }
-
-export default Section

@@ -1,0 +1,18 @@
+// .bio-brief {}
+
+.bio-brief__name {
+  margin-top: 10px;
+}
+
+.bio-brief__role {
+  margin-top: 10px;
+}
+
+.bio-brief__link {
+  color: $link-hover-color;
+
+  &:visited { color: $link-hover-color; }
+
+  &:focus,
+  &:hover { color: $link-color; }
+}
