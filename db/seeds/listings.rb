@@ -43,3 +43,5 @@ neighborhoods = Neighborhood.all
     end
   end
 end
+
+Listing.first.update_attributes(address: '1005 W Burnside St', city: 'Portland', state: 'OR', zip: '97209')
