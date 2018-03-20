@@ -70,9 +70,9 @@ class Nav extends PureComponent {
   _anchorLinkClick = e => {
     e.preventDefault()
     const {hash} = e.currentTarget
-    this.props.history.replace(hash)
     const target = this._getTarget(hash)
 
+    this.props.history.replace(hash)
     Velocity(target, 'scroll', {
       duration: 500,
       offset: -this._refs.nav.offsetHeight,

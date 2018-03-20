@@ -1,6 +1,5 @@
 import React, {PureComponent} from 'react'
 import {
-  BrowserRouter as Router,
   Route,
   withRouter
 } from 'react-router-dom'
@@ -15,7 +14,6 @@ import routes, {paths} from './.config/routes'
 
 class App extends PureComponent {
   render() {
-    console.log(this.props)
     return (
       <div>
         <Nav />

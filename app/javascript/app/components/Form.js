@@ -34,7 +34,7 @@ export default class Form extends PureComponent {
         <div className="form__field">
           <div className="g-recaptcha" data-sitekey="6LdPdE0UAAAAAK92LI4ARfyliXh5lZVbkwpZS0CJ"></div>
         </div>
-        <input type="submit" value="Send" className="form__field form__submit type--white type--uppercase type--c3" />
+        <input type="submit" value="Send" className="form__field form__submit type--white type--uppercase type--c3" onClick={this._onSubmit} />
       </div>
     )
   }
@@ -47,6 +47,11 @@ export default class Form extends PureComponent {
   _onEmailChange = this._handleInputChange('email')
   _onPhoneChange = this._handleInputChange('phone')
   _onMessageChange = this._handleInputChange('message')
+
+  _onSubmit = (e) => {
+    e.preventDefault()
+    console.log(e, grecaptcha.getResponse())
+  }
 }
 
 
