@@ -69,4 +69,20 @@ export class Instagram extends PureComponent {
   }
 }
 
+export class ArrowLeft extends PureComponent {
+  render() {
+    return (
+      <Icon name="chevron-left" {...this.props} />
+    )
+  }
+}
+
+export class ArrowRight extends PureComponent {
+  render() {
+    return (
+      <Icon name="chevron-right" {...this.props} />
+    )
+  }
+}
+
 

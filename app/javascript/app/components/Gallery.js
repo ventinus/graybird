@@ -1,6 +1,7 @@
 import React, {PureComponent} from 'react'
 import {throttle} from 'lodash'
 import {hasPresence} from '../helpers'
+import {ArrowLeft, ArrowRight} from '.'
 
 export default class Gallery extends PureComponent {
   static defaultProps = {
@@ -50,8 +51,8 @@ export default class Gallery extends PureComponent {
           )}
         </ul>
         <div className="gallery__controls">
-          <button className="gallery__controls__btn" onClick={this._onPrevClick}>{`<`}</button>
-          <button className="gallery__controls__btn" onClick={this._onNextClick}>{`>`}</button>
+          <button className="gallery__controls__btn" onClick={this._onPrevClick}><ArrowLeft /></button>
+          <button className="gallery__controls__btn" onClick={this._onNextClick}><ArrowRight /></button>
         </div>
       </div>
     )
