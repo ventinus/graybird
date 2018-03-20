@@ -13,13 +13,16 @@ class Nav extends PureComponent {
     status: ''
   }
 
+  _targets = {}
+  _refs = {}
+
   state = {isOpen: false}
 
   render() {
     const {address, rmls_number, status} = this.props
 
     return (
-      <div className={`nav ${this.state.isOpen ? 'is-open' : ''}`}>
+      <div className={`nav ${this.state.isOpen ? 'is-open' : ''}`} ref={node => this._refs.nav = node}>
         <div className="nav__body max-width">
           <div className="nav__inner">
             <div className="nav__inner__logo">
@@ -43,11 +46,11 @@ class Nav extends PureComponent {
           </div>
           <nav className='nav__links'>
             <ul className='nav__links__list'>
-              <li className='nav__links__list__item'><Link className='type--b1 type--uppercase' to={{hash: '#home'}}>Home / Video</Link></li>
-              <li className='nav__links__list__item'><Link className='type--b1 type--uppercase' to={{hash: '#details'}}>Details</Link></li>
-              <li className='nav__links__list__item'><Link className='type--b1 type--uppercase' to={{hash: '#gallery'}}>Gallery</Link></li>
-              <li className='nav__links__list__item'><Link className='type--b1 type--uppercase' to={{hash: '#community'}}>Community</Link></li>
-              <li className='nav__links__list__item'><Link className='type--b1 type--uppercase' to={{hash: '#contact'}}>Contact</Link></li>
+              {/*<li className='nav__links__list__item'><a className='type--b1 type--uppercase' href='#home' onClick={this._anchorLinkClick}>Home / Video</a></li>*/}
+              <li className='nav__links__list__item'><Link className='type--b1 type--uppercase' to='#gallery' onClick={this._anchorLinkClick}>Gallery</Link></li>
+              <li className='nav__links__list__item'><Link className='type--b1 type--uppercase' to='#details' onClick={this._anchorLinkClick}>Details</Link></li>
+              <li className='nav__links__list__item'><Link className='type--b1 type--uppercase' to='#community' onClick={this._anchorLinkClick}>Community</Link></li>
+              <li className='nav__links__list__item'><Link className='type--b1 type--uppercase' to='#contact' onClick={this._anchorLinkClick}>Contact</Link></li>
             </ul>
           </nav>
         </div>
@@ -57,6 +60,24 @@ class Nav extends PureComponent {
 
   _toggleMenu = () => {
     this.setState({isOpen: !this.state.isOpen})
+  }
+
+  _getTarget = hash => {
+    this._targets[hash] = this._targets[hash] || document.querySelector(hash)
+    return this._targets[hash]
+  }
+
+  _anchorLinkClick = e => {
+    e.preventDefault()
+    const {hash} = e.currentTarget
+    this.props.history.replace(hash)
+    const target = this._getTarget(hash)
+
+    Velocity(target, 'scroll', {
+      duration: 500,
+      offset: -this._refs.nav.offsetHeight,
+      easing: 'ease-out'
+    })
   }
 }
 

@@ -21,11 +21,11 @@ class ListingsShow extends PureComponent {
 
     return (
       <div className="body-padding max-width">
-        <div id="home"></div>
-        <Details listing={this.props.listing} />
+        {/*<div id="home"></div>*/}
         <Section id="gallery">
           <Gallery photos={get(this.props.listing, 'photos')} />
         </Section>
+        <Details listing={this.props.listing} />
         <Section id="community" className="max-width max-width--sm">
           <div>
             {hasPresence(community_description) &&

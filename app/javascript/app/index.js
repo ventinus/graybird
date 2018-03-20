@@ -4,6 +4,7 @@ import {
   BrowserRouter as Router,
 } from 'react-router-dom'
 import { ApolloProvider } from 'react-apollo'
+import 'velocity-animate'
 
 import client from './.config/apollo'
 
