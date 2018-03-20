@@ -42,12 +42,12 @@ class ListingsShow extends PureComponent {
         <Section id="contact" className="max-width max-width--sm">
           <h2 className="type--c3 type--uppercase">Contact</h2>
           <Hr modifiers={['thin']}/>
-          <Columns modifiers={['col-reverse']}>
-            <Form modifiers={['listings-show']}/>
+          <Columns modifiers={['row-reverse']}>
             <div>
               <p className="type--e2 type--lh-2">Please fill out the form or email directly with any questions about this property!</p>
               <BioBrief style={{marginTop: 30}} />
             </div>
+            <Form modifiers={['listings-show']}/>
           </Columns>
         </Section>
       </div>

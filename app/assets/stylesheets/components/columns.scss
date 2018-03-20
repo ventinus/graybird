@@ -19,14 +19,20 @@
   }
 }
 
-.columns--col-reverse {
-  flex-direction: column-reverse;
-
-  & > *:last-child { margin-top: 0; }
-  & > *:first-child { margin-top: 35px; }
-
+.columns--row-reverse {
   @include breakpoint(sm) {
-    flex-direction: row;
-    & > * { margin-top: 0 !important; }
+    flex-direction: row-reverse;
   }
 }
+
+// .columns--col-reverse {
+//   flex-direction: column-reverse;
+
+//   & > *:last-child { margin-top: 0; }
+//   & > *:first-child { margin-top: 35px; }
+
+//   @include breakpoint(sm) {
+//     flex-direction: row;
+//     & > * { margin-top: 0 !important; }
+//   }
+// }
