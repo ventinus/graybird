@@ -3,7 +3,7 @@ import {withRouter, Link} from 'react-router-dom'
 import {compose, graphql} from 'react-apollo'
 
 import {paths} from '../.config/routes'
-import {logo} from '../assets'
+import {lrrLogo} from '../assets'
 import {getListing, dekebabCase} from '../helpers'
 
 class Nav extends PureComponent {
@@ -25,7 +25,7 @@ class Nav extends PureComponent {
             <div className="nav__inner__logo">
               <Link className='nav__inner__logo__link' to={paths.HOME}>
                 <img
-                  src={logo}
+                  src={lrrLogo}
                   alt="Living Room Realty Logo"
                 />
               </Link>

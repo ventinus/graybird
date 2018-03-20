@@ -1,0 +1,29 @@
+.fa {
+  &--white { color: $white; }
+  &--black { color: $black; }
+  &--grey { color: $grey-2; }
+
+  &--size-16 { @include font-size(16); }
+}
+
+
+.fa--link {
+
+  &.fa--white {
+    &:hover {
+      color: $white;
+    }
+  }
+  &.fa--black {
+    &:hover {
+      color: $black;
+    }
+  }
+  &.fa--grey {
+    &:hover {
+      color: $grey-2;
+    }
+  }
+
+  &:hover { opacity: 0.7; }
+}

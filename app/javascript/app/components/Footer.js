@@ -1,14 +1,36 @@
 import React, {PureComponent} from 'react'
-import {withRouter} from 'react-router-dom'
 
-// import {paths} from '../.config/routes'
+import {
+  Facebook,
+  LinkedIn,
+  Pinterest,
+  Instagram
+} from './icons'
+
+import {lrrLogoWhite} from '../assets'
+
+const socialLinks = [
+  ['facebook', Facebook, 'https://www.google.com'],
+  ['linkedin', LinkedIn, 'https://www.google.com'],
+  ['pinterest', Pinterest, 'https://www.google.com'],
+  ['instagram', Instagram, 'https://www.google.com']
+]
 
 class Footer extends PureComponent {
   render() {
     return (
-      <div className='footer'>
-        <h1>the footer</h1>
-      </div>
+      <footer className='footer'>
+        <a href="https://www.livingroomre.com">
+          <img className='footer__logo' src={lrrLogoWhite} alt="living room realty" />
+        </a>
+        <ul className="footer__social">
+          {socialLinks.map(([name, Icon, url], i) =>
+            <li className="footer__social__item" key={i}>
+              <Icon href={url} modifiers={['white', 'size-16']} />
+            </li>
+          )}
+        </ul>
+      </footer>
     )
   }
 }

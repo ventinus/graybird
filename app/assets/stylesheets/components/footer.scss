@@ -1,0 +1,30 @@
+.footer {
+  background-color: $grey-2;
+  padding: 20px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.footer__logo {
+  width: 250px;
+}
+
+.footer__social {
+  margin-left: 30px;
+}
+
+.footer__social__item {
+  display: inline-block;
+
+  a {
+    display: inline-block;
+    padding: 5px;
+    // to take away extra space above/below icon
+    line-height: 0;
+  }
+
+  & + .footer__social__item {
+    margin-left: 20px;
+  }
+}

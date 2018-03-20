@@ -13,21 +13,10 @@
   line-height: 1.2;
 }
 
-.type--a1 {
-  @include font-size(35);
-}
-
-.type--a2 {
-  @include font-size(13);
-}
-
-.type--a3 {
-  @include font-size(24);
-}
-
-.type--a4 {
-  @include font-size(30);
-}
+.type--a1 { @include font-size(35); }
+.type--a2 { @include font-size(13); }
+.type--a3 { @include font-size(24); }
+.type--a4 { @include font-size(30); }
 
 
 .type--b1,
@@ -54,17 +43,9 @@
   letter-spacing: 0.6px;
 }
 
-.type--c1 {
-  @include font-size(18);
-}
-
-.type--c2 {
-  @include font-size(24);
-}
-
-.type--c3 {
-  @include font-size(16);
-}
+.type--c1 {@include font-size(18); }
+.type--c2 {@include font-size(24); }
+.type--c3 {@include font-size(16); }
 
 
 .type--d1 {
@@ -78,13 +59,8 @@
   line-height: 1.2;
 }
 
-.type--e1 {
-  @include font-size(20);
-}
-
-.type--e2 {
-  @include font-size(16);
-}
+.type--e1 { @include font-size(20); }
+.type--e2 { @include font-size(16); }
 
 
 .type--uppercase { text-transform: uppercase; }

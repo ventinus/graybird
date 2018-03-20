@@ -7,9 +7,14 @@ export default class Section extends PureComponent {
     style: {}
   }
 
+  constructor(props) {
+    super(props)
+    this._mods = combineModifiers('columns', this.props.modifiers)
+  }
+
   render() {
     return (
-      <div className={`columns ${combineModifiers('columns', this.props.modifiers)}`} style={this.props.style} children={this.props.children} />
+      <div className={`columns ${this._mods}`} style={this.props.style} children={this.props.children} />
     )
   }
 }
