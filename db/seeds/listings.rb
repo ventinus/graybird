@@ -7,30 +7,32 @@ puts "  - Listings"
 current_images = %x(ls ./public/uploads/store).split("\n")
 neighborhoods = Neighborhood.all
 
+attrs = {
+  property_type: ['detached', 'condo', 'townhouse'].sample,
+  rmls_number: rand(10000000..20000000),
+  role: ['buyer_agent', 'listing_agent'].sample,
+  price: rand(300000..800000),
+  address: Faker::Address.street_address,
+  zip: Faker::Address.zip,
+  city: Faker::Address.city,
+  state: 'OR',
+  status: ['active', 'bumpable', 'canceled', 'expired', 'pending', 'sold', 'sold_not_listed', 'withdrawn'].sample,
+  bedrooms: rand(1..4),
+  bathrooms: rand(1..3),
+  description: Faker::Lorem.paragraphs(2),
+  community_description: Faker::Lorem.paragraphs(2),
+  neighborhood: neighborhoods.sample,
+  property_taxes: rand(3000..5000),
+  garage_size: rand(0..2),
+  garage_type: ['garage_attached', 'garage_detached', 'carport', 'garage_shared', 'no_garage', nil].sample,
+  heating: ['forced_air', nil].sample,
+  cooling: ['central_air', 'window', 'no_cooling', nil].sample,
+  sewer: ['sewer_public', 'septic', 'cesspool', 'party_line', nil].sample,
+  sq_feet: rand(900..4000)
+}
+
 10.times do |i|
-  listing = Listing.create(
-    property_type: ['detached', 'condo', 'townhouse'].sample,
-    rmls_number: rand(10000000..20000000),
-    role: ['buyer_agent', 'listing_agent'].sample,
-    price: rand(300000..800000),
-    address: Faker::Address.street_address,
-    zip: Faker::Address.zip,
-    city: Faker::Address.city,
-    state: 'OR',
-    status: ['active', 'bumpable', 'canceled', 'expired', 'pending', 'sold', 'sold_not_listed', 'withdrawn'].sample,
-    bedrooms: rand(1..4),
-    bathrooms: rand(1..3),
-    description: Faker::Lorem.paragraphs(2),
-    community_description: Faker::Lorem.paragraphs(2),
-    neighborhood: neighborhoods.sample,
-    property_taxes: rand(3000..5000),
-    garage_size: rand(0..2),
-    garage_type: ['garage_attached', 'garage_detached', 'carport', 'garage_shared', 'no_garage', nil].sample,
-    heating: ['forced_air', nil].sample,
-    cooling: ['central_air', 'window', 'no_cooling', nil].sample,
-    sewer: ['sewer_public', 'septic', 'cesspool', 'party_line', nil].sample,
-    sq_feet: rand(900..4000)
-  )
+  listing = Listing.create(attrs)
 
   # 3.times do |j|
   #   puts "    - Seeding listing photo #{j + 1}"
@@ -44,4 +46,4 @@ neighborhoods = Neighborhood.all
   # end
 end
 
-Listing.first.update_attributes(address: '1005 W Burnside St', city: 'Portland', state: 'OR', zip: '97209')
+Listing.create(attrs.merge(address: '1005 W Burnside St', city: 'Portland', state: 'OR', zip: '97209'))
