@@ -1,5 +1,6 @@
 # frozen_string_literal: true
 # Use this setup block to configure all options available in SimpleForm.
+SimpleForm::FormBuilder.map_type :citext, to: SimpleForm::Inputs::StringInput
 SimpleForm.setup do |config|
   # Wrappers are used by the form builder to generate a
   # complete input. You can remove any component from the
