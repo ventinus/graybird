@@ -6,7 +6,7 @@ export default class BioBrief extends PureComponent {
     img: illustrationElla,
     name: 'Ella Gray',
     role: 'Broker',
-    phone: '503-222-6010',
+    phone: '971-222-6010',
     email: 'ella@livingroomre.com',
     style: {}
   }

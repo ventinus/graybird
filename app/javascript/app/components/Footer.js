@@ -20,16 +20,18 @@ class Footer extends PureComponent {
   render() {
     return (
       <footer className='footer'>
-        <a href="https://www.livingroomre.com">
-          <img className='footer__logo' src={lrrLogoWhite} alt="living room realty" />
-        </a>
-        <ul className="footer__social">
-          {socialLinks.map(([name, Icon, url], i) =>
-            <li className="footer__social__item" key={i}>
-              <Icon href={url} modifiers={['white', 'size-16']} />
-            </li>
-          )}
-        </ul>
+        <div className="footer__body max-width">
+          <a href="https://www.livingroomre.com">
+            <img className='footer__logo' src={lrrLogoWhite} alt="living room realty" />
+          </a>
+          <ul className="footer__social">
+            {socialLinks.map(([name, Icon, url], i) =>
+              <li className="footer__social__item" key={i}>
+                <Icon href={url} modifiers={['white', 'size-16']} />
+              </li>
+            )}
+          </ul>
+        </div>
       </footer>
     )
   }

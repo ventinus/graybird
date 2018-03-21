@@ -1,13 +1,19 @@
 .footer {
   background-color: $grey-2;
   padding: 20px $body-padding-xs;
+
+  @include breakpoint(md) {
+    padding: 20px $body-padding-md;
+  }
+}
+
+.footer__body {
   display: flex;
   align-items: center;
   flex-direction: column;
 
   @include breakpoint(sm) {
     flex-direction: row;
-    padding: 20px $body-padding-md;
   }
 }
 
