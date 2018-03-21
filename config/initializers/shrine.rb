@@ -13,22 +13,22 @@ if Rails.env.test?
     cache: Shrine::Storage::FileSystem.new("spec", prefix: "temp/uploads/cache"),
     store: Shrine::Storage::FileSystem.new("spec", prefix: "temp/uploads/store"),
   }
-# elsif Rails.env.staging? || Rails.env.production?
-  # default_options = { public: true, host: ENV['AWS_CLOUDFRONT_DISTRIBUTION'], version: :original }
-  # Shrine.plugin :default_url_options, store: default_options, cache: default_options
-  #
-  # s3_options = {
-  #   region:            'us-west-2',
-  #   access_key_id:     ENV['AWS_ACCESS_KEY'],
-  #   secret_access_key: ENV['AWS_SECRET_ACCESS_KEY'],
-  #   bucket:            ENV['S3_BUCKET_NAME'],
-  #   upload_options:    { acl: 'public-read' }
-  # }
-  #
-  # Shrine.storages = {
-  #   cache: Shrine::Storage::S3.new(prefix: "cache", **s3_options),
-  #   store: Shrine::Storage::S3.new(prefix: "store", **s3_options)
-  # }
+elsif Rails.env.staging? || Rails.env.production?
+  default_options = { public: true, host: ENV['AWS_CLOUDFRONT_DISTRIBUTION'], version: :original }
+  Shrine.plugin :default_url_options, store: default_options, cache: default_options
+
+  s3_options = {
+    region:            'us-west-2',
+    access_key_id:     ENV['AWS_ACCESS_KEY'],
+    secret_access_key: ENV['AWS_SECRET_ACCESS_KEY'],
+    bucket:            ENV['S3_BUCKET_NAME'],
+    upload_options:    { acl: 'public-read' }
+  }
+
+  Shrine.storages = {
+    cache: Shrine::Storage::S3.new(prefix: "cache", **s3_options),
+    store: Shrine::Storage::S3.new(prefix: "store", **s3_options)
+  }
 else
   Shrine.storages = {
     cache: Shrine::Storage::FileSystem.new('public', prefix: "uploads/cache"), # temporary

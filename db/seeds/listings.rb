@@ -32,16 +32,16 @@ neighborhoods = Neighborhood.all
     sq_feet: rand(900..4000)
   )
 
-  3.times do |j|
-    puts "    - Seeding listing photo #{j + 1}"
-    if current_images.present?
-      photo = use_local_image(current_images[(i * 3) + j])
-      photo.listing = listing
-      photo.save
-    else
-      listing_photo listing
-    end
-  end
+  # 3.times do |j|
+  #   puts "    - Seeding listing photo #{j + 1}"
+  #   if current_images.present?
+  #     photo = use_local_image(current_images[(i * 3) + j])
+  #     photo.listing = listing
+  #     photo.save
+  #   else
+  #     listing_photo listing
+  #   end
+  # end
 end
 
 Listing.first.update_attributes(address: '1005 W Burnside St', city: 'Portland', state: 'OR', zip: '97209')
