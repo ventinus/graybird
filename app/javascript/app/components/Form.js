@@ -1,7 +1,8 @@
 import React, {PureComponent} from 'react'
-import {combineModifiers} from '../helpers'
+import {graphql} from 'react-apollo'
+import {combineModifiers, hasPresence} from '../helpers'
 
-export default class Form extends PureComponent {
+class Form extends PureComponent {
   static defaultProps = {
     modifiers: []
   }
@@ -14,11 +15,13 @@ export default class Form extends PureComponent {
     style: {}
   }
 
+  _requiredFields = ['name']
+
   render() {
     const { name, email, phone, message } = this.state
 
     return (
-      <div className={`form ${combineModifiers('form', this.props.modifiers)}`} style={this.props.style}>
+      <form onSubmit={this._onSubmit} className={`form ${combineModifiers('form', this.props.modifiers)}`} style={this.props.style}>
         <div className="form__field">
           <input type="text" className="form__text-input type--e2" placeholder="Name" value={name} onChange={this._onNameChange}/>
         </div>
@@ -34,8 +37,8 @@ export default class Form extends PureComponent {
         <div className="form__field">
           <div className="g-recaptcha" data-sitekey="6LdPdE0UAAAAAK92LI4ARfyliXh5lZVbkwpZS0CJ"></div>
         </div>
-        <input type="submit" value="Send" className="form__field form__submit type--white type--uppercase type--c3" onClick={this._onSubmit} />
-      </div>
+        <input type="submit" value="Send" className="form__field form__submit type--white type--uppercase type--c3" />
+      </form>
     )
   }
 
@@ -50,8 +53,20 @@ export default class Form extends PureComponent {
 
   _onSubmit = (e) => {
     e.preventDefault()
-    console.log(e, grecaptcha.getResponse())
+
+    let isValid = hasPresence(grecaptcha.getResponse())
+
+    this._requiredFields.reduce((a, c) => !a ? a : c, isValid)
+
+    if (!isValid) {
+      grecaptcha.reset()
+      // TODO: show errors
+    } else {
+      // TODO: post fields
+      console.log('success!')
+    }
+
   }
 }
 
-
+export default Form
