@@ -6,6 +6,9 @@ import {htmlToElement} from 'savnac'
 // add transitions for appending/removing error messages
 // handle all input types with reading value correctly
 // ability to combine validations (may not need additional setup)
+// if field fails multiple validations, show only one
+//  - maybe allow for customizable error hierarchy? ehhh...
+// http://parsleyjs.org/doc/index.html#validators
 
 const DEFAULT_OPTS = {
   requiredMessage: 'This field is required',
