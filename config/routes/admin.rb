@@ -22,6 +22,6 @@ Rails.application.routes.draw do
     resources :neighborhoods, except: [:show]
     resources :schools, except: [:show]
     resources :listings, except: [:show]
-    resources :users, except: [:show]
+    resources :clients, except: [:show]
   end
 end

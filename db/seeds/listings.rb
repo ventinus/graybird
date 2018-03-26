@@ -5,7 +5,6 @@ Listing.delete_all
 ## Listings
 puts "  - Listings"
 current_images = %x(ls ./public/uploads/store).split("\n")
-neighborhoods = Neighborhood.all
 
 def listing_attrs
   {
@@ -22,7 +21,7 @@ def listing_attrs
     bathrooms: rand(1..3),
     description: Faker::Lorem.paragraphs(2),
     community_description: Faker::Lorem.paragraphs(2),
-    neighborhood: neighborhoods.sample,
+    neighborhood: Neighborhood.all.sample,
     property_taxes: rand(3000..5000),
     garage_size: rand(0..2),
     garage_type: ['garage_attached', 'garage_detached', 'carport', 'garage_shared', 'no_garage', nil].sample,
@@ -36,16 +35,27 @@ end
 10.times do |i|
   listing = Listing.create(listing_attrs)
 
-  # 3.times do |j|
-  #   puts "    - Seeding listing photo #{j + 1}"
-  #   if current_images.present?
-  #     photo = use_local_image(current_images[(i * 3) + j])
-  #     photo.listing = listing
-  #     photo.save
-  #   else
-  #     listing_photo listing
-  #   end
-  # end
+  3.times do |j|
+    puts "    - Seeding listing photo #{j + 1}"
+    if current_images.present?
+      photo = use_local_image(current_images[(i * 3) + j])
+      photo.listing = listing
+      photo.save
+    else
+      listing_photo listing
+    end
+  end
 end
 
-Listing.create(attrs.merge(address: '1005 W Burnside St', city: 'Portland', state: 'OR', zip: '97209'))
+actual = Listing.create(listing_attrs.merge(address: '1005 W Burnside St', city: 'Portland', state: 'OR', zip: '97209'))
+
+3.times do |j|
+  puts "    - Seeding listing photo #{j + 1}"
+  if current_images.present?
+    photo = use_local_image(current_images[j])
+    photo.listing = actual
+    photo.save
+  else
+    listing_photo actual
+  end
+end

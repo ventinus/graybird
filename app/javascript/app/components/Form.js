@@ -1,6 +1,11 @@
 import React, {PureComponent} from 'react'
-import {graphql} from 'react-apollo'
-import {combineModifiers, hasPresence, validator} from '../helpers'
+import {withApollo} from 'react-apollo'
+import {
+  combineModifiers,
+  hasPresence,
+  validator,
+  createClient
+} from '../helpers'
 
 class Form extends PureComponent {
   static defaultProps = {
@@ -9,10 +14,11 @@ class Form extends PureComponent {
   }
 
   state = {
-    name: '',
-    email: '',
-    phone: '',
-    message: ''
+    first_name: 'ron',
+    last_name: 'johnson',
+    email: 'asdf@asdf.asdf',
+    phone_number: '456456456',
+    message: 'amvemamev af dsfa'
   }
 
   _refs = {}
@@ -23,18 +29,21 @@ class Form extends PureComponent {
   }
 
   render() {
-    const { name, email, phone, message } = this.state
+    const { first_name, last_name, email, phone_number, message } = this.state
 
     return (
       <form onSubmit={this._onSubmit} className={`form ${combineModifiers('form', this.props.modifiers)}`} style={this.props.style} ref={node => this._refs.form = node}>
         <div className="form__field">
-          <input type="text" className="form__text-input type--e2" placeholder="Name" value={name} onChange={this._onNameChange} data-validate-required />
+          <input type="text" className="form__text-input type--e2" placeholder="First Name" value={first_name} onChange={this._onFirstNameChange} data-validate-required />
+        </div>
+        <div className="form__field">
+          <input type="text" className="form__text-input type--e2" placeholder="Last Name" value={last_name} onChange={this._onLastNameChange} data-validate-required />
         </div>
         <div className="form__field">
           <input type="email" className="form__text-input type--e2" placeholder="Email" value={email} onChange={this._onEmailChange} data-validate-email />
         </div>
         <div className="form__field">
-          <input type="tel" className="form__text-input type--e2" placeholder="Phone" value={phone} onChange={this._onPhoneChange}/>
+          <input type="tel" className="form__text-input type--e2" placeholder="Phone" value={phone_number} onChange={this._onPhoneChange}/>
         </div>
         <div className="form__field">
           <textarea className="type--e2" rows="10" placeholder="Message" value={message} onChange={this._onMessageChange}></textarea>
@@ -51,9 +60,10 @@ class Form extends PureComponent {
     this.setState({[field]: e.target.value})
   }
 
-  _onNameChange = this._handleInputChange('name')
+  _onFirstNameChange = this._handleInputChange('first_name')
+  _onLastNameChange = this._handleInputChange('last_name')
   _onEmailChange = this._handleInputChange('email')
-  _onPhoneChange = this._handleInputChange('phone')
+  _onPhoneChange = this._handleInputChange('phone_number')
   _onMessageChange = this._handleInputChange('message')
 
   _onSubmit = (e) => {
@@ -62,14 +72,38 @@ class Form extends PureComponent {
     const isHuman = hasPresence(grecaptcha.getResponse())
 
     if (isHuman && this._validator.validate()) {
-      // TODO: post fields
-      console.log('success!')
+      this._postForm()
     } else {
-      console.log('error')
       grecaptcha.reset()
+    }
+  }
+
+  _postForm = () => {
+    this.props.client.mutate({
+      mutation: createClient('id, errors'),
+      variables: this.state
+    })
+      .then(this._formSuccess)
+      .catch(this._formError)
+  }
+
+  _formSuccess = ({data}) => {
+    const {create_client: {id, errors}} = data
+    if (!id && hasPresence(errors)) {
+      errors.forEach(this._appendError)
+    } else {
+      // hide form and show success message
     }
 
   }
+
+  _formError = ({data}) => {
+    console.log('some other error', r)
+  }
+
+  _appendError = message => {
+    console.log(message)
+  }
 }
 
-export default Form
+export default withApollo(Form)

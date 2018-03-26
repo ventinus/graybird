@@ -1,6 +1,6 @@
 # == Schema Information
 #
-# Table name: users
+# Table name: clients
 #
 #  id                      :integer          not null, primary key
 #  first_name              :string
@@ -19,8 +19,8 @@
 
 require 'rails_helper'
 
-RSpec.describe User, type: :model do
+RSpec.describe Client, type: :model do
   context 'associations' do
-    it { is_expected.to have_many(:neighborhoods).through(:user_neighborhoods) }
+    it { is_expected.to have_many(:neighborhoods).through(:client_neighborhoods) }
   end
 end

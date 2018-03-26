@@ -1,19 +1,19 @@
 - content_for :errors do |e|
-  = list_errors(@user.errors.full_messages)
+  = list_errors(@client.errors.full_messages)
 
-= simple_form_for [:admin, @user] do |f|
+= simple_form_for [:admin, @client] do |f|
   .col-md-12
     .panel.panel-default
       .panel-heading
-        - action = @user.new_record? ? 'New' : 'Edit'
-        h4.panel-title = "#{action} User"
+        - action = @client.new_record? ? 'New' : 'Edit'
+        h4.panel-title = "#{action} Client"
       .panel-body
         .col-sm-6
           = f.input :first_name, label: 'First Name'
           = f.input :last_name, label: 'Last Name'
           = f.input :email, label: 'Email'
           = f.input :phone_number, label: 'Phone Number'
-          = f.input :preferred_communication, label: 'Preferred Method Of Communication', include_blank: false, include_hidden: false, collection: enum_collection(@user, :preferred_communication)
+          = f.input :preferred_communication, label: 'Preferred Method Of Communication', include_blank: false, include_hidden: false, collection: enum_collection(@client, :preferred_communication)
           = f.input :confirmed, label: 'Confirmed'
           = f.input :contacted, label: 'Contacted'
           = f.input :price_min, label: 'Min Price'
@@ -24,6 +24,6 @@
 
       .panel-body
         .form-actions
-          - label = @user.new_record? ? 'Create User' : 'Update User'
+          - label = @client.new_record? ? 'Create Client' : 'Update Client'
           = f.submit "#{label}", class: 'btn btn-sm btn-primary'
-          = link_to 'Cancel', admin_users_path, class: 'btn btn-sm btn-default'
+          = link_to 'Cancel', admin_clients_path, class: 'btn btn-sm btn-default'

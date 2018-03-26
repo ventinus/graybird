@@ -1,17 +1,17 @@
 # == Schema Information
 #
-# Table name: user_neighborhoods
+# Table name: client_neighborhoods
 #
 #  id              :integer          not null, primary key
 #  neighborhood_id :integer
-#  user_id         :integer
+#  client_id         :integer
 #  created_at      :datetime         not null
 #  updated_at      :datetime         not null
 #
 
 FactoryGirl.define do
-  factory :user_neighborhood do
-    association :user
+  factory :client_neighborhood do
+    association :client
     association :neighborhood
   end
 end

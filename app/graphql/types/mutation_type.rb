@@ -1,16 +1,27 @@
 Types::MutationType = GraphQL::ObjectType.define do
   name "Mutation"
 
-  field :createUser, Types::UserType do
+  field :create_client, Types::ClientType do
     description "An example field added by the generator"
     argument :first_name, types.String
     argument :last_name, types.String
     argument :phone_number, types.String
     argument :email, types.String
-    argument :notes, types.String
+    argument :message, types.String
 
     resolve -> (_, args, _) {
-      "Hello World!"
+      client = Client.new(
+        first_name: args[:first_name],
+        last_name: args[:last_name],
+        phone_number: args[:phone_number],
+        email: args[:email],
+        message: args[:message]
+      )
+      if client.save
+        client
+      else
+        client
+      end
     }
   end
 end

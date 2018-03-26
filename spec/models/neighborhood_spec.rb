@@ -21,6 +21,6 @@ RSpec.describe Neighborhood, type: :model do
     it { is_expected.to belong_to(:region) }
     it { is_expected.to have_many(:listings) }
     it { is_expected.to have_many(:schools) }
-    it { is_expected.to have_many(:users).through(:user_neighborhoods) }
+    it { is_expected.to have_many(:clients).through(:client_neighborhoods) }
   end
 end

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180317202619) do
+ActiveRecord::Schema.define(version: 20180326215630) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -127,16 +127,16 @@ ActiveRecord::Schema.define(version: 20180317202619) do
     t.index ["neighborhood_id"], name: "index_schools_on_neighborhood_id"
   end
 
-  create_table "user_neighborhoods", force: :cascade do |t|
+  create_table "client_neighborhoods", force: :cascade do |t|
     t.bigint "neighborhood_id"
-    t.bigint "user_id"
+    t.bigint "client_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["neighborhood_id"], name: "index_user_neighborhoods_on_neighborhood_id"
-    t.index ["user_id"], name: "index_user_neighborhoods_on_user_id"
+    t.index ["neighborhood_id"], name: "index_client_neighborhoods_on_neighborhood_id"
+    t.index ["client_id"], name: "index_client_neighborhoods_on_client_id"
   end
 
-  create_table "users", force: :cascade do |t|
+  create_table "clients", force: :cascade do |t|
     t.string "first_name"
     t.string "last_name"
     t.string "phone_number"
@@ -149,6 +149,7 @@ ActiveRecord::Schema.define(version: 20180317202619) do
     t.datetime "updated_at", null: false
     t.integer "price_min", default: 0
     t.integer "price_max", default: 1000000
+    t.text "message"
   end
 
   create_table "versions", force: :cascade do |t|

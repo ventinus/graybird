@@ -1,6 +1,6 @@
 # == Schema Information
 #
-# Table name: users
+# Table name: clients
 #
 #  id                      :integer          not null, primary key
 #  first_name              :string
@@ -17,19 +17,11 @@
 #  price_max               :integer          default(1000000)
 #
 
-class User < ApplicationRecord
-  has_many :listings
-  has_many :user_neighborhoods
-  has_many :neighborhoods, through: :user_neighborhoods
-
-  enum preferred_communication: [:email, :call, :text]
-
-  def phone_number=(num)
-    write_attribute(:phone_number, num.gsub(/[^\d]/, ''))
+FactoryGirl.define do
+  factory :client do
+    first_name    { Faker::Name.first_name }
+    last_name     { Faker::Name.last_name }
+    phone_number  { Faker::PhoneNumber.phone_number }
+    email         { Faker::Internet.email }
   end
-
-  def full_name
-    "#{first_name} #{last_name}"
-  end
-
 end

@@ -1,0 +1,32 @@
+- breadcrumb :clients
+
+.col-md-12
+  .panel.panel-default
+    .panel-heading
+      h4.panel-title Client
+    .panel-body
+      table.table.table-striped.table-hover
+        thead
+          th ID
+          th Name
+          th Phone
+          th Email
+          th Preffered
+          th Min
+          th Max
+          th.text-right
+            = link_to 'New Client', new_admin_client_path, class: 'btn btn-primary btn-sm'
+          tbody
+            - @clients.each do |client|
+              tr
+                td= client.id
+                td= client.full_name
+                td= client.phone_number
+                td= client.email
+                td= client.preferred_communication
+                td= client.price_min
+                td= client.price_max
+                td.text-right
+                  .btn-group.dropdown
+                  = link_to 'Edit', edit_admin_client_path(client), class: 'btn btn-primary btn-sm'
+                  = delete_link(client)
