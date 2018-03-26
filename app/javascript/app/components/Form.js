@@ -1,5 +1,6 @@
 import React, {PureComponent} from 'react'
 import {withApollo} from 'react-apollo'
+import {omit} from 'lodash'
 import {
   combineModifiers,
   hasPresence,
@@ -14,30 +15,37 @@ class Form extends PureComponent {
   }
 
   state = {
-    first_name: 'ron',
-    last_name: 'johnson',
-    email: 'asdf@asdf.asdf',
-    phone_number: '456456456',
-    message: 'amvemamev af dsfa'
+    first_name: '',
+    last_name: '',
+    email: '',
+    phone_number: '',
+    message: '',
+    submitted: false,
+    errors: []
   }
 
   _refs = {}
   _validator = null
 
   componentDidMount() {
-    this._validator = validator(this._refs.form)
+    this._validator = validator(this._refs.form, {errorClass: 'form__error'})
   }
 
   render() {
-    const { first_name, last_name, email, phone_number, message } = this.state
+    const { first_name, last_name, email, phone_number, message, submitted, errors } = this.state
+
+    if (submitted) return this._success
 
     return (
       <form onSubmit={this._onSubmit} className={`form ${combineModifiers('form', this.props.modifiers)}`} style={this.props.style} ref={node => this._refs.form = node}>
+        {errors.map((message, i) =>
+          <p className="form__error" key={i}>{message}</p>
+        )}
         <div className="form__field">
-          <input type="text" className="form__text-input type--e2" placeholder="First Name" value={first_name} onChange={this._onFirstNameChange} data-validate-required />
+          <input type="text" className="form__text-input type--e2" placeholder="First Name *" value={first_name} onChange={this._onFirstNameChange} data-validate-required />
         </div>
         <div className="form__field">
-          <input type="text" className="form__text-input type--e2" placeholder="Last Name" value={last_name} onChange={this._onLastNameChange} data-validate-required />
+          <input type="text" className="form__text-input type--e2" placeholder="Last Name *" value={last_name} onChange={this._onLastNameChange} data-validate-required />
         </div>
         <div className="form__field">
           <input type="email" className="form__text-input type--e2" placeholder="Email" value={email} onChange={this._onEmailChange} data-validate-email />
@@ -49,12 +57,16 @@ class Form extends PureComponent {
           <textarea className="type--e2" rows="10" placeholder="Message" value={message} onChange={this._onMessageChange}></textarea>
         </div>
         <div className="form__field">
-          <div className="g-recaptcha" data-sitekey="6Ld_y04UAAAAAGswjEolS1TggtYpgSsqivz9FWiV"></div>
+          {/*<div className="g-recaptcha" data-sitekey="6Ld_y04UAAAAAGswjEolS1TggtYpgSsqivz9FWiV"></div>*/}
         </div>
         <input type="submit" value="Send" className="form__field form__submit type--white type--uppercase type--c3" />
       </form>
     )
   }
+
+  _success = (
+    <div className="thanks"><p>Thank you for your inquiry</p></div>
+  )
 
   _handleInputChange = field => e => {
     this.setState({[field]: e.target.value})
@@ -69,19 +81,20 @@ class Form extends PureComponent {
   _onSubmit = (e) => {
     e.preventDefault()
 
-    const isHuman = hasPresence(grecaptcha.getResponse())
+    const isHuman = true
+    // const isHuman = hasPresence(grecaptcha.getResponse())
 
     if (isHuman && this._validator.validate()) {
       this._postForm()
     } else {
-      grecaptcha.reset()
+      // grecaptcha.reset()
     }
   }
 
   _postForm = () => {
     this.props.client.mutate({
       mutation: createClient('id, errors'),
-      variables: this.state
+      variables: omit(this.state, ['submitted', 'errors'])
     })
       .then(this._formSuccess)
       .catch(this._formError)
@@ -90,19 +103,14 @@ class Form extends PureComponent {
   _formSuccess = ({data}) => {
     const {create_client: {id, errors}} = data
     if (!id && hasPresence(errors)) {
-      errors.forEach(this._appendError)
+      this.setState({errors})
     } else {
-      // hide form and show success message
+      this.setState({submitted: true})
     }
-
   }
 
-  _formError = ({data}) => {
+  _formError = (r) => {
     console.log('some other error', r)
-  }
-
-  _appendError = message => {
-    console.log(message)
   }
 }
 

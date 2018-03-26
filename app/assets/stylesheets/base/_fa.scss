@@ -10,17 +10,20 @@
 .fa--link {
 
   &.fa--white {
-    &:hover {
+    &:hover,
+    &:visited {
       color: $white;
     }
   }
   &.fa--black {
-    &:hover {
+    &:hover,
+    &:visited {
       color: $black;
     }
   }
   &.fa--grey {
-    &:hover {
+    &:hover,
+    &:visited {
       color: $grey-2;
     }
   }

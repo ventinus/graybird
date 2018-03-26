@@ -13,7 +13,8 @@ import {htmlToElement} from 'savnac'
 const DEFAULT_OPTS = {
   requiredMessage: 'This field is required',
   emailMessage: 'Not a valid email format',
-  errorMarkup: '<p><%- message %></p>'
+  errorMarkup: '<p><%- message %></p>',
+  errorClass: ''
 }
 
 const validator = (form, opts = {}) => {
@@ -32,7 +33,8 @@ const validator = (form, opts = {}) => {
   }
 
   const props = {
-    errorTemplate: template(optsOrDefault('errorMarkup'))
+    errorTemplate: template(optsOrDefault('errorMarkup')),
+    errorClass: optsOrDefault('errorClass')
   }
 
   function optsOrDefault(key) {
@@ -48,16 +50,17 @@ const validator = (form, opts = {}) => {
     const {required, email} = attributes
     let isValid = true
 
-    Object.values(attributes).forEach(({selector, m, method}) => {
+    Object.values(attributes).forEach(({selector, message, method}) => {
       const fields = form.querySelectorAll(selector)
       forEach(fields, field => {
         const valid = method(field.value)
 
         if (!valid) {
           isValid = isValid ? valid : isValid
-          const message = field.dataset.validateMessage || m
-          const markup = htmlToElement(props.errorTemplate({message}))
+          const m = field.dataset.validateMessage || message
+          const markup = htmlToElement(props.errorTemplate({message: m}))
           markup.classList.add('js-validate-error')
+          markup.classList.add(props.errorClass)
           field.parentElement.appendChild(markup)
         }
       })
