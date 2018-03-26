@@ -40,7 +40,7 @@ class Form extends PureComponent {
           <textarea className="type--e2" rows="10" placeholder="Message" value={message} onChange={this._onMessageChange}></textarea>
         </div>
         <div className="form__field">
-          {/*<div className="g-recaptcha" data-sitekey="6Ld_y04UAAAAAGswjEolS1TggtYpgSsqivz9FWiV"></div>*/}
+          <div className="g-recaptcha" data-sitekey="6Ld_y04UAAAAAGswjEolS1TggtYpgSsqivz9FWiV"></div>
         </div>
         <input type="submit" value="Send" className="form__field form__submit type--white type--uppercase type--c3" />
       </form>
@@ -62,7 +62,6 @@ class Form extends PureComponent {
     const isHuman = hasPresence(grecaptcha.getResponse())
 
     if (isHuman && this._validator.validate()) {
-    if (this._validator.validate()) {
       // TODO: post fields
       console.log('success!')
     } else {

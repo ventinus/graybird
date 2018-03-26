@@ -48,13 +48,14 @@ const validator = (form, opts = {}) => {
     const {required, email} = attributes
     let isValid = true
 
-    Object.values(attributes).forEach(({selector, message, method}) => {
+    Object.values(attributes).forEach(({selector, m, method}) => {
       const fields = form.querySelectorAll(selector)
       forEach(fields, field => {
         const valid = method(field.value)
 
         if (!valid) {
           isValid = isValid ? valid : isValid
+          const message = field.dataset.validateMessage || m
           const markup = htmlToElement(props.errorTemplate({message}))
           markup.classList.add('js-validate-error')
           field.parentElement.appendChild(markup)
