@@ -22,6 +22,9 @@ require 'rails_helper'
 
 RSpec.describe Client, type: :model do
   context 'associations' do
+    # it { is_expected.to have_many(:listings) }
+    it { is_expected.to have_many(:reviews) }
+    it { is_expected.to have_many(:client_neighborhoods) }
     it { is_expected.to have_many(:neighborhoods).through(:client_neighborhoods) }
   end
 end

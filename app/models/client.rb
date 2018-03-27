@@ -19,7 +19,8 @@
 #
 
 class Client < ApplicationRecord
-  has_many :listings
+  # has_many :listings
+  has_many :reviews, dependent: :destroy
   has_many :client_neighborhoods
   has_many :neighborhoods, through: :client_neighborhoods
 

@@ -13,4 +13,5 @@
 #
 
 class Blog < ApplicationRecord
+  include Publishable
 end

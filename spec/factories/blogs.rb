@@ -14,6 +14,9 @@
 
 FactoryGirl.define do
   factory :blog do
-    
+    title           { Faker::Book.title }
+    body            { Faker::Lorem.paragraphs(2) }
+    close_date      { Time.zone.now }
+    published_at    { Time.zone.now }
   end
 end
