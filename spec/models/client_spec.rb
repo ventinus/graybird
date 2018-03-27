@@ -15,6 +15,7 @@
 #  updated_at              :datetime         not null
 #  price_min               :integer          default(0)
 #  price_max               :integer          default(1000000)
+#  message                 :text
 #
 
 require 'rails_helper'

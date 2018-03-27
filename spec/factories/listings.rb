@@ -7,8 +7,8 @@
 #  rmls_number           :integer          not null
 #  role                  :integer          not null
 #  price                 :integer          not null
-#  address               :string           not null
-#  unit                  :string
+#  address               :citext           not null
+#  unit                  :citext
 #  zip                   :string           not null
 #  city                  :string           not null
 #  state                 :string           not null

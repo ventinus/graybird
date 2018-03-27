@@ -17,11 +17,8 @@ Types::MutationType = GraphQL::ObjectType.define do
         email: args[:email],
         message: args[:message]
       )
-      if client.save
-        client
-      else
-        client
-      end
+      client.save
+      client
     }
   end
 end
