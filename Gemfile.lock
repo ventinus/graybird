@@ -797,6 +797,12 @@ GEM
       capybara (~> 2.1)
       cliver (~> 0.3.1)
       websocket-driver (>= 0.2.0)
+    postmark (1.11.0)
+      json
+      rake
+    postmark-rails (0.16.0)
+      actionmailer (>= 3.0.0)
+      postmark (~> 1.11.0)
     pry (0.11.3)
       coderay (~> 1.1.0)
       method_source (~> 0.9.0)
@@ -1017,6 +1023,7 @@ DEPENDENCIES
   paper_trail
   pg (~> 0.18)
   poltergeist
+  postmark-rails
   pry-byebug
   pry-rails
   puma (~> 3.7)

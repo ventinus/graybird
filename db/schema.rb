@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180326215630) do
+ActiveRecord::Schema.define(version: 20180327041344) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -38,6 +38,41 @@ ActiveRecord::Schema.define(version: 20180326215630) do
     t.index ["confirmation_token"], name: "index_administrators_on_confirmation_token", unique: true
     t.index ["email"], name: "index_administrators_on_email", unique: true
     t.index ["reset_password_token"], name: "index_administrators_on_reset_password_token", unique: true
+  end
+
+  create_table "blogs", force: :cascade do |t|
+    t.string "title"
+    t.text "body"
+    t.text "image_data"
+    t.datetime "close_date"
+    t.datetime "published_at"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "client_neighborhoods", force: :cascade do |t|
+    t.bigint "neighborhood_id"
+    t.bigint "client_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["client_id"], name: "index_client_neighborhoods_on_client_id"
+    t.index ["neighborhood_id"], name: "index_client_neighborhoods_on_neighborhood_id"
+  end
+
+  create_table "clients", force: :cascade do |t|
+    t.string "first_name"
+    t.string "last_name"
+    t.string "phone_number"
+    t.string "email"
+    t.text "notes"
+    t.integer "preferred_communication", default: 0
+    t.boolean "confirmed", default: false
+    t.boolean "contacted", default: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer "price_min", default: 0
+    t.integer "price_max", default: 1000000
+    t.text "message"
   end
 
   create_table "friendly_id_slugs", force: :cascade do |t|
@@ -125,31 +160,6 @@ ActiveRecord::Schema.define(version: 20180326215630) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["neighborhood_id"], name: "index_schools_on_neighborhood_id"
-  end
-
-  create_table "client_neighborhoods", force: :cascade do |t|
-    t.bigint "neighborhood_id"
-    t.bigint "client_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["neighborhood_id"], name: "index_client_neighborhoods_on_neighborhood_id"
-    t.index ["client_id"], name: "index_client_neighborhoods_on_client_id"
-  end
-
-  create_table "clients", force: :cascade do |t|
-    t.string "first_name"
-    t.string "last_name"
-    t.string "phone_number"
-    t.string "email"
-    t.text "notes"
-    t.integer "preferred_communication", default: 0
-    t.boolean "confirmed", default: false
-    t.boolean "contacted", default: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.integer "price_min", default: 0
-    t.integer "price_max", default: 1000000
-    t.text "message"
   end
 
   create_table "versions", force: :cascade do |t|

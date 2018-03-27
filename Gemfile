@@ -55,6 +55,8 @@ gem 'webpacker'
 gem 'therubyracer', platforms: :ruby
 
 
+# Email
+gem 'postmark-rails'
 
 # Turbolinks makes navigating your web application faster. Read more: https://github.com/turbolinks/turbolinks
 gem 'jquery-rails'

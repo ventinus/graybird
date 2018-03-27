@@ -81,6 +81,8 @@ class Form extends PureComponent {
   _onSubmit = (e) => {
     e.preventDefault()
 
+    this.setState({errors: []})
+
     const isHuman = true
     // const isHuman = hasPresence(grecaptcha.getResponse())
 
