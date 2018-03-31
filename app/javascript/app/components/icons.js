@@ -37,52 +37,9 @@ class Icon extends PureComponent {
   _icon = (mods) => <FontAwesome className={mods} {...this._merged} />
 }
 
-export class Facebook extends PureComponent {
-  render() {
-    return (
-      <Icon name="facebook-f" {...this.props} />
-    )
-  }
-}
-
-export class LinkedIn extends PureComponent {
-  render() {
-    return (
-      <Icon name="linkedin" {...this.props} />
-    )
-  }
-}
-
-export class Pinterest extends PureComponent {
-  render() {
-    return (
-      <Icon name="pinterest-p" {...this.props} />
-    )
-  }
-}
-
-export class Instagram extends PureComponent {
-  render() {
-    return (
-      <Icon name="instagram" {...this.props} />
-    )
-  }
-}
-
-export class ArrowLeft extends PureComponent {
-  render() {
-    return (
-      <Icon name="chevron-left" {...this.props} />
-    )
-  }
-}
-
-export class ArrowRight extends PureComponent {
-  render() {
-    return (
-      <Icon name="chevron-right" {...this.props} />
-    )
-  }
-}
-
-
+export const Facebook = (props) => (<Icon name="facebook-f" {...props} />)
+export const LinkedIn = (props) => (<Icon name="linkedin" {...props} />)
+export const Pinterest = (props) => (<Icon name="pinterest-p" {...props} />)
+export const Instagram = (props) => (<Icon name="instagram" {...props} />)
+export const ArrowLeft = (props) => (<Icon name="chevron-left" {...props} />)
+export const ArrowRight = (props) => (<Icon name="chevron-right" {...props} />)

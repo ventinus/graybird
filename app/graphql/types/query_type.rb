@@ -9,7 +9,7 @@ Types::QueryType = GraphQL::ObjectType.define do
   end
 
   field :listing, Types::ListingType do
-    description "An array of listings"
+    description "A listing"
     argument :id, types.ID
     argument :rmls_number, types.Int
     argument :address, types.String
@@ -22,6 +22,23 @@ Types::QueryType = GraphQL::ObjectType.define do
         address: args[:address],
         unit: args[:unit]
       }.delete_if { |k, v| v.nil? })
+    }
+  end
+
+
+  field :clients, types[Types::ClientType] do
+    description "An array of clients"
+    resolve -> (_, args, _) {
+      Client.all
+    }
+  end
+
+  field :client, Types::ClientType do
+    description "A client"
+    argument :id, types.ID
+
+    resolve -> (_, args, _) {
+      Client.find(args[:id])
     }
   end
 end

@@ -1,12 +1,16 @@
+// Base
+@import 'helpers/variables';
+@import 'helpers/mixins';
+@import 'base/fonts';
+
 // Vendor
-@import "bootstrap-sprockets";
-@import "bootstrap";
-@import "font-awesome";
-@import "redactor";
+@import 'bootstrap/scss/bootstrap';
+@import 'mdb';
+
 
 // Layouts
-@import 'layout/application';
+// @import 'layout/application';
 
 // Components
-@import 'components/radio-buttons/radio-buttons';
-@import 'components/bootstrap-submenu/submenu';
+// @import 'components/radio-buttons/radio-buttons';
+// @import 'components/bootstrap-submenu/submenu';
