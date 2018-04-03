@@ -5,6 +5,7 @@ html
     meta http-equiv="X-UA-Compatible" content="IE=edge"
     meta name="viewport" content="width = device-width, initial-scale = 1, user-scalable = no"
     title Graybird Admin
+    = Gon::Base.render_data
     link type="text/css" rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
     = stylesheet_link_tag 'admin/application', media: 'all', 'data-turbolinks-track' => true
     = javascript_include_tag 'admin/application', 'data-turbolinks-track' => true

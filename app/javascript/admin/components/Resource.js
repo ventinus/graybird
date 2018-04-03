@@ -17,7 +17,7 @@ export default class Resource extends Component {
   render() {
     const {list, edit, name} = this.props
     return (
-      <div>
+      <div className="container">
         {list && <Route exact path={this._basePath} render={this._injectProps(list)} />}
         {edit && <Route exact path={`${this._basePath}/:id/edit`} render={this._injectProps(edit)} />}
       </div>

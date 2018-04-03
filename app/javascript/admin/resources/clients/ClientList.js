@@ -11,8 +11,6 @@ export default class ClientList extends PureComponent {
           <TextField source='phone_number' />
           <TextField source='email' />
           <TextField source='preferred_communication' />
-          <TextField source='price_min' />
-          <TextField source='price_max' />
         </Datagrid>
       </List>
     )

@@ -7,12 +7,12 @@ export default class ListingList extends PureComponent {
       <List {...this.props}>
         <Datagrid>
           <TextField source='id' />
+          <TextField source='address' />
           <TextField source='rmls_number' />
           {/*<TextField source='Primary Photo' />*/}
-          <TextField source='role' />
           <TextField source='status' />
           <TextField source='price' />
-          <TextField source='address' />
+          <TextField source='role' />
           {/*<TextField source='neighborhood' />*/}
         </Datagrid>
       </List>

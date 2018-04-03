@@ -1,7 +1,8 @@
 # frozen_string_literal: true
 
 # load files in dependency order
-files = ['administrators', 'regions', 'neighborhoods', 'listings', 'schools', 'clients'].map do |filename|
+# files = ['administrators', 'regions', 'neighborhoods', 'listings', 'schools', 'clients'].map do |filename|
+files = ['clients'].map do |filename|
   File.join(Rails.root, 'db', 'seeds', "#{filename}.rb")
 end
 

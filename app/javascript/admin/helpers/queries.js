@@ -34,3 +34,9 @@ export const createClient = (fields = allClientFields) => {
     create_client(first_name: $first_name, last_name: $last_name, phone_number: $phone_number, email: $email, message: $message) { ${fields} }
   }`
 }
+
+export const destroyResourceItems = () => gql`
+  mutation DestroyResourceItems($resource: String!, $ids: [ID!]!) {
+    destroy_resource_items(resource: $resource, ids: $ids)
+  }
+`

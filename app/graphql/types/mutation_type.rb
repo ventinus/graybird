@@ -21,4 +21,21 @@ Types::MutationType = GraphQL::ObjectType.define do
       client
     }
   end
+
+  # field :update_listing, Types::ListingType do
+  #   description "Updates a listing"
+  #   argument :
+
+  #   resolve ->
+  # end
+
+  field :destroy_resource_items, types[types.ID] do
+    description "Destroy the record of a resource"
+    argument :resource, !types.String
+    argument :ids, !types[types.ID]
+
+    resolve -> (_, args, _) {
+      args[:resource].singularize.capitalize.constantize.where(id: args[:ids]).destroy_all.pluck(:id)
+    }
+  end
 end

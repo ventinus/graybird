@@ -71,7 +71,11 @@ module Admin::ApplicationHelper
     end
   end
 
+  def class_enum_collection(klass, enum)
+    klass.send(enum.to_s.pluralize).keys.to_a.map { |key| [key.humanize, key] }
+  end
+
   def enum_collection(instance, enum)
-    instance.class.send(enum.to_s.pluralize).keys.to_a.map { |key| [key.humanize, key] }
+    class_enum_collection(instance.class, enum)
   end
 end
