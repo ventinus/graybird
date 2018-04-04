@@ -12,7 +12,6 @@ export default class ListingForm extends PureComponent {
 
   render() {
     const {listing_enums} = window.gon
-    console.log(this.state.description)
 
     return (
       <form className="form" onSubmit={this._onSubmit}>
@@ -55,16 +54,17 @@ export default class ListingForm extends PureComponent {
               <Input type="number" {...this._inputAttrs('hoa_dues')} />
               <Input type="select" options={listing_enums.hoa_frequency} {...this._inputAttrs('hoa_frequency')} />
             </div>
-          <div className="panel-body">
-            <div className="col-md-6">
-              <Input type="textarea" rows={8} {...this._inputAttrs('description')} />
-            </div>
-            <div className="col-md-6">
-              <Input type="textarea" rows={8} {...this._inputAttrs('community_description')} />
+            <div className="panel-body">
+              <div className="col-md-6">
+                <Input type="textarea" rows={8} {...this._inputAttrs('description')} />
+              </div>
+              <div className="col-md-6">
+                <Input type="textarea" rows={8} {...this._inputAttrs('community_description')} />
+              </div>
             </div>
           </div>
         </div>
-      </div>
+      </form>
 
             {/*<div class="row">
               <div class="col-md-6 mb-3">
@@ -213,7 +213,6 @@ export default class ListingForm extends PureComponent {
         <div className="text-center">
           <Button type="submit">Login</Button>
         </div>*/}
-      </form>
     )
   }
 
