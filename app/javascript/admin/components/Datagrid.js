@@ -1,5 +1,4 @@
 import React, {PureComponent} from 'react'
-import {capitalize} from 'lodash'
 import {Button} from 'mdbreact'
 
 import {friendlyColumn, friendlyValue} from '../helpers'
@@ -22,7 +21,7 @@ export default class Datagrid extends PureComponent {
             <tr>
               <th><input type="checkbox" onChange={this._onAllChange}/></th>
               {this._columns.map(name =>
-                <th key={name} scope="col">{capitalize(friendlyColumn(name))}</th>
+                <th key={name} scope="col">{friendlyColumn(name)}</th>
               )}
               <th></th>
             </tr>

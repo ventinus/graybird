@@ -1,10 +1,13 @@
+import {capitalize} from 'lodash'
 
 export const friendlyColumn = col => {
   switch (col) {
     case 'rmls_number':
-      return 'rmls #'
+      return 'RMLS #'
+    case 'hoa_dues':
+      return 'HOA Dues'
     default:
-      return col.replace(/_/g, ' ')
+      return capitalize(col.replace(/_id/, '').replace(/_/g, ' '))
   }
 }
 
