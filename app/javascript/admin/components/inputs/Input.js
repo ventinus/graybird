@@ -9,6 +9,8 @@ const inputComponents = type => {
     case 'tel':
     case 'email':
     case 'number':
+    case 'search':
+    case 'url':
       return inputs.TextInput
     case 'select':
       return inputs.SelectInput

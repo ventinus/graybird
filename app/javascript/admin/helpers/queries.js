@@ -16,6 +16,12 @@ export const getListing = (fields = allListingFields) => {
   }`
 }
 
+export const getNewListing = () => gql`
+  query NewListing {
+    new_listing { ${allListingFields} }
+  }
+`
+
 export const getClients = (fields = allClientFields) => {
   return gql`query Clients { clients { ${fields} } }`
 }

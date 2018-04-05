@@ -12,13 +12,13 @@ export const friendlyColumn = col => {
 }
 
 export const friendlyValue = val => {
-  if (!val.replace) return val
+  if (!val || !val.replace) return val
 
   switch (val) {
-    case 'buyer_agent':
-    case 'listing_agent':
-      return val.replace(/_agent/, '')
+    // case 'buyer_agent':
+    // case 'listing_agent':
+    //   return capitalize(val.replace(/_agent/, ''))
     default:
-      return val.replace(/_/g, ' ')
+      return capitalize(val.replace(/_/g, ' '))
   }
 }

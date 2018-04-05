@@ -25,6 +25,10 @@ Types::QueryType = GraphQL::ObjectType.define do
     }
   end
 
+  field :new_listing, Types::ListingType do
+    description "A new listing"
+    resolve -> (_, _, _) { Listing.new }
+  end
 
   field :clients, types[Types::ClientType] do
     description "An array of clients"

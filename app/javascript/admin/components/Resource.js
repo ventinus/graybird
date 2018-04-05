@@ -1,7 +1,8 @@
 import React, {Component} from 'react'
-import {Route} from 'react-router-dom'
+import {Route, Link} from 'react-router-dom'
 import {Query} from 'react-apollo'
 import {capitalize} from 'lodash'
+import {Breadcrumb, BreadcrumbItem} from 'mdbreact'
 import pluralize from 'pluralize'
 
 import {hasPresence} from '../helpers'
@@ -15,26 +16,40 @@ export default class Resource extends Component {
   }
 
   render() {
-    const {list, edit, name} = this.props
+    const {list, edit, create, name} = this.props
     return (
-      <div className="container">
+      <div className="container-fluid">
         {list && <Route exact path={this._basePath} render={this._injectProps(list)} />}
+        {create && <Route exact path={`${this._basePath}/new`} render={this._injectProps(create)} />}
         {edit && <Route exact path={`${this._basePath}/:id/edit`} render={this._injectProps(edit)} />}
       </div>
     )
   }
 
   _injectProps = component => routeProps => {
-    const {id} = routeProps.match.params
-    const r = id ? pluralize.singular(this.props.name) : this.props.name
+    const {name} = this.props
+    const {path, params: {id}} = routeProps.match
+    const isNew = path.includes('new')
+    const isNotIndex = !!id || isNew
+    const res = isNotIndex ? pluralize.singular(name) : name
 
     return (
-      <Query query={queries[`get${capitalize(r)}`]()} variables={routeProps.match.params}>
-        {({ loading, error, data }) => {
-          if (loading) return (<h1>LOADING!!</h1>)
-          return React.createElement(component, {...routeProps, data: data[r], resource: this.props.name})
-        }}
-      </Query>
+      <div>
+        <Breadcrumb>
+          <BreadcrumbItem><Link to="/admin">Dashboard</Link></BreadcrumbItem>
+          {!isNotIndex && <BreadcrumbItem>{capitalize(name)}</BreadcrumbItem>}
+          {isNotIndex &&
+            <BreadcrumbItem><Link to={`/admin/${name}`}>{capitalize(name)}</Link></BreadcrumbItem>
+          }
+          {isNotIndex && <BreadcrumbItem active>{isNew ? 'New' : 'Edit'} {capitalize(res)}</BreadcrumbItem>}
+        </Breadcrumb>
+        <Query query={queries[`get${isNew ? 'New' : ''}${capitalize(res)}`]()} variables={routeProps.match.params}>
+          {({ loading, error, data }) => {
+            if (loading) return (<h1>LOADING!!</h1>)
+            return React.createElement(component, {...routeProps, data: data[`${isNew ? 'new_' : ''}${res}`], resource: name})
+          }}
+        </Query>
+      </div>
     )
   }
 }

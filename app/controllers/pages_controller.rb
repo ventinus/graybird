@@ -48,10 +48,10 @@ class PagesController < ApplicationController
   end
 
   def neighborhoods
-    Neighborhood.all.map {|n| [n.name, n.id]}
+    Neighborhood.all.map {|n| [n.name, n.name]}
   end
 
   def regions
-    Region.all.map {|n| [n.name, n.id]}
+    Region.all.map {|n| [n.name, n.name]}
   end
 end

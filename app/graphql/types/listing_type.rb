@@ -3,22 +3,22 @@
 Types::ListingType = GraphQL::ObjectType.define do
   name "Listing"
 
-  field :id, !types.ID
-  field :property_type, !types.String
-  field :rmls_number, !types.Int
-  field :role, !types.String
-  field :price, !types.Int
-  field :address, !types.String
-  field :full_address, !types.String
+  field :id, types.ID
+  field :property_type, types.String
+  field :rmls_number, types.Int
+  field :role, types.String
+  field :price, types.Int
+  field :address, types.String
+  field :full_address, types.String
   field :unit, types.String
-  field :zip, !types.String
-  field :city, !types.String
-  field :state, !types.String
-  field :city_state_zip, !types.String
-  field :status, !types.String
-  field :bedrooms, !types.Int
-  field :bathrooms, !types.Float
-  field :description, !types.String
+  field :zip, types.String
+  field :city, types.String
+  field :state, types.String
+  field :city_state_zip, types.String
+  field :status, types.String
+  field :bedrooms, types.Int
+  field :bathrooms, types.Float
+  field :description, types.String
   field :sq_feet, types.Int
   field :year_built, types.String
   field :garage_size, types.Int
@@ -40,7 +40,7 @@ Types::ListingType = GraphQL::ObjectType.define do
   field :neighborhood do
     type types.String
     resolve -> (obj, _, _) {
-      obj.neighborhood.name
+      obj.neighborhood&.name
     }
   end
 end
