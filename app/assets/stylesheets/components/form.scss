@@ -10,7 +10,10 @@
     border: 1px solid $grey-3;
   }
 
-  textarea { min-height: 200px; }
+  textarea {
+    min-height: 200px;
+    resize: none;
+  }
 }
 
 .form__field {
@@ -38,6 +41,4 @@
 .form__error {
   color: $red-1;
   padding: 5px;
-
-  // .form__error {
 }
