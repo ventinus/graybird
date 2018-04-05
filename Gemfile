@@ -13,6 +13,9 @@ gem 'rails', '~> 5.2.0.rc2'
 # Use postgresql as the database for Active Record
 gem 'pg', '~> 0.18'
 
+# Quicker page loads
+gem 'bootsnap', require: false
+
 # File Uploading
 gem 'aws-sdk'
 gem 'fastimage'
