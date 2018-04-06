@@ -1,0 +1,18 @@
+table.table {
+  background-color: white;
+
+  &.table-striped {
+    tbody tr:nth-of-type(odd) {
+      background-color: rgba(100, 200, 200, 0.3);
+    }
+  }
+
+  td { vertical-align: middle; }
+  td:last-child { text-align: right; }
+
+  .btn {
+    padding: 0.74rem 2.14rem;
+  }
+}
+
+

@@ -29,14 +29,11 @@ export default class Input extends PureComponent {
   constructor(props) {
     super(props)
     this.InputComponent = inputComponents(props.type)
-    this.state = {
-      isFocused: false
-    }
+    this.state = { isFocused: false }
   }
 
   render() {
     const {attribute, label, placeholder} = this.props
-    const {isFocused} = this.state
     const {InputComponent} = this
 
     return (

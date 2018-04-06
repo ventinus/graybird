@@ -17,7 +17,16 @@
 @import '../base/base';
 @import 'base/base';
 @import 'base/fonts';
-@import 'base/vendor-overrides';
+
+// Vendor Overrides
+@import 'vendor/btn';
+@import 'vendor/dropdown-content';
+@import 'vendor/md-form';
+@import 'vendor/navbar';
+@import 'vendor/select-dropdown';
+@import 'vendor/select-wrapper';
+@import 'vendor/table';
 
 // Components
 @import 'components/panel';
+

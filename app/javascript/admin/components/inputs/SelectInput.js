@@ -6,13 +6,14 @@ import {friendlyValue, hasPresence} from '../../helpers'
 export default class SelectInput extends PureComponent {
   static defaultProps = {
     includeBlank: false,
-    placeholder: 'Choose your option'
+    placeholder: 'Choose your option',
+    value: ''
   }
 
   _refs = {}
 
   render() {
-    const {attribute, options, placeholder, includeBlank, onChange, value} = this.props
+    const {attribute, options, placeholder, includeBlank, value} = this.props
 
     return (
       <div>
@@ -21,7 +22,7 @@ export default class SelectInput extends PureComponent {
           <input
             type="text"
             className="select-dropdown"
-            readOnly={true}
+            readOnly
             value={friendlyValue(value)}
             placeholder={placeholder}
             onFocus={this._focus}
@@ -33,7 +34,7 @@ export default class SelectInput extends PureComponent {
           >
             {includeBlank && <li className="disabled"><span>{placeholder}</span></li>}
             {options.map(([name, val], i) =>
-              <li className={val === value ? 'active' : ''} key={i} onClick={this._setValue(val)}><span>{name}</span></li>
+              <li className={val === value ? 'active' : ''} key={i} onMouseDown={this._setValue(val)}><span>{name}</span></li>
             )}
           </ul>
           <select className="mdb-select initialized" value={value} id={attribute} name={attribute} readOnly={true}>
