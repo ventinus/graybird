@@ -102,6 +102,10 @@ acorn@^5.5.0:
   version "5.5.3"
   resolved "https://registry.yarnpkg.com/acorn/-/acorn-5.5.3.tgz#f473dd47e0277a08e28e9bec5aeeb04751f0b8c9"
 
+activestorage@^0.1.1:
+  version "0.1.1"
+  resolved "https://registry.yarnpkg.com/activestorage/-/activestorage-0.1.1.tgz#a5db701467e80e6a139fb1a8e77977829115f131"
+
 address@1.0.2:
   version "1.0.2"
   resolved "https://registry.yarnpkg.com/address/-/address-1.0.2.tgz#480081e82b587ba319459fef512f516fe03d58af"

@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 Listing.delete_all
+ListingPhoto.delete_all
 
 ## Listings
 puts "  - Listings"

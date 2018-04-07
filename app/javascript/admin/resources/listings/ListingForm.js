@@ -4,6 +4,7 @@ import {Button, Input as MdbInput} from 'mdbreact'
 import {SelectInput, Input} from '../../components'
 import {friendlyColumn, hasPresence} from '../../helpers'
 
+// TODO: how to handle required fields
 export default class ListingForm extends PureComponent {
   constructor(props) {
     super(props)
@@ -12,19 +13,14 @@ export default class ListingForm extends PureComponent {
 
   render() {
     const {listing_enums} = window.gon
-    console.log(this.state)
 
     return (
-      // TODO: figure out how to have Form component to handle input state values as well as determining layout
-      // eg groups -> heading, columns -> inputs
-      // TODO: how to handle required fields alongside ^
-      <form className="form" onSubmit={this._onSubmit}>
+      <form className="form" onSubmit={this.props.onSubmit.bind(null, this.state)}>
         <div className="col-md-12">
           <div className="panel panel-default">
             <h4 className="panel-heading">{this.props.heading}</h4>
             <div className="panel-body">
               <div className="col-sm-6 col-md-3">
-                {/*<MdbInput label='RMLS Number' type="text" onChange={e => console.log(e)} />*/}
                 <Input type="select" options={listing_enums.role} {...this._inputAttrs('role')} />
                 <Input type="text" {...this._inputAttrs('rmls_number')} />
                 <Input type="select" options={listing_enums.property_type} {...this._inputAttrs('property_type')} />
@@ -68,8 +64,16 @@ export default class ListingForm extends PureComponent {
             </div>
           </div>
         </div>
+        <div className="col-md-12">
+          <div className="panel panel-default">
+            <div className="panel-body">
+              <div className="form-actions">
+                <Button type="submit">Update</Button>
+              </div>
+            </div>
+          </div>
+        </div>
       </form>
-
     )
   }
 
@@ -79,9 +83,4 @@ export default class ListingForm extends PureComponent {
     onChange: (e) => this.setState({[attribute]: e.target.value}),
     value: hasPresence(this.state[attribute]) ? this.state[attribute] : undefined
   })
-
-  _onSubmit = e => {
-    e.preventDefault()
-    console.log('submit')
-  }
 }

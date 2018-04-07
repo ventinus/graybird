@@ -17,12 +17,13 @@ gem 'pg', '~> 0.18'
 gem 'bootsnap', require: false
 
 # File Uploading
-gem 'aws-sdk'
+gem 'aws-sdk-s3', require: false
 gem 'fastimage'
 gem 'image_processing'
 gem 'mini_magick'
 gem 'roda'
 gem 'shrine'
+gem 'activestorage'
 
 # Forms
 gem 'kaminari'

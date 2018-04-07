@@ -23,7 +23,7 @@ const inputComponents = type => {
 
 export default class Input extends PureComponent {
   static defaultProps = {
-    type: 'text'
+    type: 'text',
   }
 
   constructor(props) {

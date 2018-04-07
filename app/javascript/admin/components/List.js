@@ -54,22 +54,6 @@ export default class List extends PureComponent {
         </div>
       </div>
     )
-    // return (
-    //   {children &&
-    //     React.cloneElement(children, {
-    //       resource,
-    //       ids,
-    //       data,
-    //       currentSort: {
-    //         field: query.sort,
-    //         order: query.order,
-    //       },
-    //       basePath,
-    //       isLoading,
-    //       setSort: this.setSort,
-    //     })
-    //   }
-    // )
   }
 
   _remove = destroy => (

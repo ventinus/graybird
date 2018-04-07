@@ -25,3 +25,4 @@ export const createClient = (fields = allClientFields) => {
     create_client(first_name: $first_name, last_name: $last_name, phone_number: $phone_number, email: $email, message: $message) { ${fields} }
   }`
 }
+
