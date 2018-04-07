@@ -56,14 +56,11 @@ Types::MutationType = GraphQL::ObjectType.define do
     # argument :photos, types[Types::ListingPhotoType]
 
     resolve -> (_, args, _) {
-      # puts args[:id]
-      # binding.pry
       listing = Listing.find(args[:id])
       updates = args.to_h.except("id").merge({
         "neighborhood" => Neighborhood.find_by(name: args[:neighborhood])
       })
       listing.update_attributes(updates)
-      # binding.pry
       listing
     }
   end

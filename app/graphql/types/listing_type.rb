@@ -43,4 +43,11 @@ Types::ListingType = GraphQL::ObjectType.define do
       obj.neighborhood&.name
     }
   end
+
+  field :errors do
+    type types[Types::ErrorMessageType]
+    resolve -> (obj, _, _) {
+      obj.errors.messages.to_a
+    }
+  end
 end

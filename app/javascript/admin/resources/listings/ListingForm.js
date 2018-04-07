@@ -22,7 +22,7 @@ export default class ListingForm extends PureComponent {
             <div className="panel-body">
               <div className="col-sm-6 col-md-3">
                 <Input type="select" options={listing_enums.role} {...this._inputAttrs('role')} />
-                <Input type="text" {...this._inputAttrs('rmls_number')} />
+                <Input type="number" {...this._inputAttrs('rmls_number')} />
                 <Input type="select" options={listing_enums.property_type} {...this._inputAttrs('property_type')} />
                 <Input type="select" options={listing_enums.status} {...this._inputAttrs('status')} />
                 <Input type="number" {...this._inputAttrs('price')} />
