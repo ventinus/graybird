@@ -5,4 +5,5 @@ export {default as Input} from './inputs/Input'
 export {default as List} from './List'
 export {default as Nav} from './Nav'
 export {default as Resource} from './Resource'
-export {default as TextField} from './TextField'
+export * from './fields'
+

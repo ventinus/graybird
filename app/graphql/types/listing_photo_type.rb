@@ -9,9 +9,7 @@ Types::ListingPhotoType = GraphQL::ObjectType.define do
   field :url do
     type !types.String
     resolve -> (obj, _, _) {
-      "some url"
-      # binding.pry
-      # obj.image.url
+      polymorphic_url(obj.file, only_path: true)
     }
   end
 end

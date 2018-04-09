@@ -1,7 +1,7 @@
 import React, {PureComponent} from 'react'
 import {Button} from 'mdbreact'
 
-import {friendlyColumn, friendlyValue} from '../helpers'
+import {friendlyColumn} from '../helpers'
 
 //   breaks down the list into a table with the columns defined as the Field children
 export default class Datagrid extends PureComponent {
@@ -13,6 +13,8 @@ export default class Datagrid extends PureComponent {
 
   render() {
     const {children, resource, data, selectedIds} = this.props
+    console.log(children)
+    // debugger
 
     return (
       <div className="datagrid">
@@ -31,7 +33,7 @@ export default class Datagrid extends PureComponent {
               <tr key={i}>
                 <td><input type="checkbox" checked={selectedIds.includes(d.id)} onChange={this._onItemChange(d.id)}/></td>
                 {this._columns.map((key, k) =>
-                  <td key={key} {...this._rowScope(k)}>{friendlyValue(d[key])}</td>
+                  <td key={key} {...this._rowScope(k)}>{React.cloneElement(children[k], {content: d[key]})}</td>
                 )}
                 <td><Button color="info" href={`/admin/${resource}/${d.id}/edit`}>Edit</Button></td>
               </tr>

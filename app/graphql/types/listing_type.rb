@@ -37,6 +37,13 @@ Types::ListingType = GraphQL::ObjectType.define do
   field :schools, types[Types::SchoolType]
   field :photos, types[Types::ListingPhotoType]
 
+  field :primary_photo do
+    type Types::ListingPhotoType
+    resolve -> (obj, _, _) {
+      obj.photos.first
+    }
+  end
+
   field :neighborhood do
     type types.String
     resolve -> (obj, _, _) {
