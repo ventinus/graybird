@@ -13,7 +13,8 @@ import {
   Columns
 } from '../../components'
 import Details from './Details'
-import {getListing, dekebabCase, hasPresence} from '../../helpers'
+import {dekebabCase, hasPresence} from '../../helpers'
+import {getListing} from 'utils'
 
 class ListingsShow extends PureComponent {
   render() {

@@ -3,7 +3,7 @@ import ListingForm from './ListingForm'
 
 import {New} from '../../components'
 
-import {createListing} from '../../helpers'
+import {createListing} from 'utils'
 
 export default class ListingCreate extends PureComponent {
   render() {

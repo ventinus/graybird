@@ -4,7 +4,7 @@ import {graphql} from 'react-apollo'
 import {kebabCase} from 'lodash'
 
 import {listingPath} from '../../.config/routes'
-import {getListings} from '../../helpers'
+import {getListings} from 'utils'
 
 class ListingsIndex extends PureComponent {
   render() {

@@ -2,7 +2,7 @@ import React, {PureComponent} from 'react'
 import ListingForm from './ListingForm'
 import {Edit} from '../../components'
 
-import {updateListing} from '../../helpers'
+import {updateListing} from 'utils'
 
 export default class ListingEdit extends PureComponent {
   render() {

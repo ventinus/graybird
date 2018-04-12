@@ -65,6 +65,46 @@ Types::MutationType = GraphQL::ObjectType.define do
     }
   end
 
+  field :create_listing, Types::ListingType do
+    description "Updates a listing"
+    argument :property_type, types.String
+    argument :rmls_number, types.Int
+    argument :role, types.String
+    argument :price, types.Int
+    argument :address, types.String
+    argument :unit, types.String
+    argument :zip, types.String
+    argument :city, types.String
+    argument :state, types.String
+    argument :status, types.String
+    argument :bedrooms, types.Int
+    argument :bathrooms, types.Float
+    argument :description, types.String
+    argument :sq_feet, types.Int
+    argument :year_built, types.String
+    argument :garage_size, types.Int
+    argument :garage_type, types.String
+    argument :water, types.String
+    argument :sewer, types.String
+    argument :hot_water, types.String
+    argument :heating, types.String
+    argument :cooling, types.String
+    argument :property_taxes, types.Float
+    argument :hoa_dues, types.Int
+    argument :hoa_frequency, types.String
+    argument :community_description, types.String
+    argument :neighborhood, types.String
+
+    resolve -> (_, args, _) {
+      data = args.to_h.merge({
+        "neighborhood" => Neighborhood.find_by(name: args[:neighborhood])
+      })
+      listing = Listing.new(data)
+      listing.save
+      listing
+    }
+  end
+
   field :destroy_resource_items, types[types.ID] do
     description "Destroy the record of a resource"
     argument :resource, !types.String

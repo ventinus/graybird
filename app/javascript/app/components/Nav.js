@@ -4,7 +4,8 @@ import {compose, graphql} from 'react-apollo'
 
 import {paths} from '../.config/routes'
 import {lrrLogo} from '../assets'
-import {getListing, dekebabCase} from '../helpers'
+import {dekebabCase} from '../helpers'
+import {getListing} from 'utils'
 
 class Nav extends PureComponent {
   static defaultProps = {
