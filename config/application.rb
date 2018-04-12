@@ -16,6 +16,6 @@ module GraybirdProperties
     # Application configuration can go into files in config/initializers
     # -- all .rb files in that directory are automatically loaded after loading
     # the framework and any gems in your application.
-    # config.paths['config/routes.rb'].concat Dir[Rails.root.join("config/routes/admin.rb")]
+    config.paths['config/routes.rb'].concat Dir[Rails.root.join("config/routes/admin.rb")]
   end
 end
