@@ -9,6 +9,7 @@ export default class ListingForm extends PureComponent {
   constructor(props) {
     super(props)
     this.state = props.data || {}
+    console.log(props)
   }
 
   render() {
@@ -68,7 +69,7 @@ export default class ListingForm extends PureComponent {
           <div className="panel panel-default">
             <div className="panel-body">
               <div className="form-actions">
-                <Button type="submit">Update</Button>
+                <Button type="submit">{this.props.modType === 'Edit' ? 'Update' : 'Create'}</Button>
               </div>
             </div>
           </div>
