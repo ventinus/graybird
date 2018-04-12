@@ -13,8 +13,6 @@ export default class Datagrid extends PureComponent {
 
   render() {
     const {children, resource, data, selectedIds} = this.props
-    console.log(children)
-    // debugger
 
     return (
       <div className="datagrid">

@@ -1,5 +1,8 @@
 # frozen_string_literal: true
 
+# needed to have access to polymorphic_url
+include Rails.application.routes.url_helpers
+
 Types::ListingPhotoType = GraphQL::ObjectType.define do
   name "ListingPhoto"
 
