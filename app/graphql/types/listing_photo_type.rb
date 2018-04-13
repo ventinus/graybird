@@ -8,6 +8,7 @@ Types::ListingPhotoType = GraphQL::ObjectType.define do
 
   field :id, !types.ID
   field :caption, types.String
+  field :position, types.Int
 
   field :url do
     type !types.String

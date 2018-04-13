@@ -1,7 +1,7 @@
 import React, {PureComponent} from 'react'
 import {Button, Input as MdbInput} from 'mdbreact'
 
-import {SelectInput, Input} from '../../components'
+import {SelectInput, Input, PhotoList} from '../../components'
 import {friendlyColumn, hasPresence} from '../../helpers'
 
 // TODO: how to handle required fields
@@ -9,7 +9,7 @@ export default class ListingForm extends PureComponent {
   constructor(props) {
     super(props)
     this.state = props.data || {}
-    console.log(props)
+    console.log(this.state)
   }
 
   render() {
@@ -65,6 +65,7 @@ export default class ListingForm extends PureComponent {
             </div>
           </div>
         </div>
+        <PhotoList photos={this.state.photos} onChange={this._onPhotosChange} />
         <div className="col-md-12">
           <div className="panel panel-default">
             <div className="panel-body">
@@ -84,4 +85,6 @@ export default class ListingForm extends PureComponent {
     onChange: (e) => this.setState({[attribute]: e.target.value}),
     value: hasPresence(this.state[attribute]) ? this.state[attribute] : undefined
   })
+
+  _onPhotosChange = photos => this.setState({photos})
 }

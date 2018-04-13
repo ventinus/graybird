@@ -24,7 +24,12 @@
   border-top-left-radius: 3px;
 }
 
+.panel-body-natural {
+  padding: 15px
+}
+
 .panel-body {
   @extend .d-flex;
-  padding: 15px;
+  @extend .panel-body-natural;
+  flex-wrap: wrap;
 }
