@@ -1,16 +1,8 @@
 import React, {PureComponent} from 'react'
-// import {pick} from 'lodash'
 
 import {PhotoInput} from '.'
 
 export default class PhotoList extends PureComponent {
-  // constructor(props) {
-  //   super(props)
-
-  //   this.state = {
-  //     photos: pick(props.photos, ['id', 'url', 'caption', 'position'])
-  //   }
-  // }
 
   render() {
     return (
@@ -31,7 +23,7 @@ export default class PhotoList extends PureComponent {
 
   _onCaptionChange = i => e => {
     const {photos} = this.props
-    // console.log(e, this, i)
+
     const updatedPhotos = [
       ...photos.slice(0, i),
       {

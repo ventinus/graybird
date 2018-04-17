@@ -4,7 +4,7 @@ import {Button} from 'mdbreact'
 export default class FileInput extends PureComponent {
   render() {
     return (
-      <div class="file-field">
+      <div className="file-field">
         <Button color="primary" size="sm">
           <Fragment>
             <span>Choose file</span>
@@ -12,8 +12,8 @@ export default class FileInput extends PureComponent {
           </Fragment>
         </Button>
 
-        <div class="file-path-wrapper">
-          <input class="file-path validate valid" type="text" placeholder="Upload your file" />
+        <div className="file-path-wrapper">
+          <input className="file-path validate valid" type="text" placeholder="Upload your file" />
         </div>
       </div>
     )

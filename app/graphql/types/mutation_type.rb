@@ -52,7 +52,6 @@ Types::MutationType = GraphQL::ObjectType.define do
     argument :hoa_frequency, types.String
     argument :community_description, types.String
     argument :neighborhood, types.String
-    # argument :schools, types[Types::SchoolType]
     # argument :photos, types[Types::ListingPhotoType]
 
     resolve -> (_, args, _) {
